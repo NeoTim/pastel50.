@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface choose_gamemode : UIViewController
-
+@property (strong, nonatomic) IBOutlet UIImageView *background_img;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity_indicator;
+@property (strong, nonatomic) IBOutlet UITextView *quote_view;
 @end

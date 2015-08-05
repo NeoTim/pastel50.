@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9771D8CB1B70E165007C8B43 /* choose_gamemode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9771D8CA1B70E165007C8B43 /* choose_gamemode.m */; };
+		9771D8CB1B70E165007C8B43 /* choose_gamemode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9771D8CA1B70E165007C8B43 /* choose_gamemode.mm */; };
 		9771D8CD1B70E1D3007C8B43 /* imglogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9771D8CC1B70E1D3007C8B43 /* imglogo2.png */; };
+		97780B961B72311900228911 /* pastel 50 bck.png in Resources */ = {isa = PBXBuildFile; fileRef = 97780B951B72311900228911 /* pastel 50 bck.png */; };
+		97780B991B723A1500228911 /* hollowdot.png in Resources */ = {isa = PBXBuildFile; fileRef = 97780B971B723A1500228911 /* hollowdot.png */; };
+		97780B9A1B723A1500228911 /* soliddot.png in Resources */ = {isa = PBXBuildFile; fileRef = 97780B981B723A1500228911 /* soliddot.png */; };
+		97780B9C1B723B8900228911 /* HDB_pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97780B9B1B723B8900228911 /* HDB_pic.jpg */; };
+		97780BA51B72491E00228911 /* game1.mm in Sources */ = {isa = PBXBuildFile; fileRef = 97780BA41B72491E00228911 /* game1.mm */; };
+		97E5655A1B72058100B66B4C /* pastel50_v2-BACKGROUND.png in Resources */ = {isa = PBXBuildFile; fileRef = 97E565591B72058100B66B4C /* pastel50_v2-BACKGROUND.png */; };
 		97EB28181B70AC6000202EAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EB28171B70AC6000202EAE /* main.m */; };
 		97EB281B1B70AC6000202EAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EB281A1B70AC6000202EAE /* AppDelegate.m */; };
 		97EB281E1B70AC6000202EAE /* pastel50_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97EB281C1B70AC6000202EAE /* pastel50_.xcdatamodeld */; };
@@ -31,8 +37,15 @@
 
 /* Begin PBXFileReference section */
 		9771D8C91B70E165007C8B43 /* choose_gamemode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = choose_gamemode.h; sourceTree = "<group>"; };
-		9771D8CA1B70E165007C8B43 /* choose_gamemode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = choose_gamemode.m; sourceTree = "<group>"; };
+		9771D8CA1B70E165007C8B43 /* choose_gamemode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = choose_gamemode.mm; sourceTree = "<group>"; };
 		9771D8CC1B70E1D3007C8B43 /* imglogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imglogo2.png; sourceTree = "<group>"; };
+		97780B951B72311900228911 /* pastel 50 bck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pastel 50 bck.png"; sourceTree = "<group>"; };
+		97780B971B723A1500228911 /* hollowdot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hollowdot.png; sourceTree = "<group>"; };
+		97780B981B723A1500228911 /* soliddot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soliddot.png; sourceTree = "<group>"; };
+		97780B9B1B723B8900228911 /* HDB_pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HDB_pic.jpg; sourceTree = "<group>"; };
+		97780BA31B72491E00228911 /* game1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game1.h; sourceTree = "<group>"; };
+		97780BA41B72491E00228911 /* game1.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = game1.mm; sourceTree = "<group>"; };
+		97E565591B72058100B66B4C /* pastel50_v2-BACKGROUND.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pastel50_v2-BACKGROUND.png"; sourceTree = "<group>"; };
 		97EB28121B70AC6000202EAE /* pastel50..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pastel50..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EB28161B70AC6000202EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97EB28171B70AC6000202EAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -67,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97780B9F1B7246CB00228911 /* game VCs */ = {
+			isa = PBXGroup;
+			children = (
+				97780BA31B72491E00228911 /* game1.h */,
+				97780BA41B72491E00228911 /* game1.mm */,
+			);
+			name = "game VCs";
+			sourceTree = "<group>";
+		};
 		97EB28091B70AC6000202EAE = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				97EB283F1B70AEE700202EAE /* image_res */,
+				97780B9F1B7246CB00228911 /* game VCs */,
 				97EB283E1B70AC9E00202EAE /* GameMain */,
 				97EB28191B70AC6000202EAE /* AppDelegate.h */,
 				97EB281A1B70AC6000202EAE /* AppDelegate.m */,
@@ -133,7 +156,7 @@
 				97EB281F1B70AC6000202EAE /* ViewController.h */,
 				97EB28201B70AC6000202EAE /* ViewController.m */,
 				9771D8C91B70E165007C8B43 /* choose_gamemode.h */,
-				9771D8CA1B70E165007C8B43 /* choose_gamemode.m */,
+				9771D8CA1B70E165007C8B43 /* choose_gamemode.mm */,
 			);
 			name = GameMain;
 			sourceTree = "<group>";
@@ -141,6 +164,11 @@
 		97EB283F1B70AEE700202EAE /* image_res */ = {
 			isa = PBXGroup;
 			children = (
+				97E565591B72058100B66B4C /* pastel50_v2-BACKGROUND.png */,
+				97780B951B72311900228911 /* pastel 50 bck.png */,
+				97780B9B1B723B8900228911 /* HDB_pic.jpg */,
+				97780B971B723A1500228911 /* hollowdot.png */,
+				97780B981B723A1500228911 /* soliddot.png */,
 				9771D8CC1B70E1D3007C8B43 /* imglogo2.png */,
 			);
 			name = image_res;
@@ -227,7 +255,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97780B991B723A1500228911 /* hollowdot.png in Resources */,
+				97780B9A1B723A1500228911 /* soliddot.png in Resources */,
 				97EB28241B70AC6000202EAE /* Main.storyboard in Resources */,
+				97E5655A1B72058100B66B4C /* pastel50_v2-BACKGROUND.png in Resources */,
+				97780B9C1B723B8900228911 /* HDB_pic.jpg in Resources */,
+				97780B961B72311900228911 /* pastel 50 bck.png in Resources */,
 				97EB28291B70AC6000202EAE /* LaunchScreen.xib in Resources */,
 				97EB28261B70AC6000202EAE /* Images.xcassets in Resources */,
 				9771D8CD1B70E1D3007C8B43 /* imglogo2.png in Resources */,
@@ -250,7 +283,8 @@
 			files = (
 				97EB281B1B70AC6000202EAE /* AppDelegate.m in Sources */,
 				97EB28181B70AC6000202EAE /* main.m in Sources */,
-				9771D8CB1B70E165007C8B43 /* choose_gamemode.m in Sources */,
+				9771D8CB1B70E165007C8B43 /* choose_gamemode.mm in Sources */,
+				97780BA51B72491E00228911 /* game1.mm in Sources */,
 				97EB28211B70AC6000202EAE /* ViewController.m in Sources */,
 				97EB281E1B70AC6000202EAE /* pastel50_.xcdatamodeld in Sources */,
 			);
