@@ -27,6 +27,7 @@
     // Do any additional setup after loading the view.
     [_activity_indicator startAnimating];
     _background_img.alpha = 0;
+    _quote_view.alpha = 0;
     
 }
 -(void) getquote {
@@ -61,6 +62,7 @@
     if (rand == 9) {
         [_quote_view setText:@""];
     }
+    _quote_view.alpha = 1;
     double delayInSeconds = 15.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
