@@ -13,13 +13,113 @@
 @end
 
 @implementation game1
+bool gamedidstart;
 //initwith array state
 int gamestate [4][4];
 int current_wanted_state [4][4];
+//game level count
 int game_level_count;
+//timer
+NSTimer *timer;
+double time_left = 25;
+double time_count = 0;
+///////////////////////ALL THE CHRONOS SHIT
+//countdown start timer
+-(void) gamestart_countdown{
+    double delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        //this will be executed after 1 seconds
+        [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [_countdown_start_label setText:@"2"];
+            _countdown_blurview.alpha = 0.8;
+        }completion:nil];
+        double delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            //this will be executed after 2 seconds
+            [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                [_countdown_start_label setText:@"1"];
+                _countdown_blurview.alpha = 0.65;
+            }completion:nil];
+            double delayInSeconds = 1.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                //this will be executed after 3 seconds
+                [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                    _countdown_blurview.alpha = 0;
+                }completion:nil];
+                [self timer_start];
+            });
+        });
+    });
+}
+-(void) timer_start{
+    //start main timer
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timercount) userInfo:nil repeats:YES];
+    //start persec timer
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(persec:) userInfo:nil repeats:YES];
+    gamedidstart = YES;
+}
+-(void) persec: (NSTimer*)persectimer {
+    time_count ++;
+    if (time_count > 20) {
+        [_time_disp setTextColor:[UIColor redColor]];
+    }
+    if (time_count == 25 ) {
+        [timer invalidate];
+        timer = nil;
+        [_time_disp setText:@"0.0"];
+        time_count = 0;
+        //lockdown
+        _R1_C1.enabled = NO;
+        _R1_C2.enabled = NO;
+        _R1_C3.enabled = NO;
+        _R1_C4.enabled = NO;
+        _R2_C1.enabled = NO;
+        _R2_C2.enabled = NO;
+        _R2_C3.enabled = NO;
+        _R2_C4.enabled = NO;
+        _R3_C1.enabled = NO;
+        _R3_C2.enabled = NO;
+        _R3_C3.enabled = NO;
+        _R3_C4.enabled = NO;
+        _R4_C1.enabled = NO;
+        _R4_C2.enabled = NO;
+        _R4_C3.enabled = NO;
+        _R4_C4.enabled = NO;
+        [UIView animateWithDuration:0.8 animations:^{
+            _guide_view.alpha = 0.0;
+        }];
+        //get usertap point
+        float x, y , width, height;
+        x = _usertap_view.frame.origin.x;
+        y = _usertap_view.frame.origin.y;
+        width = _usertap_view.frame.size.width;
+        height = _usertap_view.frame.size.height;
+        [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            _usertap_view.frame = CGRectMake(x, y + 800, width, height);
+            _time_disp.alpha = 0;
+            _seconds_unit.alpha = 0;
+        }completion:nil];
+        //segue to next view
+    }
+}
+-(void)timercount{
+    //runs every 0.1 seconds
+    time_left = time_left - 0.1;
+    [_progress_view_time setProgress: (time_left / 25) animated:YES];
+    [_time_disp setText:[NSString stringWithFormat:@"%0.1f", time_left]];
 
+}
+///////////////////VDL
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_time_disp setTextColor:[UIColor redColor]];
+    //init with countdown
+    [self gamestart_countdown];
+    //timer init
+    [_time_disp setText:[NSString stringWithFormat:@"%0.1f", time_left]];
     game_level_count = 0;
     //init with drawings
     //GUIDEview
@@ -555,43 +655,10 @@ int game_level_count;
 
 //check function
 -(void)check{
-    if (gamestate[0][0] == current_wanted_state [0][0] & gamestate[0][1] == current_wanted_state [0][1] & gamestate[0][2] == current_wanted_state [0][2] & gamestate[0][3] == current_wanted_state [0][3]
-        & gamestate[1][0] == current_wanted_state [1][0] & gamestate[1][1] == current_wanted_state [1][1] & gamestate[1][2] == current_wanted_state [1][2] & gamestate[1][3] == current_wanted_state [1][3]
-        & gamestate[2][0] == current_wanted_state [2][0] & gamestate[2][1] == current_wanted_state [2][1] & gamestate[2][2] == current_wanted_state [2][2] & gamestate[2][3] == current_wanted_state [2][3]
-        & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & game_level_count == 2) {
-        //game win
-        NSLog(@"WIN");
-        game_level_count = 0;
-        //lockdown
-        _R1_C1.enabled = NO;
-        _R1_C2.enabled = NO;
-        _R1_C3.enabled = NO;
-        _R1_C4.enabled = NO;
-        _R2_C1.enabled = NO;
-        _R2_C2.enabled = NO;
-        _R2_C3.enabled = NO;
-        _R2_C4.enabled = NO;
-        _R3_C1.enabled = NO;
-        _R3_C2.enabled = NO;
-        _R3_C3.enabled = NO;
-        _R3_C4.enabled = NO;
-        _R4_C1.enabled = NO;
-        _R4_C2.enabled = NO;
-        _R4_C3.enabled = NO;
-        _R4_C4.enabled = NO;
-        [UIView animateWithDuration:1 animations:^{
-            _guide_view.alpha = 0;
-            _usertap_view.alpha = 0;
-            _seconds_unit.alpha = 0;
-            _time_disp.alpha = 0;
-        }];
-        //segue to win view
-        
-            }
-    else if (gamestate[0][0] == current_wanted_state [0][0] & gamestate[0][1] == current_wanted_state [0][1] & gamestate[0][2] == current_wanted_state [0][2] & gamestate[0][3] == current_wanted_state [0][3]
+   if (gamestate[0][0] == current_wanted_state [0][0] & gamestate[0][1] == current_wanted_state [0][1] & gamestate[0][2] == current_wanted_state [0][2] & gamestate[0][3] == current_wanted_state [0][3]
              & gamestate[1][0] == current_wanted_state [1][0] & gamestate[1][1] == current_wanted_state [1][1] & gamestate[1][2] == current_wanted_state [1][2] & gamestate[1][3] == current_wanted_state [1][3]
              & gamestate[2][0] == current_wanted_state [2][0] & gamestate[2][1] == current_wanted_state [2][1] & gamestate[2][2] == current_wanted_state [2][2] & gamestate[2][3] == current_wanted_state [2][3]
-             & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & game_level_count < 2){
+             & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & gamedidstart == YES){
         //level complete
         NSLog(@"done, %i", game_level_count);
         game_level_count ++;

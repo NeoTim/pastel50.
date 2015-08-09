@@ -79,4 +79,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *R4_C3_G;
 @property (strong, nonatomic) IBOutlet UIImageView *R4_C4_G;
 
+//////////////////////////////////
+//countdown timer view
+@property (strong, nonatomic) IBOutlet UIVisualEffectView *countdown_blurview;
+@property (strong, nonatomic) IBOutlet UILabel *countdown_start_label;
+
 @end
