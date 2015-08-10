@@ -213,11 +213,16 @@
                                 <color key="textColor" red="0.68708586689999995" green="0.68706530330000004" blue="0.68707698579999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="9a2-EQ-iG2" userLabel="gameprogress">
+                                <rect key="frame" x="0.0" y="566" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="progressTintColor" red="0.8636885285" green="0.36025351290000002" blue="0.37666141990000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                             <view contentMode="center" id="9F6-Px-JOB" userLabel="mainusertap_container">
                                 <rect key="frame" x="0.0" y="102" width="320" height="344"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fhA-X9-k0m">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fhA-X9-k0m">
                                         <rect key="frame" x="8" y="20" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -229,7 +234,7 @@
                                             <action selector="R1_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="2bF-3v-f95"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="k5R-dK-cYJ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k5R-dK-cYJ">
                                         <rect key="frame" x="86" y="20" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -241,7 +246,7 @@
                                             <action selector="R1_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="kIS-xx-7UC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G49-P5-uPN">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G49-P5-uPN">
                                         <rect key="frame" x="164" y="20" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -253,7 +258,7 @@
                                             <action selector="R1_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="5VY-a4-qY1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sBs-71-gsD">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sBs-71-gsD">
                                         <rect key="frame" x="8" y="98" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -265,7 +270,7 @@
                                             <action selector="R2_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="ZDp-Ko-OOf"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TiR-Gg-AdV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TiR-Gg-AdV">
                                         <rect key="frame" x="86" y="98" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -277,7 +282,7 @@
                                             <action selector="R2_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="d1c-r2-Axq"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UHN-15-AlL">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UHN-15-AlL">
                                         <rect key="frame" x="164" y="98" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -289,7 +294,7 @@
                                             <action selector="R2_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="pU7-OQ-NFw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="U9x-ua-jE8">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="U9x-ua-jE8">
                                         <rect key="frame" x="242" y="98" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,7 +306,7 @@
                                             <action selector="R2_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="Yg6-S4-dvV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SjR-5r-GHr">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SjR-5r-GHr">
                                         <rect key="frame" x="8" y="176" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -313,7 +318,7 @@
                                             <action selector="R3_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="xuF-if-b4O"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5ky-gw-HdE">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5ky-gw-HdE">
                                         <rect key="frame" x="86" y="176" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -325,7 +330,7 @@
                                             <action selector="R3_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="mEK-PY-Uym"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0FW-Hd-yRk">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0FW-Hd-yRk">
                                         <rect key="frame" x="164" y="176" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -337,7 +342,7 @@
                                             <action selector="R3_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="e4x-Xe-XWn"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eHM-3U-Mf9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eHM-3U-Mf9">
                                         <rect key="frame" x="242" y="176" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -349,7 +354,7 @@
                                             <action selector="R3_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="STj-pg-iee"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ggR-j3-WDp">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ggR-j3-WDp">
                                         <rect key="frame" x="8" y="254" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -361,7 +366,7 @@
                                             <action selector="R4_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="ank-vl-CS0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Z6-8V-y0s">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1Z6-8V-y0s">
                                         <rect key="frame" x="86" y="254" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -373,7 +378,7 @@
                                             <action selector="R4_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="dkc-yA-t5I"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8mQ-la-d0v">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8mQ-la-d0v">
                                         <rect key="frame" x="164" y="254" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -385,7 +390,7 @@
                                             <action selector="R4_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="Xzi-SS-LqS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uWJ-IY-51R">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uWJ-IY-51R">
                                         <rect key="frame" x="242" y="254" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -397,13 +402,7 @@
                                             <action selector="R4_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="Sr1-3k-KJo"/>
                                         </connections>
                                     </button>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="VUF-it-5Fh">
-                                        <rect key="frame" x="0.0" y="342" width="320" height="2"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <color key="progressTintColor" red="0.86368852853775024" green="0.36025351285934448" blue="0.37666141986846924" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="trackTintColor" red="0.68708586692810059" green="0.68706530332565308" blue="0.68707698583602905" alpha="1" colorSpace="calibratedRGB"/>
-                                    </progressView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="S8J-LU-1vw">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="S8J-LU-1vw">
                                         <rect key="frame" x="242" y="20" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.9137254901960784" green="0.0" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
@@ -415,6 +414,12 @@
                                             <action selector="R1_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="98u-tM-rAh"/>
                                         </connections>
                                     </button>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="VUF-it-5Fh">
+                                        <rect key="frame" x="0.0" y="342" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="progressTintColor" red="0.32856267690658569" green="0.64410710334777832" blue="0.95445334911346436" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="trackTintColor" red="0.68708586692810059" green="0.68706530332565308" blue="0.68707698583602905" alpha="1" colorSpace="calibratedRGB"/>
+                                    </progressView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.95075207949999996" green="0.95072358850000005" blue="0.95073968170000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -551,6 +556,7 @@
                         <outlet property="R4_C4_G" destination="UaA-Jn-ZGK" id="Y9r-el-u25"/>
                         <outlet property="countdown_blurview" destination="4TF-RF-EXo" id="naQ-xy-Hjj"/>
                         <outlet property="countdown_start_label" destination="Ryq-TS-Fjm" id="frP-hx-GqC"/>
+                        <outlet property="game_progress" destination="9a2-EQ-iG2" id="2ph-wp-DHO"/>
                         <outlet property="guide_view" destination="efp-ZR-5Aw" id="D8a-ZL-Ssy"/>
                         <outlet property="progress_view_time" destination="VUF-it-5Fh" id="GPp-Of-Fg9"/>
                         <outlet property="seconds_unit" destination="1FA-AV-jxz" id="Kwg-RT-lsl"/>
@@ -705,14 +711,19 @@
                                         <color key="textColor" red="0.68708586689999995" green="0.68706530330000004" blue="0.68707698579999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="bqK-Qz-Qjd" userLabel="gameprogress">
+                                        <rect key="frame" x="0.0" y="566" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="progressTintColor" red="0.8636885285" green="0.36025351290000002" blue="0.37666141990000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </progressView>
                                     <view contentMode="center" id="9tS-ND-WQh" userLabel="mainusertap_container">
                                         <rect key="frame" x="0.0" y="102" width="320" height="344"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oJg-g2-Dez">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oJg-g2-Dez">
                                                 <rect key="frame" x="8" y="20" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R1_C1">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -722,10 +733,10 @@
                                                     <action selector="R1_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="T3s-vp-7Mh"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qJq-eH-SNb">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qJq-eH-SNb">
                                                 <rect key="frame" x="86" y="20" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R1_C2">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -735,10 +746,10 @@
                                                     <action selector="R1_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="Lit-Dx-Rmu"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aeY-AG-xof">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aeY-AG-xof">
                                                 <rect key="frame" x="164" y="20" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R1_C3">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -748,10 +759,10 @@
                                                     <action selector="R1_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="SWz-yi-VGl"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gDy-fT-9AF">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gDy-fT-9AF">
                                                 <rect key="frame" x="8" y="98" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R2_C1">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -761,10 +772,10 @@
                                                     <action selector="R2_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="KsY-J9-SYh"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="57C-Gv-db6">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="57C-Gv-db6">
                                                 <rect key="frame" x="86" y="98" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R2_C2">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -774,10 +785,10 @@
                                                     <action selector="R2_C2:" destination="RAb-CG-KOc" eventType="touchUpInside" id="uhy-5X-Zhg"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UOU-Zr-75Z">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UOU-Zr-75Z">
                                                 <rect key="frame" x="164" y="98" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R2_C3">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -787,10 +798,10 @@
                                                     <action selector="R2_C3:" destination="RAb-CG-KOc" eventType="touchUpInside" id="AjE-if-jSj"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dyh-lu-1Yy">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dyh-lu-1Yy">
                                                 <rect key="frame" x="242" y="98" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R2_C4">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -800,10 +811,10 @@
                                                     <action selector="R2_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="vW5-5f-sIV"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ObP-9x-gk6">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ObP-9x-gk6">
                                                 <rect key="frame" x="8" y="176" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R3_C1">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -813,10 +824,10 @@
                                                     <action selector="R3_C1:" destination="RAb-CG-KOc" eventType="touchUpInside" id="VEy-k3-LBq"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6dT-aX-VzW">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6dT-aX-VzW">
                                                 <rect key="frame" x="86" y="176" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R3_C2">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -826,10 +837,10 @@
                                                     <action selector="R3_C2:" destination="RAb-CG-KOc" eventType="touchUpInside" id="WDB-EP-1gr"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EY0-6n-zHp">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EY0-6n-zHp">
                                                 <rect key="frame" x="164" y="176" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R3_C3">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -839,10 +850,10 @@
                                                     <action selector="R3_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="GJr-U5-aKz"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cQw-Ec-buD">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cQw-Ec-buD">
                                                 <rect key="frame" x="242" y="176" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R3_C4">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -852,10 +863,10 @@
                                                     <action selector="R3_C4:" destination="RAb-CG-KOc" eventType="touchUpInside" id="v2l-FO-fUH"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zQE-t9-pUF">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zQE-t9-pUF">
                                                 <rect key="frame" x="8" y="254" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R4_C1">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -865,10 +876,10 @@
                                                     <action selector="R4_C1:" destination="RAb-CG-KOc" eventType="touchUpInside" id="kF9-dF-1uA"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SY4-DK-nDP">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SY4-DK-nDP">
                                                 <rect key="frame" x="86" y="254" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R4_C2">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -878,10 +889,10 @@
                                                     <action selector="R4_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="fLl-mj-e6D"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fau-m7-a6m">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fau-m7-a6m">
                                                 <rect key="frame" x="164" y="254" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R4_C3">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -891,10 +902,10 @@
                                                     <action selector="R4_C3:" destination="RAb-CG-KOc" eventType="touchUpInside" id="mO3-gz-l3p"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6dc-Sl-FWM">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6dc-Sl-FWM">
                                                 <rect key="frame" x="242" y="254" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R4_C4">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -904,16 +915,10 @@
                                                     <action selector="R4_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="re2-hJ-0iZ"/>
                                                 </connections>
                                             </button>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="hiM-0y-E7G">
-                                                <rect key="frame" x="0.0" y="342" width="320" height="2"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                <color key="progressTintColor" red="0.8636885285" green="0.36025351290000002" blue="0.37666141990000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="trackTintColor" red="0.68708586689999995" green="0.68706530330000004" blue="0.68707698579999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            </progressView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W6i-rk-cbP">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="W6i-rk-cbP">
                                                 <rect key="frame" x="242" y="20" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="R1_C4">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -923,6 +928,12 @@
                                                     <action selector="R1_C4:" destination="RAb-CG-KOc" eventType="touchUpInside" id="zDa-RT-Blz"/>
                                                 </connections>
                                             </button>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="hiM-0y-E7G">
+                                                <rect key="frame" x="0.0" y="342" width="320" height="2"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                <color key="progressTintColor" red="0.32856267690658569" green="0.64410710334777832" blue="0.95445334911346436" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="trackTintColor" red="0.68708586689999995" green="0.68706530330000004" blue="0.68707698579999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </progressView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.95075207949999996" green="0.95072358850000005" blue="0.95073968170000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -990,6 +1001,7 @@
                         <outlet property="R4_C4_G" destination="jj1-Wv-vt3" id="KG9-iZ-y1h"/>
                         <outlet property="blurview" destination="Eyi-Fz-rNA" id="5lq-GO-SRc"/>
                         <outlet property="countdown_label" destination="ZNf-K0-FxY" id="zpW-f3-OF9"/>
+                        <outlet property="game_progress" destination="bqK-Qz-Qjd" id="SIZ-rk-WWm"/>
                         <outlet property="guide_view" destination="JOG-ls-V8V" id="y7P-At-i1O"/>
                         <outlet property="progress_view_time" destination="hiM-0y-E7G" id="3DD-K8-Hup"/>
                         <outlet property="seconds_unit" destination="t9F-vC-JaW" id="qAu-ss-j3N"/>

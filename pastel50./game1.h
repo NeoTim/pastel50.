@@ -83,5 +83,7 @@
 //countdown timer view
 @property (strong, nonatomic) IBOutlet UIVisualEffectView *countdown_blurview;
 @property (strong, nonatomic) IBOutlet UILabel *countdown_start_label;
+/////
+@property (strong, nonatomic) IBOutlet UIProgressView *game_progress;
 
 @end

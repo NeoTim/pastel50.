@@ -63,7 +63,10 @@ double time_count = 0;
 }
 -(void) persec: (NSTimer*)persectimer {
     time_count ++;
-    if (time_count > 25) {
+    if (time_count > 15) {
+        _progress_view_time.progressTintColor = [UIColor redColor];
+    }
+    if (time_count > 20) {
         [_time_disp setTextColor:[UIColor redColor]];
     }
     if (time_count == 30) {
@@ -112,6 +115,7 @@ double time_count = 0;
             _usertap_view.frame = CGRectMake(x, y + 800, width, height);
             _time_disp.alpha = 0;
             _seconds_unit.alpha = 0;
+            _progress_view_time.alpha = 0;
         }completion:nil];
         //segue to lose view
         
@@ -120,8 +124,9 @@ double time_count = 0;
 -(void)timercount{
     //runs every 0.1 seconds
     time_left = time_left - 0.1;
-    [_progress_view_time setProgress: (time_left / 40) animated:YES];
+    [_progress_view_time setProgress: (time_left / 30) animated:YES];
     [_time_disp setText:[NSString stringWithFormat:@"%0.1f", time_left]];
+
 
 }
 ///////////////////VDL
@@ -672,8 +677,21 @@ double time_count = 0;
              & gamestate[2][0] == current_wanted_state [2][0] & gamestate[2][1] == current_wanted_state [2][1] & gamestate[2][2] == current_wanted_state [2][2] & gamestate[2][3] == current_wanted_state [2][3]
              & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & time_count < 30 & game_level_count < 2){
         //level complete
-        NSLog(@"done, %i", game_level_count);
         game_level_count ++;
+       NSLog(@"done, %i", game_level_count);
+       //set game progress indicator
+       if (game_level_count == 1) {
+           //set game progress indicator
+           [_game_progress setProgress:(0.4) animated:YES];
+       }
+       else if (game_level_count == 2){
+           //set game progress indicator
+           [_game_progress setProgress:(0.7) animated:YES];
+       }
+       else if (game_level_count == 3){
+           //set game progress indicator
+           [_game_progress setProgress:(1) animated:YES];
+       }
         //lockdown
         _R1_C1.enabled = NO;
         _R1_C2.enabled = NO;
@@ -778,6 +796,7 @@ double time_count = 0;
            _usertap_view.frame = CGRectMake(x, y + 800, width, height);
            _time_disp.alpha = 0;
            _seconds_unit.alpha = 0;
+           _game_progress.alpha = 0;
        }completion:nil];
        //segue to next view
        double delayInSeconds = 1.8;
