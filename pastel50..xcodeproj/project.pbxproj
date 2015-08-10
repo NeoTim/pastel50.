@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		976DD1341B783F6E00682AEF /* WinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 976DD1331B783F6E00682AEF /* WinViewController.m */; };
 		9771D8CB1B70E165007C8B43 /* choose_gamemode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9771D8CA1B70E165007C8B43 /* choose_gamemode.mm */; };
 		9771D8CD1B70E1D3007C8B43 /* imglogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9771D8CC1B70E1D3007C8B43 /* imglogo2.png */; };
 		97780B961B72311900228911 /* pastel 50 bck.png in Resources */ = {isa = PBXBuildFile; fileRef = 97780B951B72311900228911 /* pastel 50 bck.png */; };
@@ -23,6 +24,9 @@
 		97EB28261B70AC6000202EAE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97EB28251B70AC6000202EAE /* Images.xcassets */; };
 		97EB28291B70AC6000202EAE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97EB28271B70AC6000202EAE /* LaunchScreen.xib */; };
 		97EB28351B70AC6000202EAE /* pastel50_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EB28341B70AC6000202EAE /* pastel50_Tests.m */; };
+		97EF244D1B7873770030FE8B /* changi.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EF244C1B7873770030FE8B /* changi.png */; };
+		97EF24541B7886530030FE8B /* transitonto1.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF24531B7886530030FE8B /* transitonto1.m */; };
+		97EF24571B7886650030FE8B /* game2.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF24561B7886650030FE8B /* game2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		976DD1321B783F6E00682AEF /* WinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinViewController.h; sourceTree = "<group>"; };
+		976DD1331B783F6E00682AEF /* WinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinViewController.m; sourceTree = "<group>"; };
 		9771D8C91B70E165007C8B43 /* choose_gamemode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = choose_gamemode.h; sourceTree = "<group>"; };
 		9771D8CA1B70E165007C8B43 /* choose_gamemode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = choose_gamemode.mm; sourceTree = "<group>"; };
 		9771D8CC1B70E1D3007C8B43 /* imglogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imglogo2.png; sourceTree = "<group>"; };
@@ -60,6 +66,11 @@
 		97EB282E1B70AC6000202EAE /* pastel50.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pastel50.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EB28331B70AC6000202EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97EB28341B70AC6000202EAE /* pastel50_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pastel50_Tests.m; sourceTree = "<group>"; };
+		97EF244C1B7873770030FE8B /* changi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changi.png; sourceTree = "<group>"; };
+		97EF24521B7886530030FE8B /* transitonto1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transitonto1.h; sourceTree = "<group>"; };
+		97EF24531B7886530030FE8B /* transitonto1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = transitonto1.m; sourceTree = "<group>"; };
+		97EF24551B7886650030FE8B /* game2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game2.h; sourceTree = "<group>"; };
+		97EF24561B7886650030FE8B /* game2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +94,14 @@
 		97780B9F1B7246CB00228911 /* game VCs */ = {
 			isa = PBXGroup;
 			children = (
+				97EF24521B7886530030FE8B /* transitonto1.h */,
+				97EF24531B7886530030FE8B /* transitonto1.m */,
 				97780BA31B72491E00228911 /* game1.h */,
 				97780BA41B72491E00228911 /* game1.m */,
+				976DD1321B783F6E00682AEF /* WinViewController.h */,
+				976DD1331B783F6E00682AEF /* WinViewController.m */,
+				97EF24551B7886650030FE8B /* game2.h */,
+				97EF24561B7886650030FE8B /* game2.m */,
 			);
 			name = "game VCs";
 			sourceTree = "<group>";
@@ -168,6 +185,7 @@
 				97780B951B72311900228911 /* pastel 50 bck.png */,
 				97780B9B1B723B8900228911 /* HDB_pic.jpg */,
 				97780B971B723A1500228911 /* hollowdot.png */,
+				97EF244C1B7873770030FE8B /* changi.png */,
 				97780B981B723A1500228911 /* soliddot.png */,
 				9771D8CC1B70E1D3007C8B43 /* imglogo2.png */,
 			);
@@ -260,6 +278,7 @@
 				97EB28241B70AC6000202EAE /* Main.storyboard in Resources */,
 				97E5655A1B72058100B66B4C /* pastel50_v2-BACKGROUND.png in Resources */,
 				97780B9C1B723B8900228911 /* HDB_pic.jpg in Resources */,
+				97EF244D1B7873770030FE8B /* changi.png in Resources */,
 				97780B961B72311900228911 /* pastel 50 bck.png in Resources */,
 				97EB28291B70AC6000202EAE /* LaunchScreen.xib in Resources */,
 				97EB28261B70AC6000202EAE /* Images.xcassets in Resources */,
@@ -282,11 +301,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				97EB281B1B70AC6000202EAE /* AppDelegate.m in Sources */,
+				976DD1341B783F6E00682AEF /* WinViewController.m in Sources */,
 				97EB28181B70AC6000202EAE /* main.m in Sources */,
+				97EF24571B7886650030FE8B /* game2.m in Sources */,
 				9771D8CB1B70E165007C8B43 /* choose_gamemode.mm in Sources */,
 				97780BA51B72491E00228911 /* game1.m in Sources */,
 				97EB28211B70AC6000202EAE /* ViewController.m in Sources */,
 				97EB281E1B70AC6000202EAE /* pastel50_.xcdatamodeld in Sources */,
+				97EF24541B7886530030FE8B /* transitonto1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

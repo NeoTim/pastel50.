@@ -1,28 +1,27 @@
 //
-//  game1.m
+//  game2.m
 //  pastel50.
 //
-//  Created by Sean Lim on 5/8/15.
+//  Created by Sean Lim on 10/8/15.
 //  Copyright (c) 2015 Tangent.inc. All rights reserved.
 //
 
-#import "game1.h"
+#import "game2.h"
 
-@interface game1 ()
+@interface game2 ()
 
 @end
 
-@implementation game1
-bool gamedidstart;
+@implementation game2
 //initwith array state
-int gamestate [4][4];
-int current_wanted_state [4][4];
+int gamestate_game2 [4][4];
+int current_wanted_state_game2 [4][4];
 //game level count
-int game_level_count;
+int game2_level_count;
 //timer
-NSTimer *timer;
-double time_left = 30;
-double time_count = 0;
+NSTimer *timer_game2;
+double time_left_game2 = 30;
+double time_count_game2 = 0;
 ///////////////////////ALL THE CHRONOS STUFF
 //countdown start timer
 -(void) gamestart_countdown{
@@ -31,23 +30,26 @@ double time_count = 0;
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //this will be executed after 1 seconds
         [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            [_countdown_start_label setText:@"2"];
-            _countdown_blurview.alpha = 0.8;
+            [_countdown_label setText:@"2"];
+            _blurview.alpha = 0.8;
+            _countdown_label.alpha = 0.8;
         }completion:nil];
         double delayInSeconds = 1.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             //this will be executed after 2 seconds
             [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                [_countdown_start_label setText:@"1"];
-                _countdown_blurview.alpha = 0.7;
+                [_countdown_label setText:@"1"];
+                _blurview.alpha = 0.7;
+                _countdown_label.alpha = 0.7;
             }completion:nil];
             double delayInSeconds = 1.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 //this will be executed after 3 seconds
                 [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                    _countdown_blurview.alpha = 0;
+                    _blurview.alpha = 0;
+                    _countdown_label.alpha = 0;
                 }completion:nil];
                 [self timer_start];
             });
@@ -56,32 +58,31 @@ double time_count = 0;
 }
 -(void) timer_start{
     //start main timer
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timercount) userInfo:nil repeats:YES];
+    timer_game2 = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timercount) userInfo:nil repeats:YES];
     //start persec timer
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(persec:) userInfo:nil repeats:YES];
-    gamedidstart = YES;
 }
 -(void) persec: (NSTimer*)persectimer {
-    time_count ++;
-    if (time_count > 25) {
-        [_time_disp setTextColor:[UIColor redColor]];
+    time_count_game2 ++;
+    if (time_count_game2 > 25) {
+        [_time_dis setTextColor:[UIColor redColor]];
     }
-    if (time_count == 30) {
+    if (time_count_game2 == 30) {
         //LOST
         //shake animation
         CAKeyframeAnimation *shake_animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
         shake_animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         shake_animation.duration = 0.6;
         shake_animation.values = @[ @(-20), @(20), @(-20), @(20), @(-10), @(10), @(-5), @(5), @(0) ];
-        [_time_disp.layer addAnimation:shake_animation forKey:@"shake"];
+        [_time_dis.layer addAnimation:shake_animation forKey:@"shake"];
         [_usertap_view.layer addAnimation:shake_animation forKey:@"shake"];
         [_guide_view.layer addAnimation:shake_animation forKey:@"shake"];
         //
         NSLog(@"lost the game");
-        [timer invalidate];
-        timer = nil;
-        [_time_disp setText:@"0.0"];
-        time_count = 0;
+        [timer_game2 invalidate];
+        timer_game2 = nil;
+        [_time_dis setText:@"0.0"];
+        time_count_game2 = 0;
         //lockdown
         _R1_C1.enabled = NO;
         _R1_C2.enabled = NO;
@@ -110,7 +111,7 @@ double time_count = 0;
         height = _usertap_view.frame.size.height;
         [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             _usertap_view.frame = CGRectMake(x, y + 800, width, height);
-            _time_disp.alpha = 0;
+            _time_dis.alpha = 0;
             _seconds_unit.alpha = 0;
         }completion:nil];
         //segue to lose view
@@ -119,20 +120,20 @@ double time_count = 0;
 }
 -(void)timercount{
     //runs every 0.1 seconds
-    time_left = time_left - 0.1;
-    [_progress_view_time setProgress: (time_left / 40) animated:YES];
-    [_time_disp setText:[NSString stringWithFormat:@"%0.1f", time_left]];
-
+    time_left_game2 = time_left_game2 - 0.1;
+    [_progress_view_time setProgress: (time_left_game2 / 40) animated:YES];
+    [_time_dis setText:[NSString stringWithFormat:@"%0.1f", time_left_game2]];
+    
 }
 ///////////////////VDL
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_time_disp setTextColor:[UIColor blackColor]];
+    [_time_dis setTextColor:[UIColor blackColor]];
     //init with countdown
     [self gamestart_countdown];
     //timer init
-    [_time_disp setText:[NSString stringWithFormat:@"%0.1f", time_left]];
-    game_level_count = 0;
+    [_time_dis setText:[NSString stringWithFormat:@"%0.1f", time_left_game2]];
+    game2_level_count = 0;
     //init with drawings
     //GUIDEview
     _guide_view.alpha = 0;
@@ -159,126 +160,126 @@ double time_count = 0;
     ////////////////////////////////////////////////////////////////////////////////
     //RANDOM FOR WANTED STATE
     //rand for row 1
-    current_wanted_state[0][0] = arc4random()%2; current_wanted_state[0][1] = arc4random()%2; current_wanted_state[0][2] = arc4random()%2; current_wanted_state[0][3] = arc4random()%2;
+    current_wanted_state_game2[0][0] = arc4random()%2; current_wanted_state_game2[0][1] = arc4random()%2; current_wanted_state_game2[0][2] = arc4random()%2; current_wanted_state_game2[0][3] = arc4random()%2;
     //rand for row 2
-    current_wanted_state[1][0] = arc4random()%2; current_wanted_state[1][1] = arc4random()%2; current_wanted_state[1][2] = arc4random()%2; current_wanted_state[1][3] = arc4random()%2;
+    current_wanted_state_game2[1][0] = arc4random()%2; current_wanted_state_game2[1][1] = arc4random()%2; current_wanted_state_game2[1][2] = arc4random()%2; current_wanted_state_game2[1][3] = arc4random()%2;
     //rand for row 3
-    current_wanted_state[2][0] = arc4random()%2; current_wanted_state[2][1] = arc4random()%2; current_wanted_state[2][2] = arc4random()%2; current_wanted_state[2][3] = arc4random()%2;
+    current_wanted_state_game2[2][0] = arc4random()%2; current_wanted_state_game2[2][1] = arc4random()%2; current_wanted_state_game2[2][2] = arc4random()%2; current_wanted_state_game2[2][3] = arc4random()%2;
     //rand for row 4
-    current_wanted_state[3][0] = arc4random()%2; current_wanted_state[3][1] = arc4random()%2; current_wanted_state[3][2] = arc4random()%2; current_wanted_state[3][3] = arc4random()%2;
+    current_wanted_state_game2[3][0] = arc4random()%2; current_wanted_state_game2[3][1] = arc4random()%2; current_wanted_state_game2[3][2] = arc4random()%2; current_wanted_state_game2[3][3] = arc4random()%2;
     
     //set guideview
     //////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW1
-    if (current_wanted_state[0][0] == 1) {
+    if (current_wanted_state_game2[0][0] == 1) {
         [_R1_C1_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R1_C1_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[0][1] == 1) {
+    if (current_wanted_state_game2[0][1] == 1) {
         [_R1_C2_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R1_C2_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[0][2] == 1) {
+    if (current_wanted_state_game2[0][2] == 1) {
         [_R1_C3_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R1_C3_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[0][3] == 1) {
+    if (current_wanted_state_game2[0][3] == 1) {
         [_R1_C4_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R1_C4_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW2
-    if (current_wanted_state[1][0] == 1) {
+    if (current_wanted_state_game2[1][0] == 1) {
         [_R2_C1_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R2_C1_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[1][1] == 1) {
+    if (current_wanted_state_game2[1][1] == 1) {
         [_R2_C2_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R2_C2_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[1][2] == 1) {
+    if (current_wanted_state_game2[1][2] == 1) {
         [_R2_C3_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R2_C3_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[1][3] == 1) {
+    if (current_wanted_state_game2[1][3] == 1) {
         [_R2_C4_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R2_C4_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW3
-    if (current_wanted_state[2][0] == 1) {
+    if (current_wanted_state_game2[2][0] == 1) {
         [_R3_C1_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R3_C1_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[2][1] == 1) {
+    if (current_wanted_state_game2[2][1] == 1) {
         [_R3_C2_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R3_C2_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[2][2] == 1) {
+    if (current_wanted_state_game2[2][2] == 1) {
         [_R3_C3_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R3_C3_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[2][3] == 1) {
+    if (current_wanted_state_game2[2][3] == 1) {
         [_R3_C4_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R3_C4_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW4
-    if (current_wanted_state[3][0] == 1) {
+    if (current_wanted_state_game2[3][0] == 1) {
         [_R4_C1_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R4_C1_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[3][1] == 1) {
+    if (current_wanted_state_game2[3][1] == 1) {
         [_R4_C2_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R4_C2_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[3][2] == 1) {
+    if (current_wanted_state_game2[3][2] == 1) {
         [_R4_C3_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
         [_R4_C3_G setImage:[UIImage imageNamed:@"hollowdot"]];
     }
     //
-    if (current_wanted_state[3][3] == 1) {
+    if (current_wanted_state_game2[3][3] == 1) {
         [_R4_C4_G setImage:[UIImage imageNamed:@"soliddot"]];
     }
     else{
@@ -292,39 +293,39 @@ double time_count = 0;
     ////////////////////////////////////////////////////////////////////////////////
     //RANDOM FOR GAME STATE
     //rand for row 1
-    gamestate[0][0] = arc4random()%2; gamestate[0][1] = arc4random()%2; gamestate[0][2] = arc4random()%2; gamestate[0][3] = arc4random()%2;
+    gamestate_game2[0][0] = arc4random()%2; gamestate_game2[0][1] = arc4random()%2; gamestate_game2[0][2] = arc4random()%2; gamestate_game2[0][3] = arc4random()%2;
     //rand for row 2
-    gamestate[1][0] = arc4random()%2; gamestate[1][1] = arc4random()%2; gamestate[1][2] = arc4random()%2; gamestate[1][3] = arc4random()%2;
+    gamestate_game2[1][0] = arc4random()%2; gamestate_game2[1][1] = arc4random()%2; gamestate_game2[1][2] = arc4random()%2; gamestate_game2[1][3] = arc4random()%2;
     //rand for row 3
-    gamestate[2][0] = arc4random()%2; gamestate[2][1] = arc4random()%2; gamestate[2][2] = arc4random()%2; gamestate[2][3] = arc4random()%2;
+    gamestate_game2[2][0] = arc4random()%2; gamestate_game2[2][1] = arc4random()%2; gamestate_game2[2][2] = arc4random()%2; gamestate_game2[2][3] = arc4random()%2;
     //rand for row 4
-    gamestate[3][0] = arc4random()%2; gamestate[3][1] = arc4random()%2; gamestate[3][2] = arc4random()%2; gamestate[3][3] = arc4random()%2;
+    gamestate_game2[3][0] = arc4random()%2; gamestate_game2[3][1] = arc4random()%2; gamestate_game2[3][2] = arc4random()%2; gamestate_game2[3][3] = arc4random()%2;
     
     //set MAIN PLAYER VIEW
     //////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW1
-    if (gamestate[0][0] == 1) {
+    if (gamestate_game2[0][0] == 1) {
         [_R1_C1 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R1_C1 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[0][1] == 1) {
+    if (gamestate_game2[0][1] == 1) {
         [_R1_C2 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R1_C2 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[0][2] == 1) {
+    if (gamestate_game2[0][2] == 1) {
         [_R1_C3 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R1_C3 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[0][3] == 1) {
+    if (gamestate_game2[0][3] == 1) {
         [_R1_C4 setImage:[UIImage imageNamed:@"soliddot"]  forState:UIControlStateNormal];
     }
     else{
@@ -332,28 +333,28 @@ double time_count = 0;
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW2
-    if (gamestate[1][0] == 1) {
+    if (gamestate_game2[1][0] == 1) {
         [_R2_C1 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R2_C1 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[1][1] == 1) {
+    if (gamestate_game2[1][1] == 1) {
         [_R2_C2 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R2_C2 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[1][2] == 1) {
+    if (gamestate_game2[1][2] == 1) {
         [_R2_C3 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R2_C3 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[1][3] == 1) {
+    if (gamestate_game2[1][3] == 1) {
         [_R2_C4 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
@@ -361,28 +362,28 @@ double time_count = 0;
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW3
-    if (gamestate[2][0] == 1) {
+    if (gamestate_game2[2][0] == 1) {
         [_R3_C1 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R3_C1 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[2][1] == 1) {
+    if (gamestate_game2[2][1] == 1) {
         [_R3_C2 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R3_C2 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[2][2] == 1) {
+    if (gamestate_game2[2][2] == 1) {
         [_R3_C3 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R3_C3 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[2][3] == 1) {
+    if (gamestate_game2[2][3] == 1) {
         [_R3_C4 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
@@ -390,109 +391,109 @@ double time_count = 0;
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW4
-    if (gamestate[3][0] == 1) {
+    if (gamestate_game2[3][0] == 1) {
         [_R4_C1 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R4_C1 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[3][1] == 1) {
+    if (gamestate_game2[3][1] == 1) {
         [_R4_C2 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R4_C2 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[3][2] == 1) {
+    if (gamestate_game2[3][2] == 1) {
         [_R4_C3 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R4_C3 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
     //
-    if (gamestate[3][3] == 1) {
+    if (gamestate_game2[3][3] == 1) {
         [_R4_C4 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     else{
         [_R4_C4 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-
+    
     
 }
 
 /////////////BUTTON MAIN IBACTIONS
 //row1 IF ROW1 IS MODIFIED, CHECK FOR EQ and bool
 - (IBAction)R1_C1:(id)sender{
-    if (gamestate[0][0] == 1) {
+    if (gamestate_game2[0][0] == 1) {
         //is solid, reverse to hollow
-        gamestate[0][0] = 0;
+        gamestate_game2[0][0] = 0;
         [_R1_C1 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[0][0] == 0){
+    else if(gamestate_game2[0][0] == 0){
         //is hollow, reverse to solid
-        gamestate[0][0] = 1;
+        gamestate_game2[0][0] = 1;
         [_R1_C1 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
     [self check];
 }
 - (IBAction)R1_C2:(id)sender{
-    if (gamestate[0][1] == 1) {
+    if (gamestate_game2[0][1] == 1) {
         //is solid, reverse to hollow
-        gamestate[0][1] = 0;
+        gamestate_game2[0][1] = 0;
         [_R1_C2 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[0][1] == 0){
+    else if(gamestate_game2[0][1] == 0){
         //is hollow, reverse to solid
-        gamestate[0][1] = 1;
+        gamestate_game2[0][1] = 1;
         [_R1_C2 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
     [self check];
 }
 - (IBAction)R1_C3:(id)sender{
-    if (gamestate[0][2] == 1) {
+    if (gamestate_game2[0][2] == 1) {
         //is solid, reverse to hollow
-        gamestate[0][2] = 0;
+        gamestate_game2[0][2] = 0;
         [_R1_C3 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[0][2] == 0){
+    else if(gamestate_game2[0][2] == 0){
         //is hollow, reverse to solid
-        gamestate[0][2] = 1;
+        gamestate_game2[0][2] = 1;
         [_R1_C3 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
     [self check];
-
+    
 }
 - (IBAction)R1_C4:(id)sender{
-    if (gamestate[0][3] == 1) {
+    if (gamestate_game2[0][3] == 1) {
         //is solid, reverse to hollow
-        gamestate[0][3] = 0;
+        gamestate_game2[0][3] = 0;
         [_R1_C4 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[0][3] == 0){
+    else if(gamestate_game2[0][3] == 0){
         //is hollow, reverse to solid
-        gamestate[0][3] = 1;
+        gamestate_game2[0][3] = 1;
         [_R1_C4 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
     [self check];
-
+    
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //row2
 - (IBAction)R2_C1:(id)sender{
-    if (gamestate[1][0] == 1) {
+    if (gamestate_game2[1][0] == 1) {
         //is solid, reverse to hollow
-        gamestate[1][0] = 0;
+        gamestate_game2[1][0] = 0;
         [_R2_C1 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[1][0] == 0){
+    else if(gamestate_game2[1][0] == 0){
         //is hollow, reverse to solid
-        gamestate[1][0] = 1;
+        gamestate_game2[1][0] = 1;
         [_R2_C1 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
@@ -500,42 +501,42 @@ double time_count = 0;
     
 }
 - (IBAction)R2_C2:(id)sender{
-    if (gamestate[1][1] == 1) {
+    if (gamestate_game2[1][1] == 1) {
         //is solid, reverse to hollow
-        gamestate[1][1] = 0;
+        gamestate_game2[1][1] = 0;
         [_R2_C2 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[1][1] == 0){
+    else if(gamestate_game2[1][1] == 0){
         //is hollow, reverse to solid
-        gamestate[1][1] = 1;
+        gamestate_game2[1][1] = 1;
         [_R2_C2 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
     [self check];
 }
 - (IBAction)R2_C3:(id)sender{
-    if (gamestate[1][2] == 1) {
+    if (gamestate_game2[1][2] == 1) {
         //is solid, reverse to hollow
-        gamestate[1][2] = 0;
+        gamestate_game2[1][2] = 0;
         [_R2_C3 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[1][2] == 0){
+    else if(gamestate_game2[1][2] == 0){
         //is hollow, reverse to solid
-        gamestate[1][2] = 1;
+        gamestate_game2[1][2] = 1;
         [_R2_C3 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
     [self check];
 }
 - (IBAction)R2_C4:(id)sender{
-    if (gamestate[1][3] == 1) {
+    if (gamestate_game2[1][3] == 1) {
         //is solid, reverse to hollow
-        gamestate[1][3] = 0;
+        gamestate_game2[1][3] = 0;
         [_R2_C4 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[1][3] == 0){
+    else if(gamestate_game2[1][3] == 0){
         //is hollow, reverse to solid
-        gamestate[1][3] = 1;
+        gamestate_game2[1][3] = 1;
         [_R2_C4 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
@@ -546,28 +547,28 @@ double time_count = 0;
 
 //row3
 - (IBAction)R3_C1:(id)sender{
-    if (gamestate[2][0] == 1) {
+    if (gamestate_game2[2][0] == 1) {
         //is solid, reverse to hollow
-        gamestate[2][0] = 0;
+        gamestate_game2[2][0] = 0;
         [_R3_C1 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[2][0] == 0){
+    else if(gamestate_game2[2][0] == 0){
         //is hollow, reverse to solid
-        gamestate[2][0] = 1;
+        gamestate_game2[2][0] = 1;
         [_R3_C1 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
     [self check];
 }
 - (IBAction)R3_C2:(id)sender{
-    if (gamestate[2][1] == 1) {
+    if (gamestate_game2[2][1] == 1) {
         //is solid, reverse to hollow
-        gamestate[2][1] = 0;
+        gamestate_game2[2][1] = 0;
         [_R3_C2 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[2][1] == 0){
+    else if(gamestate_game2[2][1] == 0){
         //is hollow, reverse to solid
-        gamestate[2][1] = 1;
+        gamestate_game2[2][1] = 1;
         [_R3_C2 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
@@ -575,14 +576,14 @@ double time_count = 0;
     
 }
 - (IBAction)R3_C3:(id)sender{
-    if (gamestate[2][2] == 1) {
+    if (gamestate_game2[2][2] == 1) {
         //is solid, reverse to hollow
-        gamestate[2][2] = 0;
+        gamestate_game2[2][2] = 0;
         [_R3_C3 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[2][2] == 0){
+    else if(gamestate_game2[2][2] == 0){
         //is hollow, reverse to solid
-        gamestate[2][2] = 1;
+        gamestate_game2[2][2] = 1;
         [_R3_C3 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
@@ -590,14 +591,14 @@ double time_count = 0;
     
 }
 - (IBAction)R3_C4:(id)sender{
-    if (gamestate[2][3] == 1) {
+    if (gamestate_game2[2][3] == 1) {
         //is solid, reverse to hollow
-        gamestate[2][3] = 0;
+        gamestate_game2[2][3] = 0;
         [_R3_C4 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[2][3] == 0){
+    else if(gamestate_game2[2][3] == 0){
         //is hollow, reverse to solid
-        gamestate[2][3] = 1;
+        gamestate_game2[2][3] = 1;
         [_R3_C4 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
@@ -607,42 +608,42 @@ double time_count = 0;
 
 //row4
 - (IBAction)R4_C1:(id)sender{
-    if (gamestate[3][0] == 1) {
+    if (gamestate_game2[3][0] == 1) {
         //is solid, reverse to hollow
-        gamestate[3][0] = 0;
+        gamestate_game2[3][0] = 0;
         [_R4_C1 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[3][0] == 0){
+    else if(gamestate_game2[3][0] == 0){
         //is hollow, reverse to solid
-        gamestate[3][0] = 1;
+        gamestate_game2[3][0] = 1;
         [_R4_C1 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
     [self check];
 }
 - (IBAction)R4_C2:(id)sender{
-    if (gamestate[3][1] == 1) {
+    if (gamestate_game2[3][1] == 1) {
         //is solid, reverse to hollow
-        gamestate[3][1] = 0;
+        gamestate_game2[3][1] = 0;
         [_R4_C2 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[3][1] == 0){
+    else if(gamestate_game2[3][1] == 0){
         //is hollow, reverse to solid
-        gamestate[3][1] = 1;
+        gamestate_game2[3][1] = 1;
         [_R4_C2 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
     [self check];
 }
 - (IBAction)R4_C3:(id)sender{
-    if (gamestate[3][2] == 1) {
+    if (gamestate_game2[3][2] == 1) {
         //is solid, reverse to hollow
-        gamestate[3][2] = 0;
+        gamestate_game2[3][2] = 0;
         [_R4_C3 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[3][2] == 0){
+    else if(gamestate_game2[3][2] == 0){
         //is hollow, reverse to solid
-        gamestate[3][2] = 1;
+        gamestate_game2[3][2] = 1;
         [_R4_C3 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
@@ -650,14 +651,14 @@ double time_count = 0;
     
 }
 - (IBAction)R4_C4:(id)sender{
-    if (gamestate[3][3] == 1) {
+    if (gamestate_game2[3][3] == 1) {
         //is solid, reverse to hollow
-        gamestate[3][3] = 0;
+        gamestate_game2[3][3] = 0;
         [_R4_C4 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    else if(gamestate[3][3] == 0){
+    else if(gamestate_game2[3][3] == 0){
         //is hollow, reverse to solid
-        gamestate[3][3] = 1;
+        gamestate_game2[3][3] = 1;
         [_R4_C4 setImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
     }
     //check
@@ -667,13 +668,13 @@ double time_count = 0;
 
 //CHECK THE FRGN FUCNTIONS
 -(void)check{
-   if (gamestate[0][0] == current_wanted_state [0][0] & gamestate[0][1] == current_wanted_state [0][1] & gamestate[0][2] == current_wanted_state [0][2] & gamestate[0][3] == current_wanted_state [0][3]
-             & gamestate[1][0] == current_wanted_state [1][0] & gamestate[1][1] == current_wanted_state [1][1] & gamestate[1][2] == current_wanted_state [1][2] & gamestate[1][3] == current_wanted_state [1][3]
-             & gamestate[2][0] == current_wanted_state [2][0] & gamestate[2][1] == current_wanted_state [2][1] & gamestate[2][2] == current_wanted_state [2][2] & gamestate[2][3] == current_wanted_state [2][3]
-             & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & time_count < 30 & game_level_count < 2){
+    if (gamestate_game2[0][0] == current_wanted_state_game2 [0][0] & gamestate_game2[0][1] == current_wanted_state_game2 [0][1] & gamestate_game2[0][2] == current_wanted_state_game2 [0][2] & gamestate_game2[0][3] == current_wanted_state_game2 [0][3]
+        & gamestate_game2[1][0] == current_wanted_state_game2 [1][0] & gamestate_game2[1][1] == current_wanted_state_game2 [1][1] & gamestate_game2[1][2] == current_wanted_state_game2 [1][2] & gamestate_game2[1][3] == current_wanted_state_game2 [1][3]
+        & gamestate_game2[2][0] == current_wanted_state_game2 [2][0] & gamestate_game2[2][1] == current_wanted_state_game2 [2][1] & gamestate_game2[2][2] == current_wanted_state_game2 [2][2] & gamestate_game2[2][3] == current_wanted_state_game2 [2][3]
+        & gamestate_game2[3][0] == current_wanted_state_game2 [3][0] & gamestate_game2[3][1] == current_wanted_state_game2 [3][1] & gamestate_game2[3][2] == current_wanted_state_game2 [3][2] & gamestate_game2[3][3] == current_wanted_state_game2 [3][3] & time_count_game2 < 30 & game2_level_count < 2){
         //level complete
-        NSLog(@"done, %i", game_level_count);
-        game_level_count ++;
+        NSLog(@"done, %i", game2_level_count);
+        game2_level_count ++;
         //lockdown
         _R1_C1.enabled = NO;
         _R1_C2.enabled = NO;
@@ -738,54 +739,54 @@ double time_count = 0;
             });
         });
     }
-   else if (gamestate[0][0] == current_wanted_state [0][0] & gamestate[0][1] == current_wanted_state [0][1] & gamestate[0][2] == current_wanted_state [0][2] & gamestate[0][3] == current_wanted_state [0][3]
-            & gamestate[1][0] == current_wanted_state [1][0] & gamestate[1][1] == current_wanted_state [1][1] & gamestate[1][2] == current_wanted_state [1][2] & gamestate[1][3] == current_wanted_state [1][3]
-            & gamestate[2][0] == current_wanted_state [2][0] & gamestate[2][1] == current_wanted_state [2][1] & gamestate[2][2] == current_wanted_state [2][2] & gamestate[2][3] == current_wanted_state [2][3]
-            & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & gamedidstart == YES & game_level_count == 2 & time_count < 30){
-       //stop game, user has done 3 in 30 secs
-       game_level_count = 0;
-       //kill game
-       [timer invalidate];
-       timer = nil;
-       time_count = 0;
-       //lockdown
-       _R1_C1.enabled = NO;
-       _R1_C2.enabled = NO;
-       _R1_C3.enabled = NO;
-       _R1_C4.enabled = NO;
-       _R2_C1.enabled = NO;
-       _R2_C2.enabled = NO;
-       _R2_C3.enabled = NO;
-       _R2_C4.enabled = NO;
-       _R3_C1.enabled = NO;
-       _R3_C2.enabled = NO;
-       _R3_C3.enabled = NO;
-       _R3_C4.enabled = NO;
-       _R4_C1.enabled = NO;
-       _R4_C2.enabled = NO;
-       _R4_C3.enabled = NO;
-       _R4_C4.enabled = NO;
-       [UIView animateWithDuration:0.8 animations:^{
-           _guide_view.alpha = 0.0;
-       }];
-       //get usertap point
-       float x, y , width, height;
-       x = _usertap_view.frame.origin.x;
-       y = _usertap_view.frame.origin.y;
-       width = _usertap_view.frame.size.width;
-       height = _usertap_view.frame.size.height;
-       [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-           _usertap_view.frame = CGRectMake(x, y + 800, width, height);
-           _time_disp.alpha = 0;
-           _seconds_unit.alpha = 0;
-       }completion:nil];
-       //segue to next view
-       double delayInSeconds = 1.8;
-       dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-       dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-           //this will be executed after 1 seconds
-           [self performSegueWithIdentifier:@"1-2" sender:nil];
-       });
-   }
+    else if (gamestate_game2[0][0] == current_wanted_state_game2 [0][0] & gamestate_game2[0][1] == current_wanted_state_game2 [0][1] & gamestate_game2[0][2] == current_wanted_state_game2 [0][2] & gamestate_game2[0][3] == current_wanted_state_game2 [0][3]
+             & gamestate_game2[1][0] == current_wanted_state_game2 [1][0] & gamestate_game2[1][1] == current_wanted_state_game2 [1][1] & gamestate_game2[1][2] == current_wanted_state_game2 [1][2] & gamestate_game2[1][3] == current_wanted_state_game2 [1][3]
+             & gamestate_game2[2][0] == current_wanted_state_game2 [2][0] & gamestate_game2[2][1] == current_wanted_state_game2 [2][1] & gamestate_game2[2][2] == current_wanted_state_game2 [2][2] & gamestate_game2[2][3] == current_wanted_state_game2 [2][3]
+             & gamestate_game2[3][0] == current_wanted_state_game2 [3][0] & gamestate_game2[3][1] == current_wanted_state_game2 [3][1] & gamestate_game2[3][2] == current_wanted_state_game2 [3][2] & gamestate_game2[3][3] == current_wanted_state_game2 [3][3] & game2_level_count == 2 & time_count_game2 < 30){
+        //stop game, user has done 3 in 30 secs
+        game2_level_count = 0;
+        //kill game
+        [timer_game2 invalidate];
+        timer_game2 = nil;
+        time_count_game2 = 0;
+        //lockdown
+        _R1_C1.enabled = NO;
+        _R1_C2.enabled = NO;
+        _R1_C3.enabled = NO;
+        _R1_C4.enabled = NO;
+        _R2_C1.enabled = NO;
+        _R2_C2.enabled = NO;
+        _R2_C3.enabled = NO;
+        _R2_C4.enabled = NO;
+        _R3_C1.enabled = NO;
+        _R3_C2.enabled = NO;
+        _R3_C3.enabled = NO;
+        _R3_C4.enabled = NO;
+        _R4_C1.enabled = NO;
+        _R4_C2.enabled = NO;
+        _R4_C3.enabled = NO;
+        _R4_C4.enabled = NO;
+        [UIView animateWithDuration:0.8 animations:^{
+            _guide_view.alpha = 0.0;
+        }];
+        //get usertap point
+        float x, y , width, height;
+        x = _usertap_view.frame.origin.x;
+        y = _usertap_view.frame.origin.y;
+        width = _usertap_view.frame.size.width;
+        height = _usertap_view.frame.size.height;
+        [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            _usertap_view.frame = CGRectMake(x, y + 800, width, height);
+            _time_dis.alpha = 0;
+            _seconds_unit.alpha = 0;
+        }completion:nil];
+        //segue to next view
+        double delayInSeconds = 1.8;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            //this will be executed after 1 seconds
+            [self performSegueWithIdentifier:@"1-2" sender:nil];
+        });
+    }
 }
 @end

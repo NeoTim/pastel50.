@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="h0d-lw-eIB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RAb-CG-KOc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -118,7 +118,8 @@
                         <outlet property="activity_indicator" destination="odZ-zH-Zom" id="4sw-PS-2Fb"/>
                         <outlet property="background_img" destination="tfJ-d5-Eyx" id="bM2-Qd-mwf"/>
                         <outlet property="quote_view" destination="G1e-ff-ID1" id="BKV-I4-sOj"/>
-                        <segue destination="h0d-lw-eIB" kind="push" identifier="game1" id="sB8-aK-vfw"/>
+                        <segue destination="eyd-XV-MYd" kind="push" identifier="game1" id="sSU-wD-vBo"/>
+                        <segue destination="Rhd-iD-iV7" kind="push" id="Alb-Te-NKx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6T-H0-NIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,10 +142,59 @@
             </objects>
             <point key="canvasLocation" x="185" y="307"/>
         </scene>
-        <!--game-->
+        <!--trans to 1-->
+        <scene sceneID="5KT-Wt-izl">
+            <objects>
+                <viewController title="trans to 1" id="eyd-XV-MYd" customClass="transitonto1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xF3-mf-1an">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o1l-ap-qlQ">
+                                <rect key="frame" x="148" y="158" width="25" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HRZ-gh-jnP">
+                                <rect key="frame" x="89" y="125" width="142" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SG50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iJC-nT-tmH">
+                                <rect key="frame" x="78" y="197" width="165" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="25"/>
+                                <color key="textColor" red="0.38319262859999997" green="0.38318115470000003" blue="0.38318768139999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imglogo2.png" id="IcM-mN-9BS">
+                                <rect key="frame" x="85" y="316" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HR1-xv-yB3"/>
+                    <connections>
+                        <outlet property="h1" destination="HRZ-gh-jnP" id="a0V-Dn-xmO"/>
+                        <outlet property="h2" destination="o1l-ap-qlQ" id="r0k-dn-B2V"/>
+                        <outlet property="h3" destination="iJC-nT-tmH" id="JKL-d7-tjp"/>
+                        <outlet property="logo" destination="IcM-mN-9BS" id="tML-sy-XJm"/>
+                        <segue destination="h0d-lw-eIB" kind="modal" identifier="togame1" modalTransitionStyle="crossDissolve" id="ozv-zt-tjd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zb9-qo-8tx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="-565"/>
+        </scene>
+        <!--game level 1-->
         <scene sceneID="1ll-C6-E4q">
             <objects>
-                <viewController title="game" id="h0d-lw-eIB" customClass="game1" sceneMemberID="viewController">
+                <viewController title="game level 1" id="h0d-lw-eIB" customClass="game1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mfd-aG-05T">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -447,11 +497,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mEO-aI-6jr">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="c3s-rX-7EI">
+                                            <rect key="frame" x="74" y="198" width="172" height="172"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ryq-TS-Fjm">
                                             <rect key="frame" x="85" y="209" width="150" height="150"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="49"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="61"/>
+                                            <color key="textColor" red="0.95075207949999996" green="0.95072358850000005" blue="0.95073968170000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -496,21 +550,475 @@
                         <outlet property="R4_C4" destination="uWJ-IY-51R" id="b51-7t-wk4"/>
                         <outlet property="R4_C4_G" destination="UaA-Jn-ZGK" id="Y9r-el-u25"/>
                         <outlet property="countdown_blurview" destination="4TF-RF-EXo" id="naQ-xy-Hjj"/>
-                        <outlet property="countdown_start_label" destination="mEO-aI-6jr" id="ORW-4m-aoL"/>
+                        <outlet property="countdown_start_label" destination="Ryq-TS-Fjm" id="frP-hx-GqC"/>
                         <outlet property="guide_view" destination="efp-ZR-5Aw" id="D8a-ZL-Ssy"/>
                         <outlet property="progress_view_time" destination="VUF-it-5Fh" id="GPp-Of-Fg9"/>
                         <outlet property="seconds_unit" destination="1FA-AV-jxz" id="Kwg-RT-lsl"/>
                         <outlet property="time_disp" destination="Cst-HL-nlU" id="hvt-PR-XnW"/>
                         <outlet property="usertap_view" destination="9F6-Px-JOB" id="OI3-Ab-XKX"/>
+                        <segue destination="Rhd-iD-iV7" kind="modal" identifier="1-2" animates="NO" id="rtH-Rf-aBV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YM2-K9-fgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="307"/>
+            <point key="canvasLocation" x="1487" y="-574"/>
+        </scene>
+        <!--transition 2-->
+        <scene sceneID="li6-XP-dmv">
+            <objects>
+                <viewController title="transition 2" id="Rhd-iD-iV7" customClass="WinViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mxu-P4-GvD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="changi.png" id="Bbs-Qg-ueR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="As9-JG-Ikp">
+                                <rect key="frame" x="148" y="151" width="25" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level II" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h6d-dB-T44">
+                                <rect key="frame" x="89" y="118" width="142" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Changi Airport" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cBZ-gt-2Sz">
+                                <rect key="frame" x="78" y="190" width="165" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="25"/>
+                                <color key="textColor" red="0.38319262862205505" green="0.38318115472793579" blue="0.3831876814365387" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tBc-1I-skh"/>
+                    <connections>
+                        <outlet property="background" destination="Bbs-Qg-ueR" id="kP9-q5-0Om"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ZX-ZD-cmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="140"/>
+        </scene>
+        <!--game2-->
+        <scene sceneID="kmC-y1-1HP">
+            <objects>
+                <viewController title="game2" id="RAb-CG-KOc" customClass="game2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k2x-ar-TLe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="ZoI-kK-hUi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="JOG-ls-V8V" userLabel="guideView">
+                                        <rect key="frame" x="114" y="460" width="94" height="94"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="ObF-mX-8PT">
+                                                <rect key="frame" x="47" y="7" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="1tB-D9-6PM">
+                                                <rect key="frame" x="67" y="7" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="P8T-oU-ccs">
+                                                <rect key="frame" x="28" y="7" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="6Ds-fy-32e">
+                                                <rect key="frame" x="47" y="26" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="WJm-3B-QKp">
+                                                <rect key="frame" x="67" y="26" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="vkm-aX-YQH">
+                                                <rect key="frame" x="8" y="26" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="chm-Wp-hMv">
+                                                <rect key="frame" x="28" y="26" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hollowdot.png" id="oMQ-Mw-t8T">
+                                                <rect key="frame" x="47" y="46" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hollowdot.png" id="9SZ-IZ-xUb">
+                                                <rect key="frame" x="67" y="46" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hollowdot.png" id="VvJ-LL-vJ2">
+                                                <rect key="frame" x="8" y="46" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hollowdot.png" id="yXj-Jo-cWv">
+                                                <rect key="frame" x="28" y="46" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hollowdot.png" id="enh-pR-s01">
+                                                <rect key="frame" x="47" y="66" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hollowdot.png" id="jj1-Wv-vt3">
+                                                <rect key="frame" x="67" y="66" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hollowdot.png" id="6K8-1Y-ofl">
+                                                <rect key="frame" x="8" y="66" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hollowdot.png" id="lQ2-bl-OEC">
+                                                <rect key="frame" x="28" y="66" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="LLt-Uk-L1K">
+                                                <rect key="frame" x="8" y="7" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.95075207949999996" green="0.95072358850000005" blue="0.95073968170000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wo7-Oc-Z4F" userLabel="timedisp">
+                                        <rect key="frame" x="115" y="51" width="91" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="25"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t9F-vC-JaW" userLabel="time">
+                                        <rect key="frame" x="142" y="30" width="38" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
+                                        <color key="textColor" red="0.68708586689999995" green="0.68706530330000004" blue="0.68707698579999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="center" id="9tS-ND-WQh" userLabel="mainusertap_container">
+                                        <rect key="frame" x="0.0" y="102" width="320" height="344"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oJg-g2-Dez">
+                                                <rect key="frame" x="8" y="20" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R1_C1">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R1_C1:" destination="RAb-CG-KOc" eventType="touchUpInside" id="Smk-6u-4HL"/>
+                                                    <action selector="R1_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="T3s-vp-7Mh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qJq-eH-SNb">
+                                                <rect key="frame" x="86" y="20" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R1_C2">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R1_C2:" destination="RAb-CG-KOc" eventType="touchUpInside" id="Fzj-kQ-x88"/>
+                                                    <action selector="R1_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="Lit-Dx-Rmu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aeY-AG-xof">
+                                                <rect key="frame" x="164" y="20" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R1_C3">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R1_C3:" destination="RAb-CG-KOc" eventType="touchUpInside" id="Ppf-tB-78x"/>
+                                                    <action selector="R1_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="SWz-yi-VGl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gDy-fT-9AF">
+                                                <rect key="frame" x="8" y="98" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R2_C1">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R2_C1:" destination="RAb-CG-KOc" eventType="touchUpInside" id="4dR-Ex-Sdf"/>
+                                                    <action selector="R2_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="KsY-J9-SYh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="57C-Gv-db6">
+                                                <rect key="frame" x="86" y="98" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R2_C2">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R2_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="8pu-F1-e9c"/>
+                                                    <action selector="R2_C2:" destination="RAb-CG-KOc" eventType="touchUpInside" id="uhy-5X-Zhg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UOU-Zr-75Z">
+                                                <rect key="frame" x="164" y="98" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R2_C3">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R2_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="85I-Yi-3y5"/>
+                                                    <action selector="R2_C3:" destination="RAb-CG-KOc" eventType="touchUpInside" id="AjE-if-jSj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dyh-lu-1Yy">
+                                                <rect key="frame" x="242" y="98" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R2_C4">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R2_C4:" destination="RAb-CG-KOc" eventType="touchUpInside" id="aOz-Gn-Wvh"/>
+                                                    <action selector="R2_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="vW5-5f-sIV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ObP-9x-gk6">
+                                                <rect key="frame" x="8" y="176" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R3_C1">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R3_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="HJO-TA-tFJ"/>
+                                                    <action selector="R3_C1:" destination="RAb-CG-KOc" eventType="touchUpInside" id="VEy-k3-LBq"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6dT-aX-VzW">
+                                                <rect key="frame" x="86" y="176" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R3_C2">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R3_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="H2y-Ql-yhd"/>
+                                                    <action selector="R3_C2:" destination="RAb-CG-KOc" eventType="touchUpInside" id="WDB-EP-1gr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EY0-6n-zHp">
+                                                <rect key="frame" x="164" y="176" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R3_C3">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R3_C3:" destination="RAb-CG-KOc" eventType="touchUpInside" id="0rz-DY-9Tt"/>
+                                                    <action selector="R3_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="GJr-U5-aKz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cQw-Ec-buD">
+                                                <rect key="frame" x="242" y="176" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R3_C4">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R3_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="Ybe-Xj-PWA"/>
+                                                    <action selector="R3_C4:" destination="RAb-CG-KOc" eventType="touchUpInside" id="v2l-FO-fUH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zQE-t9-pUF">
+                                                <rect key="frame" x="8" y="254" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R4_C1">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R4_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="R5Q-E1-Ceb"/>
+                                                    <action selector="R4_C1:" destination="RAb-CG-KOc" eventType="touchUpInside" id="kF9-dF-1uA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SY4-DK-nDP">
+                                                <rect key="frame" x="86" y="254" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R4_C2">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R4_C2:" destination="RAb-CG-KOc" eventType="touchUpInside" id="Nda-Jm-sh6"/>
+                                                    <action selector="R4_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="fLl-mj-e6D"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fau-m7-a6m">
+                                                <rect key="frame" x="164" y="254" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R4_C3">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R4_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="Q6t-m9-N8I"/>
+                                                    <action selector="R4_C3:" destination="RAb-CG-KOc" eventType="touchUpInside" id="mO3-gz-l3p"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6dc-Sl-FWM">
+                                                <rect key="frame" x="242" y="254" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R4_C4">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R4_C4:" destination="RAb-CG-KOc" eventType="touchUpInside" id="hui-Ew-SfG"/>
+                                                    <action selector="R4_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="re2-hJ-0iZ"/>
+                                                </connections>
+                                            </button>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="hiM-0y-E7G">
+                                                <rect key="frame" x="0.0" y="342" width="320" height="2"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                <color key="progressTintColor" red="0.8636885285" green="0.36025351290000002" blue="0.37666141990000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="trackTintColor" red="0.68708586689999995" green="0.68706530330000004" blue="0.68707698579999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </progressView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W6i-rk-cbP">
+                                                <rect key="frame" x="242" y="20" width="70" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="R1_C4">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="R1_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="gNv-cA-yIZ"/>
+                                                    <action selector="R1_C4:" destination="RAb-CG-KOc" eventType="touchUpInside" id="zDa-RT-Blz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.95075207949999996" green="0.95072358850000005" blue="0.95073968170000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" id="Eyi-Fz-rNA" userLabel="blurview">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bom-vV-h2U" userLabel="count_down view">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="1Ak-C8-hc5">
+                                            <rect key="frame" x="74" y="198" width="172" height="172"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZNf-K0-FxY">
+                                            <rect key="frame" x="85" y="209" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="61"/>
+                                            <color key="textColor" red="0.95075207949999996" green="0.95072358850000005" blue="0.95073968170000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="R1_C1" destination="oJg-g2-Dez" id="eUW-uB-mW1"/>
+                        <outlet property="R1_C1_G" destination="LLt-Uk-L1K" id="Ohd-0X-N8n"/>
+                        <outlet property="R1_C2" destination="qJq-eH-SNb" id="Fly-tw-G7I"/>
+                        <outlet property="R1_C2_G" destination="P8T-oU-ccs" id="5OA-w5-bYy"/>
+                        <outlet property="R1_C3" destination="aeY-AG-xof" id="VZ6-Wo-ymf"/>
+                        <outlet property="R1_C3_G" destination="ObF-mX-8PT" id="aaw-Ru-uny"/>
+                        <outlet property="R1_C4" destination="W6i-rk-cbP" id="xnp-EW-bDU"/>
+                        <outlet property="R1_C4_G" destination="1tB-D9-6PM" id="DGD-sF-0fW"/>
+                        <outlet property="R2_C1" destination="gDy-fT-9AF" id="cSc-TK-78w"/>
+                        <outlet property="R2_C1_G" destination="vkm-aX-YQH" id="ZgW-Yz-cHW"/>
+                        <outlet property="R2_C2" destination="57C-Gv-db6" id="J8J-zw-NBx"/>
+                        <outlet property="R2_C2_G" destination="chm-Wp-hMv" id="a0l-yZ-fuj"/>
+                        <outlet property="R2_C3" destination="UOU-Zr-75Z" id="wvp-Po-fno"/>
+                        <outlet property="R2_C3_G" destination="6Ds-fy-32e" id="pgw-58-ufC"/>
+                        <outlet property="R2_C4" destination="dyh-lu-1Yy" id="XGA-Kb-wvG"/>
+                        <outlet property="R2_C4_G" destination="WJm-3B-QKp" id="pwz-ST-UTS"/>
+                        <outlet property="R3_C1" destination="ObP-9x-gk6" id="pDW-k9-NDa"/>
+                        <outlet property="R3_C1_G" destination="VvJ-LL-vJ2" id="eMV-MU-OSi"/>
+                        <outlet property="R3_C2" destination="6dT-aX-VzW" id="73V-tp-otW"/>
+                        <outlet property="R3_C2_G" destination="yXj-Jo-cWv" id="Qml-2Y-cgv"/>
+                        <outlet property="R3_C3" destination="EY0-6n-zHp" id="UUz-n7-KOK"/>
+                        <outlet property="R3_C3_G" destination="oMQ-Mw-t8T" id="5c0-pQ-2hp"/>
+                        <outlet property="R3_C4" destination="cQw-Ec-buD" id="27e-sX-10t"/>
+                        <outlet property="R3_C4_G" destination="9SZ-IZ-xUb" id="Unh-T4-0as"/>
+                        <outlet property="R4_C1" destination="zQE-t9-pUF" id="Htk-lT-Fvy"/>
+                        <outlet property="R4_C1_G" destination="6K8-1Y-ofl" id="eHL-9z-WWg"/>
+                        <outlet property="R4_C2" destination="SY4-DK-nDP" id="fNd-jP-cUJ"/>
+                        <outlet property="R4_C2_G" destination="lQ2-bl-OEC" id="cfD-bm-7Pb"/>
+                        <outlet property="R4_C3" destination="fau-m7-a6m" id="FvN-Ni-Z9f"/>
+                        <outlet property="R4_C3_G" destination="enh-pR-s01" id="jA2-ty-4HU"/>
+                        <outlet property="R4_C4" destination="6dc-Sl-FWM" id="5k7-CS-CSB"/>
+                        <outlet property="R4_C4_G" destination="jj1-Wv-vt3" id="KG9-iZ-y1h"/>
+                        <outlet property="blurview" destination="Eyi-Fz-rNA" id="5lq-GO-SRc"/>
+                        <outlet property="countdown_label" destination="ZNf-K0-FxY" id="zpW-f3-OF9"/>
+                        <outlet property="guide_view" destination="JOG-ls-V8V" id="y7P-At-i1O"/>
+                        <outlet property="progress_view_time" destination="hiM-0y-E7G" id="3DD-K8-Hup"/>
+                        <outlet property="seconds_unit" destination="t9F-vC-JaW" id="qAu-ss-j3N"/>
+                        <outlet property="time_dis" destination="wo7-Oc-Z4F" id="X9r-fE-CZu"/>
+                        <outlet property="usertap_view" destination="9tS-ND-WQh" id="IVb-J1-dZI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ftV-wv-YkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1487" y="140"/>
+        </scene>
+        <!--Lost-->
+        <scene sceneID="qhf-aR-pb2">
+            <objects>
+                <viewController title="Lost" id="9FL-TR-P34" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fX2-dz-zfU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lw3-Zl-dMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1957" y="162"/>
         </scene>
     </scenes>
     <resources>
         <image name="HDB_pic.jpg" width="2048" height="671"/>
+        <image name="changi.png" width="320" height="568"/>
         <image name="hollowdot.png" width="365" height="365"/>
         <image name="imglogo2.png" width="365" height="365"/>
         <image name="pastel 50 bck.png" width="1603" height="2610"/>
@@ -522,4 +1030,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="rtH-Rf-aBV"/>
+    </inferredMetricsTieBreakers>
 </document>
