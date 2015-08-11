@@ -760,11 +760,16 @@ double time_count = 0;
             & gamestate[1][0] == current_wanted_state [1][0] & gamestate[1][1] == current_wanted_state [1][1] & gamestate[1][2] == current_wanted_state [1][2] & gamestate[1][3] == current_wanted_state [1][3]
             & gamestate[2][0] == current_wanted_state [2][0] & gamestate[2][1] == current_wanted_state [2][1] & gamestate[2][2] == current_wanted_state [2][2] & gamestate[2][3] == current_wanted_state [2][3]
             & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & gamedidstart == YES & game_level_count == 2 & time_count < 30){
-       //stop game, user has done 3 in 30 secs
+       //stop game, user has done 3
        game_level_count = 0;
        //kill game
        [timer invalidate];
        timer = nil;
+       //get time value and carry forward
+       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+       NSLog(@"time left is, %f", time_left);
+       [defaults setFloat:time_left forKey:@"time_carried_forward"];
+       //
        time_count = 0;
        //lockdown
        _R1_C1.enabled = NO;

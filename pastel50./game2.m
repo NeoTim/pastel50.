@@ -20,8 +20,13 @@ int current_wanted_state_game2 [4][4];
 int game2_level_count;
 //timer
 NSTimer *timer_game2;
+NSTimer *timer_carriedforward_game2;
+bool game2didend;
+//time values
 double time_left_game2 = 35;
 double time_count_game2 = 0;
+float timecarried_forward;
+
 ///////////////////////ALL THE CHRONOS STUFF
 //countdown start timer
 -(void) gamestart_countdown{
@@ -62,18 +67,15 @@ double time_count_game2 = 0;
     //start persec timer
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(persec:) userInfo:nil repeats:YES];
 }
--(void) persec: (NSTimer*)persectimer {
-    time_count_game2 ++;
-    if (time_count_game2 > 35/2) {
-        _progress_view_time.progressTintColor = [UIColor redColor];
-    }
-    if (time_count_game2 > 25) {
-        [UIView animateWithDuration:0.4 animations:^{
-            [_time_dis setTextColor:[UIColor redColor]];
-        }];
-    }
-    if (time_count_game2 == 35) {
+-(void) extratime {
+    //start timer countdown for extra time
+    timecarried_forward = timecarried_forward - 0.1;
+    [_time_carried_forward_disp setText:[NSString stringWithFormat:@"+ %0.1f", timecarried_forward]];
+    //
+    if (timecarried_forward == 0 | timecarried_forward < 0) {
+        //game is over
         //LOST
+        [_time_carried_forward_disp setText:@"0.0"];
         //shake animation
         CAKeyframeAnimation *shake_animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
         shake_animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
@@ -84,8 +86,11 @@ double time_count_game2 = 0;
         [_guide_view.layer addAnimation:shake_animation forKey:@"shake"];
         //
         NSLog(@"lost the game");
+        //kill timer
         [timer_game2 invalidate];
         timer_game2 = nil;
+        [timer_carriedforward_game2 invalidate];
+        timer_carriedforward_game2 = nil;
         [_time_dis setText:@"0.0"];
         time_count_game2 = 0;
         //lockdown
@@ -118,10 +123,36 @@ double time_count_game2 = 0;
             _usertap_view.frame = CGRectMake(x, y + 800, width, height);
             _time_dis.alpha = 0;
             _seconds_unit.alpha = 0;
+            _time_carried_forward_disp.alpha = 0;
         }completion:nil];
         //segue to lose view
-        
+
     }
+}
+-(void) persec: (NSTimer*)persectimer {
+    time_count_game2 ++;
+    if (time_count_game2 > 35/2) {
+        _progress_view_time.progressTintColor = [UIColor redColor];
+    }
+    if (time_count_game2 > 25) {
+        [UIView animateWithDuration:0.4 animations:^{
+            [_time_dis setTextColor:[UIColor redColor]];
+        }];
+    }
+    if (time_count_game2 == 35 | time_count_game2 > 35) {
+        //main timer did end
+        NSLog(@"main timer did end");
+        [_time_dis setText:@"0.0"];
+        //kill main timer
+        [timer_game2 invalidate];
+        timer_game2 = nil;
+        //start extra time
+        timer_carriedforward_game2 = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(extratime) userInfo:nil repeats:YES];
+        // kill self
+        [persectimer invalidate];
+        persectimer = nil;
+    }
+    
 }
 -(void)timercount{
     //runs every 0.1 seconds
@@ -133,9 +164,23 @@ double time_count_game2 = 0;
 ///////////////////VDL
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //set timecount
+    time_count_game2 = 0;
     [_time_dis setTextColor:[UIColor blackColor]];
+    //
+    //get time carried forward
+    _time_carried_forward_disp.alpha = 0;
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    timecarried_forward = [defaults floatForKey:@"time_carried_forward"];
+    NSLog(@"timecarriedforward is %f", timecarried_forward);
+    [_time_carried_forward_disp setText:[NSString stringWithFormat:@"+ %0.1f", timecarried_forward]];
+    [UIView animateWithDuration:0.5 animations:^{
+        _time_carried_forward_disp.alpha = 1;
+    }];
+    //
     //init with countdown
     [self gamestart_countdown];
+    //
     //timer init
     [_time_dis setText:[NSString stringWithFormat:@"%0.1f", time_left_game2]];
     game2_level_count = 0;
@@ -852,22 +897,18 @@ double time_count_game2 = 0;
     if (gamestate_game2[0][0] == current_wanted_state_game2 [0][0] & gamestate_game2[0][1] == current_wanted_state_game2 [0][1] & gamestate_game2[0][2] == current_wanted_state_game2 [0][2] & gamestate_game2[0][3] == current_wanted_state_game2 [0][3]
         & gamestate_game2[1][0] == current_wanted_state_game2 [1][0] & gamestate_game2[1][1] == current_wanted_state_game2 [1][1] & gamestate_game2[1][2] == current_wanted_state_game2 [1][2] & gamestate_game2[1][3] == current_wanted_state_game2 [1][3]
         & gamestate_game2[2][0] == current_wanted_state_game2 [2][0] & gamestate_game2[2][1] == current_wanted_state_game2 [2][1] & gamestate_game2[2][2] == current_wanted_state_game2 [2][2] & gamestate_game2[2][3] == current_wanted_state_game2 [2][3]
-        & gamestate_game2[3][0] == current_wanted_state_game2 [3][0] & gamestate_game2[3][1] == current_wanted_state_game2 [3][1] & gamestate_game2[3][2] == current_wanted_state_game2 [3][2] & gamestate_game2[3][3] == current_wanted_state_game2 [3][3] & time_count_game2 < 30 & game2_level_count < 2){
+        & gamestate_game2[3][0] == current_wanted_state_game2 [3][0] & gamestate_game2[3][1] == current_wanted_state_game2 [3][1] & gamestate_game2[3][2] == current_wanted_state_game2 [3][2] & gamestate_game2[3][3] == current_wanted_state_game2 [3][3] & time_count_game2 < 30 & game2_level_count < 1){
         //level complete
         game2_level_count ++;
         NSLog(@"done, %i", game2_level_count);
         //set game progress indicator
         if (game2_level_count == 1) {
             //set game progress indicator
-            [_game_progress setProgress:(0.4) animated:YES];
+            [_game_progress setProgress:(0.5) animated:YES];
         }
         else if (game2_level_count == 2){
             //set game progress indicator
-            [_game_progress setProgress:(0.7) animated:YES];
-        }
-        else if (game2_level_count == 3){
-            //set game progress indicator
-            [_game_progress setProgress:(1) animated:YES];
+            [_game_progress setProgress:(1.0) animated:YES];
         }
         //lockdown
         _R1_C1.enabled = NO;
@@ -936,8 +977,8 @@ double time_count_game2 = 0;
     else if (gamestate_game2[0][0] == current_wanted_state_game2 [0][0] & gamestate_game2[0][1] == current_wanted_state_game2 [0][1] & gamestate_game2[0][2] == current_wanted_state_game2 [0][2] & gamestate_game2[0][3] == current_wanted_state_game2 [0][3]
              & gamestate_game2[1][0] == current_wanted_state_game2 [1][0] & gamestate_game2[1][1] == current_wanted_state_game2 [1][1] & gamestate_game2[1][2] == current_wanted_state_game2 [1][2] & gamestate_game2[1][3] == current_wanted_state_game2 [1][3]
              & gamestate_game2[2][0] == current_wanted_state_game2 [2][0] & gamestate_game2[2][1] == current_wanted_state_game2 [2][1] & gamestate_game2[2][2] == current_wanted_state_game2 [2][2] & gamestate_game2[2][3] == current_wanted_state_game2 [2][3]
-             & gamestate_game2[3][0] == current_wanted_state_game2 [3][0] & gamestate_game2[3][1] == current_wanted_state_game2 [3][1] & gamestate_game2[3][2] == current_wanted_state_game2 [3][2] & gamestate_game2[3][3] == current_wanted_state_game2 [3][3] & game2_level_count == 2 & time_count_game2 < 30){
-        //stop game, user has done 3 in 30 secs
+             & gamestate_game2[3][0] == current_wanted_state_game2 [3][0] & gamestate_game2[3][1] == current_wanted_state_game2 [3][1] & gamestate_game2[3][2] == current_wanted_state_game2 [3][2] & gamestate_game2[3][3] == current_wanted_state_game2 [3][3] & game2_level_count == 1 & time_count_game2 < 30){
+        //stop game, user has done 2 in 30 secs
         game2_level_count = 0;
         //kill game
         [timer_game2 invalidate];
@@ -973,6 +1014,7 @@ double time_count_game2 = 0;
             _usertap_view.frame = CGRectMake(x, y + 800, width, height);
             _time_dis.alpha = 0;
             _seconds_unit.alpha = 0;
+            _time_carried_forward_disp.alpha = 0;
         }completion:nil];
         //segue to next view
         double delayInSeconds = 1.8;

@@ -11,6 +11,7 @@
 @interface game2 : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *time_dis;
 @property (strong, nonatomic) IBOutlet UILabel *seconds_unit;
+@property (strong, nonatomic) IBOutlet UILabel *time_carried_forward_disp;
 
 //MAIN USER TAP
 @property (strong, nonatomic) IBOutlet UIView *usertap_view;

@@ -31,39 +31,21 @@
     
 }
 -(void) getquote {
-    int rand = arc4random()%9;
+    int rand = arc4random()%3;
     if (rand == 0) {
         [_quote_view setText:@"You can find the national anthem in Micro-text on the back of the 1000-dollar note"];
     }
     if (rand == 1) {
-        [_quote_view setText:@""];
+        [_quote_view setText:@"Singapore is one of the most densely populated country in the world, with 6,430 people per square kilometre."];
     }
     if (rand == 2) {
-        [_quote_view setText:@""];
+        [_quote_view setText:@"The buildings of suntec city has been built in the shape of a palm of a hand symbolising good 'fengshui'"];
     }
     if (rand == 3) {
-        [_quote_view setText:@""];
-    }
-    if (rand == 4) {
-        [_quote_view setText:@""];
-    }
-    if (rand == 5) {
-        [_quote_view setText:@""];
-    }
-    if (rand == 6) {
-        [_quote_view setText:@""];
-    }
-    if (rand == 7) {
-        [_quote_view setText:@""];
-    }
-    if (rand == 8) {
-        [_quote_view setText:@""];
-    }
-    if (rand == 9) {
-        [_quote_view setText:@""];
+        [_quote_view setText:@"There is a place in the world also called Singapore in Michigan"];
     }
     _quote_view.alpha = 1;
-    double delayInSeconds = 15.0;
+    double delayInSeconds = 5.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //segue

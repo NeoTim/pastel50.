@@ -17,6 +17,8 @@
 		97780BA51B72491E00228911 /* game1.m in Sources */ = {isa = PBXBuildFile; fileRef = 97780BA41B72491E00228911 /* game1.m */; };
 		97E5655A1B72058100B66B4C /* pastel50_v2-BACKGROUND.png in Resources */ = {isa = PBXBuildFile; fileRef = 97E565591B72058100B66B4C /* pastel50_v2-BACKGROUND.png */; };
 		97E5A4A71B7896B300060468 /* blu.png in Resources */ = {isa = PBXBuildFile; fileRef = 97E5A4A61B7896B300060468 /* blu.png */; };
+		97EA27D31B79EDAB00C6DD9F /* flyer.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EA27D21B79EDAB00C6DD9F /* flyer.png */; };
+		97EA27D51B79EE2000C6DD9F /* fullerton.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EA27D41B79EE2000C6DD9F /* fullerton.png */; };
 		97EB28181B70AC6000202EAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EB28171B70AC6000202EAE /* main.m */; };
 		97EB281B1B70AC6000202EAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EB281A1B70AC6000202EAE /* AppDelegate.m */; };
 		97EB281E1B70AC6000202EAE /* pastel50_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97EB281C1B70AC6000202EAE /* pastel50_.xcdatamodeld */; };
@@ -54,6 +56,8 @@
 		97780BA41B72491E00228911 /* game1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game1.m; sourceTree = "<group>"; };
 		97E565591B72058100B66B4C /* pastel50_v2-BACKGROUND.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pastel50_v2-BACKGROUND.png"; sourceTree = "<group>"; };
 		97E5A4A61B7896B300060468 /* blu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blu.png; sourceTree = "<group>"; };
+		97EA27D21B79EDAB00C6DD9F /* flyer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flyer.png; sourceTree = "<group>"; };
+		97EA27D41B79EE2000C6DD9F /* fullerton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullerton.png; sourceTree = "<group>"; };
 		97EB28121B70AC6000202EAE /* pastel50..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pastel50..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EB28161B70AC6000202EAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97EB28171B70AC6000202EAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 				97E5A4A81B7896C400060468 /* dots */,
 				97E565591B72058100B66B4C /* pastel50_v2-BACKGROUND.png */,
 				97780B9B1B723B8900228911 /* HDB_pic.jpg */,
+				97EA27D41B79EE2000C6DD9F /* fullerton.png */,
+				97EA27D21B79EDAB00C6DD9F /* flyer.png */,
 				9771D8CC1B70E1D3007C8B43 /* imglogo2.png */,
 			);
 			name = image_res;
@@ -298,9 +304,11 @@
 				97E5655A1B72058100B66B4C /* pastel50_v2-BACKGROUND.png in Resources */,
 				97E5A4A71B7896B300060468 /* blu.png in Resources */,
 				97780B9C1B723B8900228911 /* HDB_pic.jpg in Resources */,
+				97EA27D31B79EDAB00C6DD9F /* flyer.png in Resources */,
 				97EF244D1B7873770030FE8B /* changi.png in Resources */,
 				97780B961B72311900228911 /* pastel 50 bck.png in Resources */,
 				97EB28291B70AC6000202EAE /* LaunchScreen.xib in Resources */,
+				97EA27D51B79EE2000C6DD9F /* fullerton.png in Resources */,
 				97EB28261B70AC6000202EAE /* Images.xcassets in Resources */,
 				9771D8CD1B70E1D3007C8B43 /* imglogo2.png in Resources */,
 			);
@@ -458,7 +466,7 @@
 				INFOPLIST_FILE = pastel50./Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -470,7 +478,7 @@
 				INFOPLIST_FILE = pastel50./Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
