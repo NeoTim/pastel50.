@@ -14,6 +14,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *pastel_text;
 @property (strong, nonatomic) IBOutlet UIButton *start_button;
 - (IBAction)start_button:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *settings_button;
+- (IBAction)settings_button:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIView *bottom_view;
 @property (strong, nonatomic) IBOutlet UIImageView *sg50_mg;
 @property (strong, nonatomic) IBOutlet UIView *logo_view;

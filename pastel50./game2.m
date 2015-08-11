@@ -152,14 +152,14 @@ float timecarried_forward;
         [persectimer invalidate];
         persectimer = nil;
     }
-    
+
 }
 -(void)timercount{
     //runs every 0.1 seconds
     time_left_game2 = time_left_game2 - 0.1;
     [_progress_view_time setProgress: (time_left_game2 / 35) animated:YES];
     [_time_dis setText:[NSString stringWithFormat:@"%0.1f", time_left_game2]];
-    
+
 }
 ///////////////////VDL
 - (void)viewDidLoad {
@@ -217,7 +217,7 @@ float timecarried_forward;
     current_wanted_state_game2[2][0] = arc4random()%3; current_wanted_state_game2[2][1] = arc4random()%3; current_wanted_state_game2[2][2] = arc4random()%3; current_wanted_state_game2[2][3] = arc4random()%3;
     //rand for row 4
     current_wanted_state_game2[3][0] = arc4random()%3; current_wanted_state_game2[3][1] = arc4random()%3; current_wanted_state_game2[3][2] = arc4random()%3; current_wanted_state_game2[3][3] = arc4random()%3;
-    
+
     //set guideview
     //////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW1
@@ -387,7 +387,7 @@ float timecarried_forward;
     [UIView animateWithDuration:1 delay:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _guide_view.alpha = 1;
     }completion:nil];
-    
+
     ////////////////////////////////////////////////////////////////////////////////
     //RANDOM FOR GAME STATE
     //rand for row 1
@@ -398,7 +398,7 @@ float timecarried_forward;
     gamestate_game2[2][0] = arc4random()%3; gamestate_game2[2][1] = arc4random()%3; gamestate_game2[2][2] = arc4random()%3; gamestate_game2[2][3] = arc4random()%3;
     //rand for row 4
     gamestate_game2[3][0] = arc4random()%3; gamestate_game2[3][1] = arc4random()%3; gamestate_game2[3][2] = arc4random()%3; gamestate_game2[3][3] = arc4random()%3;
-    
+
     //set MAIN PLAYER VIEW
     //////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW1
@@ -564,8 +564,8 @@ float timecarried_forward;
     else{
         [_R4_C4 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
-    
-    
+
+
 }
 
 /////////////BUTTON MAIN IBACTIONS
@@ -626,7 +626,7 @@ float timecarried_forward;
     }
     //check
     [self check];
-    
+
 }
 - (IBAction)R1_C4:(id)sender{
     if (gamestate_game2[0][3] == 1) {
@@ -646,7 +646,7 @@ float timecarried_forward;
     }
     //check
     [self check];
-    
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -669,7 +669,7 @@ float timecarried_forward;
     }
     //check
     [self check];
-    
+
 }
 - (IBAction)R2_C2:(id)sender{
     if (gamestate_game2[1][1] == 1) {
@@ -727,7 +727,7 @@ float timecarried_forward;
     }
     //check
     [self check];
-    
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -769,7 +769,7 @@ float timecarried_forward;
     }
     //check
     [self check];
-    
+
 }
 - (IBAction)R3_C3:(id)sender{
     if (gamestate_game2[2][2] == 1) {
@@ -789,7 +789,7 @@ float timecarried_forward;
     }
     //check
     [self check];
-    
+
 }
 - (IBAction)R3_C4:(id)sender{
     if (gamestate_game2[2][3] == 1) {
@@ -869,7 +869,7 @@ float timecarried_forward;
     }
     //check
     [self check];
-    
+
 }
 - (IBAction)R4_C4:(id)sender{
     if (gamestate_game2[3][3] == 1) {
@@ -889,7 +889,7 @@ float timecarried_forward;
     }
     //check
     [self check];
-    
+
 }
 
 //CHECK THE FRGN FUCNTIONS
@@ -941,7 +941,7 @@ float timecarried_forward;
             _usertap_view.frame = CGRectMake(x, y + 800, width, height);
         }completion:nil];
         //have time to switch rand
-        double delayInSeconds = 1.6;
+        double delayInSeconds = 0.7;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             //randomise view

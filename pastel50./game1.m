@@ -14,6 +14,7 @@
 
 @implementation game1
 bool gamedidstart;
+bool didplay_before;
 //initwith array state
 int gamestate [4][4];
 int current_wanted_state [4][4];
@@ -26,6 +27,9 @@ double time_count = 0;
 ///////////////////////ALL THE CHRONOS STUFF
 //countdown start timer
 -(void) gamestart_countdown{
+  //get bool for first time
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  didplay_before = [defaults boolForKey:@"didplay"];
     double delayInSeconds = 1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -33,21 +37,49 @@ double time_count = 0;
         [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [_countdown_start_label setText:@"2"];
             _countdown_blurview.alpha = 0.8;
+            //didplay_before
+            if (didplay_before == YES) {
+              //initwith tut
+                [_tutorial_label setText:@"Tap the dots to change their color"];
+
+            }
+            else{
+                didplay_before = YES;
+                [defaults setBool:didplay_before forKey:@"didplay"];
+            }
         }completion:nil];
-        double delayInSeconds = 1.0;
+        double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             //this will be executed after 2 seconds
             [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 [_countdown_start_label setText:@"1"];
                 _countdown_blurview.alpha = 0.7;
+                if (didplay_before == YES) {
+                  //initwith tut
+                    [_tutorial_label setText:@"Complete all of the sets within the time limit"];
+                }
+                else{
+                  didplay_before = YES;
+                    [defaults setBool:didplay_before forKey:@"didplay"];
+
+                }
             }completion:nil];
-            double delayInSeconds = 1.0;
+            double delayInSeconds = 2.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 //this will be executed after 3 seconds
                 [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                     _countdown_blurview.alpha = 0;
+                    if (didplay_before == YES) {
+                      //initwith tut
+                        [_tutorial_label setText:@""];
+
+                    }
+                    else{
+                    didplay_before = YES;
+                    [defaults setBool:didplay_before forKey:@"didplay"];
+                    }
                 }completion:nil];
                 [self timer_start];
             });
@@ -118,7 +150,7 @@ double time_count = 0;
             _progress_view_time.alpha = 0;
         }completion:nil];
         //segue to lose view
-        
+
     }
 }
 -(void)timercount{
@@ -133,9 +165,8 @@ double time_count = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_time_disp setTextColor:[UIColor blackColor]];
-    //init with countdown
-    [self gamestart_countdown];
     //timer init
+    [self gamestart_countdown];
     [_time_disp setText:[NSString stringWithFormat:@"%0.1f", time_left]];
     game_level_count = 0;
     //init with drawings
@@ -171,7 +202,7 @@ double time_count = 0;
     current_wanted_state[2][0] = arc4random()%2; current_wanted_state[2][1] = arc4random()%2; current_wanted_state[2][2] = arc4random()%2; current_wanted_state[2][3] = arc4random()%2;
     //rand for row 4
     current_wanted_state[3][0] = arc4random()%2; current_wanted_state[3][1] = arc4random()%2; current_wanted_state[3][2] = arc4random()%2; current_wanted_state[3][3] = arc4random()%2;
-    
+
     //set guideview
     //////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW1
@@ -293,7 +324,7 @@ double time_count = 0;
     [UIView animateWithDuration:1 delay:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _guide_view.alpha = 1;
     }completion:nil];
-    
+
     ////////////////////////////////////////////////////////////////////////////////
     //RANDOM FOR GAME STATE
     //rand for row 1
@@ -304,7 +335,7 @@ double time_count = 0;
     gamestate[2][0] = arc4random()%2; gamestate[2][1] = arc4random()%2; gamestate[2][2] = arc4random()%2; gamestate[2][3] = arc4random()%2;
     //rand for row 4
     gamestate[3][0] = arc4random()%2; gamestate[3][1] = arc4random()%2; gamestate[3][2] = arc4random()%2; gamestate[3][3] = arc4random()%2;
-    
+
     //set MAIN PLAYER VIEW
     //////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW1
@@ -423,7 +454,7 @@ double time_count = 0;
         [_R4_C4 setImage:[UIImage imageNamed:@"hollowdot"] forState:UIControlStateNormal];
     }
 
-    
+
 }
 
 /////////////BUTTON MAIN IBACTIONS
@@ -502,7 +533,7 @@ double time_count = 0;
     }
     //check
     [self check];
-    
+
 }
 - (IBAction)R2_C2:(id)sender{
     if (gamestate[1][1] == 1) {
@@ -545,7 +576,7 @@ double time_count = 0;
     }
     //check
     [self check];
-    
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -577,7 +608,7 @@ double time_count = 0;
     }
     //check
     [self check];
-    
+
 }
 - (IBAction)R3_C3:(id)sender{
     if (gamestate[2][2] == 1) {
@@ -592,7 +623,7 @@ double time_count = 0;
     }
     //check
     [self check];
-    
+
 }
 - (IBAction)R3_C4:(id)sender{
     if (gamestate[2][3] == 1) {
@@ -652,7 +683,7 @@ double time_count = 0;
     }
     //check
     [self check];
-    
+
 }
 - (IBAction)R4_C4:(id)sender{
     if (gamestate[3][3] == 1) {
@@ -667,7 +698,7 @@ double time_count = 0;
     }
     //check
     [self check];
-    
+
 }
 
 //CHECK THE FRGN FUCNTIONS
@@ -723,7 +754,7 @@ double time_count = 0;
             _usertap_view.frame = CGRectMake(x, y + 800, width, height);
         }completion:nil];
         //have time to switch rand
-        double delayInSeconds = 1.6;
+        double delayInSeconds = 0.7;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             //randomise view
@@ -812,4 +843,5 @@ double time_count = 0;
        });
    }
 }
+
 @end
