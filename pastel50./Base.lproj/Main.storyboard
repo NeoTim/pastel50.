@@ -49,7 +49,7 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B9i-HI-8WS">
-                                                    <rect key="frame" x="89" y="69" width="142" height="57"/>
+                                                    <rect key="frame" x="89" y="41" width="142" height="57"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="29"/>
@@ -62,7 +62,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="J3s-lm-q7b">
-                                                    <rect key="frame" x="89" y="157" width="142" height="57"/>
+                                                    <rect key="frame" x="89" y="113" width="142" height="57"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.95075207949999996" green="0.95072358850000005" blue="0.95073968170000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="28"/>
@@ -94,12 +94,12 @@
                         <outlet property="settings_button" destination="J3s-lm-q7b" id="zji-6r-cRB"/>
                         <outlet property="sg50_mg" destination="41M-jd-7dE" id="bd7-xW-Deh"/>
                         <outlet property="start_button" destination="B9i-HI-8WS" id="RJv-ld-PLv"/>
-                        <segue destination="rMo-8a-MbY" kind="modal" identifier="gamequote" animates="NO" id="TNd-qI-NU9"/>
+                        <segue destination="oV5-hd-s6m" kind="modal" identifier="gamequote" animates="NO" id="yvU-DX-Y8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-171" y="307"/>
+            <point key="canvasLocation" x="-199" y="311"/>
         </scene>
         <!--Game selection-->
         <scene sceneID="0OU-UW-tFg">
@@ -132,29 +132,12 @@
                         <outlet property="activity_indicator" destination="odZ-zH-Zom" id="4sw-PS-2Fb"/>
                         <outlet property="background_img" destination="tfJ-d5-Eyx" id="bM2-Qd-mwf"/>
                         <outlet property="quote_view" destination="7gC-Sh-ANf" id="WcI-iD-l4P"/>
-                        <segue destination="eyd-XV-MYd" kind="push" identifier="game1" id="sSU-wD-vBo"/>
-                        <segue destination="Rhd-iD-iV7" kind="push" id="Alb-Te-NKx"/>
+                        <segue destination="yi2-GK-AET" kind="modal" identifier="next" modalTransitionStyle="flipHorizontal" id="Mif-df-MuP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6T-H0-NIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564" y="307"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="U5Y-rN-Bsj">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="rMo-8a-MbY" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="akf-II-kjr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="oV5-hd-s6m" kind="relationship" relationship="rootViewController" id="qLb-E0-LL3"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NCy-SC-1lt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="185" y="307"/>
+            <point key="canvasLocation" x="219" y="311"/>
         </scene>
         <!--trans to 1-->
         <scene sceneID="5KT-Wt-izl">
@@ -198,12 +181,12 @@
                         <outlet property="h2" destination="o1l-ap-qlQ" id="r0k-dn-B2V"/>
                         <outlet property="h3" destination="iJC-nT-tmH" id="JKL-d7-tjp"/>
                         <outlet property="logo" destination="IcM-mN-9BS" id="tML-sy-XJm"/>
-                        <segue destination="h0d-lw-eIB" kind="modal" identifier="togame1" modalTransitionStyle="crossDissolve" id="ozv-zt-tjd"/>
+                        <segue destination="h0d-lw-eIB" kind="push" identifier="togame1" id="ozv-zt-tjd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zb9-qo-8tx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="-565"/>
+            <point key="canvasLocation" x="1408" y="-277"/>
         </scene>
         <!--game level 1-->
         <scene sceneID="1ll-C6-E4q">
@@ -575,6 +558,7 @@
                         <outlet property="R4_C3_G" destination="B7L-Rd-ycn" id="a9n-HC-DRB"/>
                         <outlet property="R4_C4" destination="uWJ-IY-51R" id="b51-7t-wk4"/>
                         <outlet property="R4_C4_G" destination="UaA-Jn-ZGK" id="Y9r-el-u25"/>
+                        <outlet property="circle_countdown" destination="c3s-rX-7EI" id="7ud-Us-XVn"/>
                         <outlet property="countdown_blurview" destination="4TF-RF-EXo" id="naQ-xy-Hjj"/>
                         <outlet property="countdown_start_label" destination="Ryq-TS-Fjm" id="frP-hx-GqC"/>
                         <outlet property="game_progress" destination="9a2-EQ-iG2" id="2ph-wp-DHO"/>
@@ -585,11 +569,47 @@
                         <outlet property="tutorial_label" destination="RUN-fV-9LX" id="83l-9R-TyL"/>
                         <outlet property="usertap_view" destination="9F6-Px-JOB" id="OI3-Ab-XKX"/>
                         <segue destination="Rhd-iD-iV7" kind="modal" identifier="1-2" animates="NO" id="rtH-Rf-aBV"/>
+                        <segue destination="9FL-TR-P34" kind="push" identifier="lost" id="adx-nh-RMr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YM2-K9-fgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1487" y="-574"/>
+            <point key="canvasLocation" x="1839" y="-286"/>
+        </scene>
+        <!--2-->
+        <scene sceneID="kE9-yF-f9N">
+            <objects>
+                <navigationController title="2" navigationBarHidden="YES" id="yi2-GK-AET" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4HJ-Vg-CR3"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3OV-I2-0Ut">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="y2c-7c-B8e" kind="relationship" relationship="rootViewController" id="GcP-h3-8Vu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XjY-Df-SRp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="623" y="311"/>
+        </scene>
+        <!--Main Menu-->
+        <scene sceneID="hDO-3K-hDO">
+            <objects>
+                <viewController title="Main Menu" id="y2c-7c-B8e" customClass="Main_Menu_Launchpad" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qjx-Ve-vTM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hJp-5q-grO"/>
+                    <connections>
+                        <segue destination="eyd-XV-MYd" kind="push" identifier="game1" id="TZc-6a-Dek"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3oG-sJ-JlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1023" y="311"/>
         </scene>
         <!--transition 2-->
         <scene sceneID="li6-XP-dmv">
@@ -635,7 +655,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ZX-ZD-cmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="140"/>
+            <point key="canvasLocation" x="1408" y="428"/>
+        </scene>
+        <!--level 3 splash-->
+        <scene sceneID="fTo-D2-092">
+            <objects>
+                <viewController title="level 3 splash" id="6kJ-DK-lZT" customClass="game3_splash" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IoO-aV-y2b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flyer.png" id="qSI-4Z-gCr">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="071-W5-zdD">
+                                <rect key="frame" x="148" y="151" width="25" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level III" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gQB-7y-rJS">
+                                <rect key="frame" x="89" y="118" width="142" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flyer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d02-pN-Y4r">
+                                <rect key="frame" x="78" y="190" width="165" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="27"/>
+                                <color key="textColor" red="0.38319262859999997" green="0.38318115470000003" blue="0.38318768139999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cZj-3P-Vme"/>
+                    <connections>
+                        <outlet property="background" destination="qSI-4Z-gCr" id="OTY-ih-eO8"/>
+                        <outlet property="h1" destination="gQB-7y-rJS" id="VAd-8z-Xbq"/>
+                        <outlet property="h2" destination="d02-pN-Y4r" id="a9k-Qc-VmJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yau-ag-6wv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1408" y="1143"/>
         </scene>
         <!--game2-->
         <scene sceneID="kmC-y1-1HP">
@@ -1038,32 +1105,87 @@
                         <outlet property="time_carried_forward_disp" destination="cCn-4Q-3lG" id="ssF-ye-I8H"/>
                         <outlet property="time_dis" destination="wo7-Oc-Z4F" id="X9r-fE-CZu"/>
                         <outlet property="usertap_view" destination="9tS-ND-WQh" id="IVb-J1-dZI"/>
+                        <segue destination="6kJ-DK-lZT" kind="modal" identifier="2-3" animates="NO" id="3Qr-rc-hDY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftV-wv-YkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="140"/>
+            <point key="canvasLocation" x="1852" y="428"/>
         </scene>
         <!--Lost-->
         <scene sceneID="qhf-aR-pb2">
             <objects>
-                <viewController title="Lost" id="9FL-TR-P34" sceneMemberID="viewController">
+                <viewController title="Lost" id="9FL-TR-P34" customClass="lose_view" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fX2-dz-zfU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yOd-8e-nMJ">
+                                <rect key="frame" x="112" y="364" width="97" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
+                                <state key="normal" title="Retry Level">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="retry:" destination="9FL-TR-P34" eventType="touchUpInside" id="RBD-9e-SHf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="53f-KY-TYD">
+                                <rect key="frame" x="112" y="420" width="97" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
+                                <state key="normal" title="Quit to menu">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="quit_mm:" destination="9FL-TR-P34" eventType="touchUpInside" id="toV-eX-hmv"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="merlion.png" id="DOa-nR-uBe">
+                                <rect key="frame" x="16" y="32" width="244" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You ran out of time!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S5c-Aw-Go0">
+                                <rect key="frame" x="68" y="284" width="184" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh no!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fL0-XL-eqa">
+                                <rect key="frame" x="89" y="229" width="143" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="49"/>
+                                <color key="textColor" red="0.38319262859999997" green="0.38318115470000003" blue="0.38318768139999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Hxn-6z-ynB"/>
+                    <connections>
+                        <outlet property="h1" destination="fL0-XL-eqa" id="XfK-HD-Ati"/>
+                        <outlet property="h2" destination="S5c-Aw-Go0" id="PGi-Jg-RjF"/>
+                        <outlet property="h3" destination="yOd-8e-nMJ" id="q8L-zT-UFE"/>
+                        <outlet property="mainmenu_button" destination="53f-KY-TYD" id="jvs-r8-gxY"/>
+                        <outlet property="pic" destination="DOa-nR-uBe" id="mo9-d4-zFc"/>
+                        <outlet property="retry" destination="yOd-8e-nMJ" id="WUk-fr-hKC"/>
+                        <outlet property="retry_button" destination="yOd-8e-nMJ" id="WWs-6f-BNM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lw3-Zl-dMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957" y="162"/>
+            <point key="canvasLocation" x="2380" y="-187"/>
         </scene>
     </scenes>
     <resources>
         <image name="HDB_pic.jpg" width="2048" height="671"/>
         <image name="changi.png" width="320" height="568"/>
+        <image name="flyer.png" width="320" height="568"/>
         <image name="hollowdot.png" width="365" height="365"/>
         <image name="imglogo2.png" width="365" height="365"/>
+        <image name="merlion.png" width="2714" height="1983"/>
         <image name="pastel 50 bck.png" width="1603" height="2610"/>
         <image name="pastel50_v2-BACKGROUND.png" width="1024" height="1024"/>
         <image name="soliddot.png" width="365" height="365"/>
@@ -1073,7 +1195,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="rtH-Rf-aBV"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -977,7 +977,7 @@ float timecarried_forward;
     else if (gamestate_game2[0][0] == current_wanted_state_game2 [0][0] & gamestate_game2[0][1] == current_wanted_state_game2 [0][1] & gamestate_game2[0][2] == current_wanted_state_game2 [0][2] & gamestate_game2[0][3] == current_wanted_state_game2 [0][3]
              & gamestate_game2[1][0] == current_wanted_state_game2 [1][0] & gamestate_game2[1][1] == current_wanted_state_game2 [1][1] & gamestate_game2[1][2] == current_wanted_state_game2 [1][2] & gamestate_game2[1][3] == current_wanted_state_game2 [1][3]
              & gamestate_game2[2][0] == current_wanted_state_game2 [2][0] & gamestate_game2[2][1] == current_wanted_state_game2 [2][1] & gamestate_game2[2][2] == current_wanted_state_game2 [2][2] & gamestate_game2[2][3] == current_wanted_state_game2 [2][3]
-             & gamestate_game2[3][0] == current_wanted_state_game2 [3][0] & gamestate_game2[3][1] == current_wanted_state_game2 [3][1] & gamestate_game2[3][2] == current_wanted_state_game2 [3][2] & gamestate_game2[3][3] == current_wanted_state_game2 [3][3] & game2_level_count == 1 & time_count_game2 < 30){
+             & gamestate_game2[3][0] == current_wanted_state_game2 [3][0] & gamestate_game2[3][1] == current_wanted_state_game2 [3][1] & gamestate_game2[3][2] == current_wanted_state_game2 [3][2] & gamestate_game2[3][3] == current_wanted_state_game2 [3][3] & game2_level_count == 1){
         //stop game, user has done 2 in 30 secs
         game2_level_count = 0;
         //kill game
@@ -1021,7 +1021,7 @@ float timecarried_forward;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             //this will be executed after 1 seconds
-            [self performSegueWithIdentifier:@"1-2" sender:nil];
+            [self performSegueWithIdentifier:@"2-3" sender:nil];
         });
     }
 }

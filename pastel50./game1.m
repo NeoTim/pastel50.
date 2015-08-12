@@ -27,6 +27,15 @@ double time_count = 0;
 ///////////////////////ALL THE CHRONOS STUFF
 //countdown start timer
 -(void) gamestart_countdown{
+    //set shadow
+    _circle_countdown.layer.cornerRadius = self.circle_countdown.frame.size.width/2;
+    self.circle_countdown.clipsToBounds = YES;
+    CALayer *circle_layer = _circle_countdown.layer;
+    circle_layer.shadowOffset = CGSizeMake(2, 2);
+    circle_layer.shadowRadius = 15.0f ;
+    circle_layer.shadowColor = [UIColor blackColor].CGColor;
+    circle_layer.shadowOpacity = 0.8f;
+    circle_layer.shadowPath = [[UIBezierPath bezierPathWithRect:_circle_countdown.bounds]CGPath];
   //get bool for first time
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   didplay_before = [defaults boolForKey:@"didplay"];

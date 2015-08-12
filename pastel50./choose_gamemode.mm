@@ -50,7 +50,9 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //segue
         NSLog(@"didsegue");
-        [self performSegueWithIdentifier:@"game1" sender:nil];
+        //MAIN MENU SEGUE
+        [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+        [self performSegueWithIdentifier:@"next" sender:nil];
     });
 }
 
