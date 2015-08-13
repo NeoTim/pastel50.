@@ -10,4 +10,6 @@
 
 @interface Main_Menu_Launchpad : UIViewController
 
+- (IBAction)level_1:(id)sender;
+
 @end

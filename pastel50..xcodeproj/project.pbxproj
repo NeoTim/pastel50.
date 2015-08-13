@@ -18,6 +18,7 @@
 		97780B9A1B723A1500228911 /* soliddot.png in Resources */ = {isa = PBXBuildFile; fileRef = 97780B981B723A1500228911 /* soliddot.png */; };
 		97780B9C1B723B8900228911 /* HDB_pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97780B9B1B723B8900228911 /* HDB_pic.jpg */; };
 		97780BA51B72491E00228911 /* game1.m in Sources */ = {isa = PBXBuildFile; fileRef = 97780BA41B72491E00228911 /* game1.m */; };
+		979701031B7CA5E7004C31FB /* push_no_anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 979701021B7CA5E7004C31FB /* push_no_anim.m */; };
 		97E5655A1B72058100B66B4C /* pastel50_v2-BACKGROUND.png in Resources */ = {isa = PBXBuildFile; fileRef = 97E565591B72058100B66B4C /* pastel50_v2-BACKGROUND.png */; };
 		97E5A4A71B7896B300060468 /* blu.png in Resources */ = {isa = PBXBuildFile; fileRef = 97E5A4A61B7896B300060468 /* blu.png */; };
 		97EA27D31B79EDAB00C6DD9F /* flyer.png in Resources */ = {isa = PBXBuildFile; fileRef = 97EA27D21B79EDAB00C6DD9F /* flyer.png */; };
@@ -64,6 +65,8 @@
 		97780B9B1B723B8900228911 /* HDB_pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HDB_pic.jpg; sourceTree = "<group>"; };
 		97780BA31B72491E00228911 /* game1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game1.h; sourceTree = "<group>"; };
 		97780BA41B72491E00228911 /* game1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game1.m; sourceTree = "<group>"; };
+		979701011B7CA5E7004C31FB /* push_no_anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = push_no_anim.h; sourceTree = "<group>"; };
+		979701021B7CA5E7004C31FB /* push_no_anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = push_no_anim.m; sourceTree = "<group>"; };
 		97E565591B72058100B66B4C /* pastel50_v2-BACKGROUND.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pastel50_v2-BACKGROUND.png"; sourceTree = "<group>"; };
 		97E5A4A61B7896B300060468 /* blu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blu.png; sourceTree = "<group>"; };
 		97EA27D21B79EDAB00C6DD9F /* flyer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flyer.png; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				97EB28151B70AC6000202EAE /* Supporting Files */,
 				97F1A5781B7B95A700D774D0 /* lose_view.h */,
 				97F1A5791B7B95A700D774D0 /* lose_view.m */,
+				979701011B7CA5E7004C31FB /* push_no_anim.h */,
+				979701021B7CA5E7004C31FB /* push_no_anim.m */,
 			);
 			path = pastel50.;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				9771D8CB1B70E165007C8B43 /* choose_gamemode.mm in Sources */,
 				97780BA51B72491E00228911 /* game1.m in Sources */,
 				9761319A1B7AE34E00C17395 /* game3_splash.m in Sources */,
+				979701031B7CA5E7004C31FB /* push_no_anim.m in Sources */,
 				97F1A57D1B7B97FB00D774D0 /* Main_Menu_Launchpad.m in Sources */,
 				97EB28211B70AC6000202EAE /* ViewController.m in Sources */,
 				97EB281E1B70AC6000202EAE /* pastel50_.xcdatamodeld in Sources */,

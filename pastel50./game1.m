@@ -13,7 +13,6 @@
 @end
 
 @implementation game1
-bool gamedidstart;
 bool didplay_before;
 //initwith array state
 int gamestate [4][4];
@@ -30,12 +29,12 @@ double time_count = 0;
     //set shadow
     _circle_countdown.layer.cornerRadius = self.circle_countdown.frame.size.width/2;
     self.circle_countdown.clipsToBounds = YES;
-    CALayer *circle_layer = _circle_countdown.layer;
-    circle_layer.shadowOffset = CGSizeMake(2, 2);
-    circle_layer.shadowRadius = 15.0f ;
-    circle_layer.shadowColor = [UIColor blackColor].CGColor;
+    CALayer *circle_layer      = _circle_countdown.layer;
+    circle_layer.shadowOffset  = CGSizeMake(2, 2);
+    circle_layer.shadowRadius  = 15.0f ;
+    circle_layer.shadowColor   = [UIColor blackColor].CGColor;
     circle_layer.shadowOpacity = 0.8f;
-    circle_layer.shadowPath = [[UIBezierPath bezierPathWithRect:_circle_countdown.bounds]CGPath];
+    circle_layer.shadowPath    = [[UIBezierPath bezierPathWithRect:_circle_countdown.bounds]CGPath];
   //get bool for first time
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   didplay_before = [defaults boolForKey:@"didplay"];
@@ -100,7 +99,6 @@ double time_count = 0;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timercount) userInfo:nil repeats:YES];
     //start persec timer
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(persec:) userInfo:nil repeats:YES];
-    gamedidstart = YES;
 }
 -(void) persec: (NSTimer*)persectimer {
     time_count ++;
@@ -114,9 +112,9 @@ double time_count = 0;
         //LOST
         //shake animation
         CAKeyframeAnimation *shake_animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
-        shake_animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-        shake_animation.duration = 0.6;
-        shake_animation.values = @[ @(-20), @(20), @(-20), @(20), @(-10), @(10), @(-5), @(5), @(0) ];
+        shake_animation.timingFunction       = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        shake_animation.duration             = 0.6;
+        shake_animation.values               = @[ @(-20), @(20), @(-20), @(20), @(-10), @(10), @(-5), @(5), @(0) ];
         [_time_disp.layer addAnimation:shake_animation forKey:@"shake"];
         [_usertap_view.layer addAnimation:shake_animation forKey:@"shake"];
         [_guide_view.layer addAnimation:shake_animation forKey:@"shake"];
@@ -124,8 +122,11 @@ double time_count = 0;
         NSLog(@"lost the game");
         [timer invalidate];
         timer = nil;
+        [persectimer invalidate];
+        persectimer = nil;
         [_time_disp setText:@"0.0"];
         time_count = 0;
+        time_left = 30;
         //lockdown
         _R1_C1.enabled = NO;
         _R1_C2.enabled = NO;
@@ -148,17 +149,23 @@ double time_count = 0;
         }];
         //get usertap point
         float x, y , width, height;
-        x = _usertap_view.frame.origin.x;
-        y = _usertap_view.frame.origin.y;
-        width = _usertap_view.frame.size.width;
+        x      = _usertap_view.frame.origin.x;
+        y      = _usertap_view.frame.origin.y;
+        width  = _usertap_view.frame.size.width;
         height = _usertap_view.frame.size.height;
         [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            _usertap_view.frame = CGRectMake(x, y + 800, width, height);
-            _time_disp.alpha = 0;
-            _seconds_unit.alpha = 0;
+            _usertap_view.frame       = CGRectMake(x, y + 800, width, height);
+            _time_disp.alpha          = 0;
+            _seconds_unit.alpha       = 0;
             _progress_view_time.alpha = 0;
         }completion:nil];
-        //segue to lose view
+        double delayInSeconds = 1.5;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            //segue to lose view
+            [self performSegueWithIdentifier:@"lost" sender:nil];
+        });
+        
 
     }
 }
@@ -170,6 +177,7 @@ double time_count = 0;
 
 
 }
+
 ///////////////////VDL
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -183,19 +191,19 @@ double time_count = 0;
     _guide_view.alpha = 0;
     //round image
     self.guide_view.layer.cornerRadius = 15.0f;
-    self.guide_view.clipsToBounds = YES;
+    self.guide_view.clipsToBounds      = YES;
     //set border
     self.guide_view.layer.borderWidth = 1.0f;
     self.guide_view.layer.borderColor = [UIColor lightGrayColor].CGColor;
     //
     //mainview
-    CALayer *layer = self.usertap_view.layer;
-    layer.shadowOffset = CGSizeMake(1, 1);
-    layer.shadowColor = [[UIColor grayColor] CGColor];
-    layer.shadowRadius = 10.0f;
+    CALayer *layer      = self.usertap_view.layer;
+    layer.shadowOffset  = CGSizeMake(1, 1);
+    layer.shadowColor   = [[UIColor grayColor] CGColor];
+    layer.shadowRadius  = 10.0f;
     layer.shadowOpacity = 0.60f;
-    layer.shadowOffset = CGSizeMake(0, 1);
-    layer.shadowPath = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
+    layer.shadowOffset  = CGSizeMake(0, 1);
+    layer.shadowPath    = [[UIBezierPath bezierPathWithRect:layer.bounds] CGPath];
     //init with random
     [self random];
 }
@@ -204,13 +212,25 @@ double time_count = 0;
     ////////////////////////////////////////////////////////////////////////////////
     //RANDOM FOR WANTED STATE
     //rand for row 1
-    current_wanted_state[0][0] = arc4random()%2; current_wanted_state[0][1] = arc4random()%2; current_wanted_state[0][2] = arc4random()%2; current_wanted_state[0][3] = arc4random()%2;
+    current_wanted_state[0][0] = arc4random()%2;
+    current_wanted_state[0][1] = arc4random()%2;
+    current_wanted_state[0][2] = arc4random()%2;
+    current_wanted_state[0][3] = arc4random()%2;
     //rand for row 2
-    current_wanted_state[1][0] = arc4random()%2; current_wanted_state[1][1] = arc4random()%2; current_wanted_state[1][2] = arc4random()%2; current_wanted_state[1][3] = arc4random()%2;
+    current_wanted_state[1][0] = arc4random()%2;
+    current_wanted_state[1][1] = arc4random()%2;
+    current_wanted_state[1][2] = arc4random()%2;
+    current_wanted_state[1][3] = arc4random()%2;
     //rand for row 3
-    current_wanted_state[2][0] = arc4random()%2; current_wanted_state[2][1] = arc4random()%2; current_wanted_state[2][2] = arc4random()%2; current_wanted_state[2][3] = arc4random()%2;
+    current_wanted_state[2][0] = arc4random()%2;
+    current_wanted_state[2][1] = arc4random()%2;
+    current_wanted_state[2][2] = arc4random()%2;
+    current_wanted_state[2][3] = arc4random()%2;
     //rand for row 4
-    current_wanted_state[3][0] = arc4random()%2; current_wanted_state[3][1] = arc4random()%2; current_wanted_state[3][2] = arc4random()%2; current_wanted_state[3][3] = arc4random()%2;
+    current_wanted_state[3][0] = arc4random()%2;
+    current_wanted_state[3][1] = arc4random()%2;
+    current_wanted_state[3][2] = arc4random()%2;
+    current_wanted_state[3][3] = arc4random()%2;
 
     //set guideview
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -799,8 +819,8 @@ double time_count = 0;
    else if (gamestate[0][0] == current_wanted_state [0][0] & gamestate[0][1] == current_wanted_state [0][1] & gamestate[0][2] == current_wanted_state [0][2] & gamestate[0][3] == current_wanted_state [0][3]
             & gamestate[1][0] == current_wanted_state [1][0] & gamestate[1][1] == current_wanted_state [1][1] & gamestate[1][2] == current_wanted_state [1][2] & gamestate[1][3] == current_wanted_state [1][3]
             & gamestate[2][0] == current_wanted_state [2][0] & gamestate[2][1] == current_wanted_state [2][1] & gamestate[2][2] == current_wanted_state [2][2] & gamestate[2][3] == current_wanted_state [2][3]
-            & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & gamedidstart == YES & game_level_count == 2 & time_count < 30){
-       //stop game, user has done 3
+            & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & game_level_count == 2 & time_count < 30){
+       //did win
        game_level_count = 0;
        //kill game
        [timer invalidate];
@@ -811,6 +831,7 @@ double time_count = 0;
        [defaults setFloat:time_left forKey:@"time_carried_forward"];
        //
        time_count = 0;
+       time_left = 30;
        //lockdown
        _R1_C1.enabled = NO;
        _R1_C2.enabled = NO;
@@ -833,14 +854,14 @@ double time_count = 0;
        }];
        //get usertap point
        float x, y , width, height;
-       x = _usertap_view.frame.origin.x;
-       y = _usertap_view.frame.origin.y;
-       width = _usertap_view.frame.size.width;
+       x      = _usertap_view.frame.origin.x;
+       y      = _usertap_view.frame.origin.y;
+       width  = _usertap_view.frame.size.width;
        height = _usertap_view.frame.size.height;
        [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-           _usertap_view.frame = CGRectMake(x, y + 800, width, height);
-           _time_disp.alpha = 0;
-           _seconds_unit.alpha = 0;
+           _usertap_view.frame  = CGRectMake(x, y + 800, width, height);
+           _time_disp.alpha     = 0;
+           _seconds_unit.alpha  = 0;
            _game_progress.alpha = 0;
        }completion:nil];
        //segue to next view

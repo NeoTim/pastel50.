@@ -51,8 +51,11 @@
         //segue
         NSLog(@"didsegue");
         //MAIN MENU SEGUE
-        [self.navigationController dismissViewControllerAnimated:NO completion:nil];
         [self performSegueWithIdentifier:@"next" sender:nil];
+        [UIView animateWithDuration:0.4 animations:^{
+            _background_img.alpha = 0;
+            _quote_view.alpha = 0;
+        }];
     });
 }
 

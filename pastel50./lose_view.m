@@ -16,17 +16,25 @@
 int level_from;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //fetch level lostfrom
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    level_from = [defaults integerForKey:@"level_lost_from"];
-}
-
-
-- (IBAction)retry:(id)sender {
-    //init with sendback
+    //init with animations
+    _h1.alpha              = 0;
+    _h2.alpha              = 0;
+    _pic.alpha             = 0;
+    _mainmenu_button.alpha = 0;
     
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [UIView animateWithDuration:0.8 animations:^{
+        _h1.alpha  = 1;
+        _h2.alpha  = 1;
+        _pic.alpha = 1;
+    }];
+    [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _mainmenu_button.alpha = 1;
+    }completion:nil];
+}
 - (IBAction)quit_mm:(id)sender {
+    //init with sendback
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 @end

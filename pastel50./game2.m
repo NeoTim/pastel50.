@@ -23,7 +23,7 @@ NSTimer *timer_game2;
 NSTimer *timer_carriedforward_game2;
 bool game2didend;
 //time values
-double time_left_game2 = 35;
+double time_left_game2  = 35;
 double time_count_game2 = 0;
 float timecarried_forward;
 
@@ -36,7 +36,7 @@ float timecarried_forward;
         //this will be executed after 1 seconds
         [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [_countdown_label setText:@"2"];
-            _blurview.alpha = 0.8;
+            _blurview.alpha        = 0.8;
             _countdown_label.alpha = 0.8;
         }completion:nil];
         double delayInSeconds = 1.0;
@@ -45,7 +45,7 @@ float timecarried_forward;
             //this will be executed after 2 seconds
             [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 [_countdown_label setText:@"1"];
-                _blurview.alpha = 0.7;
+                _blurview.alpha        = 0.7;
                 _countdown_label.alpha = 0.7;
             }completion:nil];
             double delayInSeconds = 1.0;
@@ -53,7 +53,7 @@ float timecarried_forward;
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
                 //this will be executed after 3 seconds
                 [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                    _blurview.alpha = 0;
+                    _blurview.alpha        = 0;
                     _countdown_label.alpha = 0;
                 }completion:nil];
                 [self timer_start];
@@ -93,6 +93,7 @@ float timecarried_forward;
         timer_carriedforward_game2 = nil;
         [_time_dis setText:@"0.0"];
         time_count_game2 = 0;
+        time_left_game2 = 35;
         //lockdown
         _R1_C1.enabled = NO;
         _R1_C2.enabled = NO;
@@ -126,6 +127,7 @@ float timecarried_forward;
             _time_carried_forward_disp.alpha = 0;
         }completion:nil];
         //segue to lose view
+        [self performSegueWithIdentifier:@"lost" sender:nil];
 
     }
 }
@@ -146,6 +148,8 @@ float timecarried_forward;
         //kill main timer
         [timer_game2 invalidate];
         timer_game2 = nil;
+        [persectimer invalidate];
+        persectimer = nil;
         //start extra time
         timer_carriedforward_game2 = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(extratime) userInfo:nil repeats:YES];
         // kill self
@@ -210,13 +214,25 @@ float timecarried_forward;
     ////////////////////////////////////////////////////////////////////////////////
     //RANDOM FOR WANTED STATE
     //rand for row 1
-    current_wanted_state_game2[0][0] = arc4random()%3; current_wanted_state_game2[0][1] = arc4random()%3; current_wanted_state_game2[0][2] = arc4random()%3; current_wanted_state_game2[0][3] = arc4random()%3;
+    current_wanted_state_game2[0][0] = arc4random()%3;
+    current_wanted_state_game2[0][1] = arc4random()%3;
+    current_wanted_state_game2[0][2] = arc4random()%3;
+    current_wanted_state_game2[0][3] = arc4random()%3;
     //rand for row 2
-    current_wanted_state_game2[1][0] = arc4random()%3; current_wanted_state_game2[1][1] = arc4random()%3; current_wanted_state_game2[1][2] = arc4random()%3; current_wanted_state_game2[1][3] = arc4random()%3;
+    current_wanted_state_game2[1][0] = arc4random()%3;
+    current_wanted_state_game2[1][1] = arc4random()%3;
+    current_wanted_state_game2[1][2] = arc4random()%3;
+    current_wanted_state_game2[1][3] = arc4random()%3;
     //rand for row 3
-    current_wanted_state_game2[2][0] = arc4random()%3; current_wanted_state_game2[2][1] = arc4random()%3; current_wanted_state_game2[2][2] = arc4random()%3; current_wanted_state_game2[2][3] = arc4random()%3;
+    current_wanted_state_game2[2][0] = arc4random()%3;
+    current_wanted_state_game2[2][1] = arc4random()%3;
+    current_wanted_state_game2[2][2] = arc4random()%3;
+    current_wanted_state_game2[2][3] = arc4random()%3;
     //rand for row 4
-    current_wanted_state_game2[3][0] = arc4random()%3; current_wanted_state_game2[3][1] = arc4random()%3; current_wanted_state_game2[3][2] = arc4random()%3; current_wanted_state_game2[3][3] = arc4random()%3;
+    current_wanted_state_game2[3][0] = arc4random()%3;
+    current_wanted_state_game2[3][1] = arc4random()%3;
+    current_wanted_state_game2[3][2] = arc4random()%3;
+    current_wanted_state_game2[3][3] = arc4random()%3;
 
     //set guideview
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1006,14 +1022,14 @@ float timecarried_forward;
         }];
         //get usertap point
         float x, y , width, height;
-        x = _usertap_view.frame.origin.x;
-        y = _usertap_view.frame.origin.y;
-        width = _usertap_view.frame.size.width;
+        x      = _usertap_view.frame.origin.x;
+        y      = _usertap_view.frame.origin.y;
+        width  = _usertap_view.frame.size.width;
         height = _usertap_view.frame.size.height;
         [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            _usertap_view.frame = CGRectMake(x, y + 800, width, height);
-            _time_dis.alpha = 0;
-            _seconds_unit.alpha = 0;
+            _usertap_view.frame              = CGRectMake(x, y + 800, width, height);
+            _time_dis.alpha                  = 0;
+            _seconds_unit.alpha              = 0;
             _time_carried_forward_disp.alpha = 0;
         }completion:nil];
         //segue to next view

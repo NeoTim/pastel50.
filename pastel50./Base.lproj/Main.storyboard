@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RNc-tU-0xU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -94,12 +94,28 @@
                         <outlet property="settings_button" destination="J3s-lm-q7b" id="zji-6r-cRB"/>
                         <outlet property="sg50_mg" destination="41M-jd-7dE" id="bd7-xW-Deh"/>
                         <outlet property="start_button" destination="B9i-HI-8WS" id="RJv-ld-PLv"/>
-                        <segue destination="oV5-hd-s6m" kind="modal" identifier="gamequote" animates="NO" id="yvU-DX-Y8f"/>
+                        <segue destination="oV5-hd-s6m" kind="custom" identifier="gamequote" customClass="push_no_anim" id="5n1-nf-sLL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-199" y="311"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sLR-Kv-LZn">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="RNc-tU-0xU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3BV-vQ-zZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="u2Z-fx-tap"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Deu-pW-bWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-559" y="311"/>
         </scene>
         <!--Game selection-->
         <scene sceneID="0OU-UW-tFg">
@@ -132,7 +148,7 @@
                         <outlet property="activity_indicator" destination="odZ-zH-Zom" id="4sw-PS-2Fb"/>
                         <outlet property="background_img" destination="tfJ-d5-Eyx" id="bM2-Qd-mwf"/>
                         <outlet property="quote_view" destination="7gC-Sh-ANf" id="WcI-iD-l4P"/>
-                        <segue destination="yi2-GK-AET" kind="modal" identifier="next" modalTransitionStyle="flipHorizontal" id="Mif-df-MuP"/>
+                        <segue destination="0Uq-go-caA" kind="modal" identifier="next" modalTransitionStyle="crossDissolve" id="Abt-FE-RgA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6T-H0-NIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zb9-qo-8tx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408" y="-277"/>
+            <point key="canvasLocation" x="1397" y="-268"/>
         </scene>
         <!--game level 1-->
         <scene sceneID="1ll-C6-E4q">
@@ -568,30 +584,29 @@
                         <outlet property="time_disp" destination="Cst-HL-nlU" id="hvt-PR-XnW"/>
                         <outlet property="tutorial_label" destination="RUN-fV-9LX" id="83l-9R-TyL"/>
                         <outlet property="usertap_view" destination="9F6-Px-JOB" id="OI3-Ab-XKX"/>
-                        <segue destination="Rhd-iD-iV7" kind="modal" identifier="1-2" animates="NO" id="rtH-Rf-aBV"/>
-                        <segue destination="9FL-TR-P34" kind="push" identifier="lost" id="adx-nh-RMr"/>
+                        <segue destination="9FL-TR-P34" kind="custom" identifier="lost" customClass="push_no_anim" id="adx-nh-RMr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YM2-K9-fgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="-286"/>
+            <point key="canvasLocation" x="1838" y="-268"/>
         </scene>
-        <!--2-->
-        <scene sceneID="kE9-yF-f9N">
+        <!--Navigation Controller-->
+        <scene sceneID="oVM-Me-d0T">
             <objects>
-                <navigationController title="2" navigationBarHidden="YES" id="yi2-GK-AET" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="4HJ-Vg-CR3"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3OV-I2-0Ut">
+                <navigationController navigationBarHidden="YES" id="0Uq-go-caA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qVH-ft-vbr"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="isN-bW-LZO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="y2c-7c-B8e" kind="relationship" relationship="rootViewController" id="GcP-h3-8Vu"/>
+                        <segue destination="y2c-7c-B8e" kind="relationship" relationship="rootViewController" id="kuT-Nc-8jM"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XjY-Df-SRp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pjF-xM-c0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="623" y="311"/>
+            <point key="canvasLocation" x="628" y="311"/>
         </scene>
         <!--Main Menu-->
         <scene sceneID="hDO-3K-hDO">
@@ -600,6 +615,18 @@
                     <view key="view" contentMode="scaleToFill" id="qjx-Ve-vTM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0cX-Ma-5By">
+                                <rect key="frame" x="115" y="133" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Game level 1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="level_1:" destination="y2c-7c-B8e" eventType="touchUpInside" id="aO5-CW-NiD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hJp-5q-grO"/>
@@ -609,7 +636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oG-sJ-JlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="311"/>
+            <point key="canvasLocation" x="985" y="311"/>
         </scene>
         <!--transition 2-->
         <scene sceneID="li6-XP-dmv">
@@ -650,12 +677,12 @@
                     <navigationItem key="navigationItem" id="tBc-1I-skh"/>
                     <connections>
                         <outlet property="background" destination="Bbs-Qg-ueR" id="kP9-q5-0Om"/>
-                        <segue destination="RAb-CG-KOc" kind="modal" identifier="togame2" modalTransitionStyle="crossDissolve" id="RCM-Zv-D4X"/>
+                        <segue destination="RAb-CG-KOc" kind="push" identifier="togame2" id="RCM-Zv-D4X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ZX-ZD-cmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408" y="428"/>
+            <point key="canvasLocation" x="1403" y="428"/>
         </scene>
         <!--level 3 splash-->
         <scene sceneID="fTo-D2-092">
@@ -1063,6 +1090,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vpX-lQ-057"/>
                     <connections>
                         <outlet property="R1_C1" destination="oJg-g2-Dez" id="eUW-uB-mW1"/>
                         <outlet property="R1_C1_G" destination="LLt-Uk-L1K" id="Ohd-0X-N8n"/>
@@ -1106,6 +1134,7 @@
                         <outlet property="time_dis" destination="wo7-Oc-Z4F" id="X9r-fE-CZu"/>
                         <outlet property="usertap_view" destination="9tS-ND-WQh" id="IVb-J1-dZI"/>
                         <segue destination="6kJ-DK-lZT" kind="modal" identifier="2-3" animates="NO" id="3Qr-rc-hDY"/>
+                        <segue destination="9FL-TR-P34" kind="custom" identifier="lost" customClass="push_no_anim" id="pXZ-tw-4Hs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftV-wv-YkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1120,28 +1149,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yOd-8e-nMJ">
-                                <rect key="frame" x="112" y="364" width="97" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
-                                <state key="normal" title="Retry Level">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="retry:" destination="9FL-TR-P34" eventType="touchUpInside" id="RBD-9e-SHf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="53f-KY-TYD">
-                                <rect key="frame" x="112" y="420" width="97" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
-                                <state key="normal" title="Quit to menu">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="quit_mm:" destination="9FL-TR-P34" eventType="touchUpInside" id="toV-eX-hmv"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="merlion.png" id="DOa-nR-uBe">
                                 <rect key="frame" x="16" y="32" width="244" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -1160,6 +1167,17 @@
                                 <color key="textColor" red="0.38319262859999997" green="0.38318115470000003" blue="0.38318768139999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="53f-KY-TYD">
+                                <rect key="frame" x="100" y="387" width="120" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
+                                <state key="normal" title="Back to menu">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="quit_mm:" destination="9FL-TR-P34" eventType="touchUpInside" id="toV-eX-hmv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1167,16 +1185,13 @@
                     <connections>
                         <outlet property="h1" destination="fL0-XL-eqa" id="XfK-HD-Ati"/>
                         <outlet property="h2" destination="S5c-Aw-Go0" id="PGi-Jg-RjF"/>
-                        <outlet property="h3" destination="yOd-8e-nMJ" id="q8L-zT-UFE"/>
                         <outlet property="mainmenu_button" destination="53f-KY-TYD" id="jvs-r8-gxY"/>
                         <outlet property="pic" destination="DOa-nR-uBe" id="mo9-d4-zFc"/>
-                        <outlet property="retry" destination="yOd-8e-nMJ" id="WUk-fr-hKC"/>
-                        <outlet property="retry_button" destination="yOd-8e-nMJ" id="WWs-6f-BNM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lw3-Zl-dMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="-187"/>
+            <point key="canvasLocation" x="2396" y="61"/>
         </scene>
     </scenes>
     <resources>
@@ -1195,4 +1210,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="pXZ-tw-4Hs"/>
+    </inferredMetricsTieBreakers>
 </document>

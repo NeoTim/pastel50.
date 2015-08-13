@@ -17,8 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+}
+- (IBAction)level_1:(id)sender {
+    //segue to level 1
     [self performSegueWithIdentifier:@"game1" sender:nil];
 
 }
-
 @end
