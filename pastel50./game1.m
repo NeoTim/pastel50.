@@ -825,10 +825,9 @@ double time_count = 0;
        //kill game
        [timer invalidate];
        timer = nil;
-       //get time value and carry forward
-       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-       NSLog(@"time left is, %f", time_left);
-       [defaults setFloat:time_left forKey:@"time_carried_forward"];
+       //
+       //set completion for game 2
+       [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"level_2"];
        //
        time_count = 0;
        time_left = 30;
@@ -869,7 +868,7 @@ double time_count = 0;
        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
            //this will be executed after 1 seconds
-           [self performSegueWithIdentifier:@"1-2" sender:nil];
+           [self performSegueWithIdentifier:@"won" sender:nil];
        });
    }
 }

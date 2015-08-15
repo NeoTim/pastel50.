@@ -148,7 +148,7 @@
                         <outlet property="activity_indicator" destination="odZ-zH-Zom" id="4sw-PS-2Fb"/>
                         <outlet property="background_img" destination="tfJ-d5-Eyx" id="bM2-Qd-mwf"/>
                         <outlet property="quote_view" destination="7gC-Sh-ANf" id="WcI-iD-l4P"/>
-                        <segue destination="0Uq-go-caA" kind="modal" identifier="next" modalTransitionStyle="crossDissolve" id="Abt-FE-RgA"/>
+                        <segue destination="0Uq-go-caA" kind="modal" identifier="next" modalTransitionStyle="flipHorizontal" id="Abt-FE-RgA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N6T-H0-NIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zb9-qo-8tx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397" y="-268"/>
+            <point key="canvasLocation" x="1403" y="-373"/>
         </scene>
         <!--game level 1-->
         <scene sceneID="1ll-C6-E4q">
@@ -585,11 +585,12 @@
                         <outlet property="tutorial_label" destination="RUN-fV-9LX" id="83l-9R-TyL"/>
                         <outlet property="usertap_view" destination="9F6-Px-JOB" id="OI3-Ab-XKX"/>
                         <segue destination="9FL-TR-P34" kind="custom" identifier="lost" customClass="push_no_anim" id="adx-nh-RMr"/>
+                        <segue destination="d7J-hn-j71" kind="custom" identifier="won" customClass="push_no_anim" id="Rq7-ok-BFJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YM2-K9-fgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="-268"/>
+            <point key="canvasLocation" x="1835" y="-373"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oVM-Me-d0T">
@@ -616,14 +617,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0cX-Ma-5By">
-                                <rect key="frame" x="115" y="133" width="90" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sgisland.png" id="yhR-tc-wBU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Game level 1">
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0cX-Ma-5By">
+                                <rect key="frame" x="133" y="256" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" title="Game level 1" image="imglogo2.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="level_1:" destination="y2c-7c-B8e" eventType="touchUpInside" id="aO5-CW-NiD"/>
+                                    <segue destination="eyd-XV-MYd" kind="push" identifier="game1" id="0Xq-G0-uGz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nlG-BX-ZfS">
+                                <rect key="frame" x="250" y="256" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <state key="normal" title="Game level 2" image="blu.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="level2:" destination="y2c-7c-B8e" eventType="touchUpInside" id="v1V-yW-Qf9"/>
+                                    <segue destination="Rhd-iD-iV7" kind="push" identifier="game2" id="vzb-bZ-RMp"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="3dM-kQ-jZa" userLabel="text_view">
+                                <rect key="frame" x="35" y="-72" width="248" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j89-OH-KD5">
+                                        <rect key="frame" x="17" y="13" width="214" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="32"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hYh-mf-M10">
+                                <rect key="frame" x="127" y="322" width="42" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                <state key="normal" title="Button" image="pink.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6kJ-DK-lZT" kind="push" id="NET-3S-9Nr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -631,7 +672,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="hJp-5q-grO"/>
                     <connections>
-                        <segue destination="eyd-XV-MYd" kind="push" identifier="game1" id="TZc-6a-Dek"/>
+                        <outlet property="card_view_text" destination="j89-OH-KD5" id="7WI-4y-pOy"/>
+                        <outlet property="level1" destination="0cX-Ma-5By" id="KiG-qB-0Tl"/>
+                        <outlet property="level_2" destination="nlG-BX-ZfS" id="xJx-9z-oFs"/>
+                        <outlet property="level_3" destination="hYh-mf-M10" id="64J-R1-vjU"/>
+                        <outlet property="textview_container" destination="3dM-kQ-jZa" id="WrG-Qz-6IX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oG-sJ-JlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -682,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ZX-ZD-cmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1403" y="428"/>
+            <point key="canvasLocation" x="1403" y="357"/>
         </scene>
         <!--level 3 splash-->
         <scene sceneID="fTo-D2-092">
@@ -729,7 +774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yau-ag-6wv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1408" y="1143"/>
+            <point key="canvasLocation" x="1403" y="1128"/>
         </scene>
         <!--game2-->
         <scene sceneID="kmC-y1-1HP">
@@ -1133,13 +1178,13 @@
                         <outlet property="time_carried_forward_disp" destination="cCn-4Q-3lG" id="ssF-ye-I8H"/>
                         <outlet property="time_dis" destination="wo7-Oc-Z4F" id="X9r-fE-CZu"/>
                         <outlet property="usertap_view" destination="9tS-ND-WQh" id="IVb-J1-dZI"/>
-                        <segue destination="6kJ-DK-lZT" kind="modal" identifier="2-3" animates="NO" id="3Qr-rc-hDY"/>
                         <segue destination="9FL-TR-P34" kind="custom" identifier="lost" customClass="push_no_anim" id="pXZ-tw-4Hs"/>
+                        <segue destination="d7J-hn-j71" kind="custom" identifier="lost" customClass="push_no_anim" id="Rt5-5m-woN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftV-wv-YkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852" y="428"/>
+            <point key="canvasLocation" x="1852" y="357"/>
         </scene>
         <!--Lost-->
         <scene sceneID="qhf-aR-pb2">
@@ -1191,11 +1236,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lw3-Zl-dMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2396" y="61"/>
+            <point key="canvasLocation" x="2608" y="-263"/>
+        </scene>
+        <!--winview-->
+        <scene sceneID="cth-HU-jHs">
+            <objects>
+                <viewController title="winview" id="d7J-hn-j71" customClass="winView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZLS-TK-mNg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rPv-0z-BWs">
+                                <rect key="frame" x="89" y="286" width="142" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="21"/>
+                                <state key="normal" title="Back to main menu">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backto_mm:" destination="d7J-hn-j71" eventType="touchUpInside" id="yLN-Jt-HXG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Won!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Wy-Od-7Ql">
+                                <rect key="frame" x="27" y="117" width="267" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="51"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Cr-Vn-cri">
+                                <rect key="frame" x="123" y="196" width="75" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="18"/>
+                                <color key="textColor" red="0.38319262859999997" green="0.38318115470000003" blue="0.38318768139999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backto_mm" destination="rPv-0z-BWs" id="saD-4c-Mok"/>
+                        <outlet property="h1" destination="1Wy-Od-7Ql" id="fOk-xU-BlV"/>
+                        <outlet property="h2" destination="9Cr-Vn-cri" id="8OT-pe-ECg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxm-J6-mGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2608" y="428"/>
         </scene>
     </scenes>
     <resources>
         <image name="HDB_pic.jpg" width="2048" height="671"/>
+        <image name="blu.png" width="365" height="365"/>
         <image name="changi.png" width="320" height="568"/>
         <image name="flyer.png" width="320" height="568"/>
         <image name="hollowdot.png" width="365" height="365"/>
@@ -1203,6 +1295,8 @@
         <image name="merlion.png" width="2714" height="1983"/>
         <image name="pastel 50 bck.png" width="1603" height="2610"/>
         <image name="pastel50_v2-BACKGROUND.png" width="1024" height="1024"/>
+        <image name="pink.png" width="365" height="365"/>
+        <image name="sgisland.png" width="1080" height="1920"/>
         <image name="soliddot.png" width="365" height="365"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1212,5 +1306,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="pXZ-tw-4Hs"/>
+        <segue reference="Rt5-5m-woN"/>
     </inferredMetricsTieBreakers>
 </document>

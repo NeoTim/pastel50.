@@ -36,5 +36,6 @@ int level_from;
 - (IBAction)quit_mm:(id)sender {
     //init with sendback
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end

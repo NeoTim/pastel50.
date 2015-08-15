@@ -20,12 +20,9 @@ int current_wanted_state_game2 [4][4];
 int game2_level_count;
 //timer
 NSTimer *timer_game2;
-NSTimer *timer_carriedforward_game2;
-bool game2didend;
 //time values
 double time_left_game2  = 35;
 double time_count_game2 = 0;
-float timecarried_forward;
 
 ///////////////////////ALL THE CHRONOS STUFF
 //countdown start timer
@@ -67,15 +64,33 @@ float timecarried_forward;
     //start persec timer
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(persec:) userInfo:nil repeats:YES];
 }
--(void) extratime {
-    //start timer countdown for extra time
-    timecarried_forward = timecarried_forward - 0.1;
-    [_time_carried_forward_disp setText:[NSString stringWithFormat:@"+ %0.1f", timecarried_forward]];
-    //
-    if (timecarried_forward == 0 | timecarried_forward < 0) {
+-(void) persec: (NSTimer*)persectimer {
+    time_count_game2 ++;
+    if (time_count_game2 > 35/2) {
+        _progress_view_time.progressTintColor = [UIColor redColor];
+    }
+    if (time_count_game2 > 25) {
+        [UIView animateWithDuration:0.4 animations:^{
+            [_time_dis setTextColor:[UIColor redColor]];
+        }];
+    }
+    if (time_count_game2 == 35 | time_count_game2 > 35) {
+        //main timer did end
+        NSLog(@"main timer did end");
+        [_time_dis setText:@"0.0"];
+        //kill main timer
+        [timer_game2 invalidate];
+        timer_game2 = nil;
+        [persectimer invalidate];
+        persectimer = nil;
+        // kill self
+        [persectimer invalidate];
+        persectimer = nil;
+        ///
+        ///
+        ///
         //game is over
         //LOST
-        [_time_carried_forward_disp setText:@"0.0"];
         //shake animation
         CAKeyframeAnimation *shake_animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
         shake_animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
@@ -89,11 +104,13 @@ float timecarried_forward;
         //kill timer
         [timer_game2 invalidate];
         timer_game2 = nil;
-        [timer_carriedforward_game2 invalidate];
-        timer_carriedforward_game2 = nil;
         [_time_dis setText:@"0.0"];
         time_count_game2 = 0;
-        time_left_game2 = 35;
+        time_left_game2  = 35;
+        //erase time carried forward because user has lost
+        int a = 0;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setInteger:a forKey:@"time_carried_forward"];
         //lockdown
         _R1_C1.enabled = NO;
         _R1_C2.enabled = NO;
@@ -116,9 +133,9 @@ float timecarried_forward;
         }];
         //get usertap point
         float x, y , width, height;
-        x = _usertap_view.frame.origin.x;
-        y = _usertap_view.frame.origin.y;
-        width = _usertap_view.frame.size.width;
+        x      = _usertap_view.frame.origin.x;
+        y      = _usertap_view.frame.origin.y;
+        width  = _usertap_view.frame.size.width;
         height = _usertap_view.frame.size.height;
         [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             _usertap_view.frame = CGRectMake(x, y + 800, width, height);
@@ -129,32 +146,6 @@ float timecarried_forward;
         //segue to lose view
         [self performSegueWithIdentifier:@"lost" sender:nil];
 
-    }
-}
--(void) persec: (NSTimer*)persectimer {
-    time_count_game2 ++;
-    if (time_count_game2 > 35/2) {
-        _progress_view_time.progressTintColor = [UIColor redColor];
-    }
-    if (time_count_game2 > 25) {
-        [UIView animateWithDuration:0.4 animations:^{
-            [_time_dis setTextColor:[UIColor redColor]];
-        }];
-    }
-    if (time_count_game2 == 35 | time_count_game2 > 35) {
-        //main timer did end
-        NSLog(@"main timer did end");
-        [_time_dis setText:@"0.0"];
-        //kill main timer
-        [timer_game2 invalidate];
-        timer_game2 = nil;
-        [persectimer invalidate];
-        persectimer = nil;
-        //start extra time
-        timer_carriedforward_game2 = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(extratime) userInfo:nil repeats:YES];
-        // kill self
-        [persectimer invalidate];
-        persectimer = nil;
     }
 
 }
@@ -170,18 +161,8 @@ float timecarried_forward;
     [super viewDidLoad];
     //set timecount
     time_count_game2 = 0;
+    time_left_game2 = 35;
     [_time_dis setTextColor:[UIColor blackColor]];
-    //
-    //get time carried forward
-    _time_carried_forward_disp.alpha = 0;
-    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
-    timecarried_forward = [defaults floatForKey:@"time_carried_forward"];
-    NSLog(@"timecarriedforward is %f", timecarried_forward);
-    [_time_carried_forward_disp setText:[NSString stringWithFormat:@"+ %0.1f", timecarried_forward]];
-    [UIView animateWithDuration:0.5 animations:^{
-        _time_carried_forward_disp.alpha = 1;
-    }];
-    //
     //init with countdown
     [self gamestart_countdown];
     //
@@ -1032,12 +1013,14 @@ float timecarried_forward;
             _seconds_unit.alpha              = 0;
             _time_carried_forward_disp.alpha = 0;
         }completion:nil];
+        //completion for game 3
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"level_3"];
         //segue to next view
         double delayInSeconds = 1.8;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             //this will be executed after 1 seconds
-            [self performSegueWithIdentifier:@"2-3" sender:nil];
+            [self performSegueWithIdentifier:@"won" sender:nil];
         });
     }
 }

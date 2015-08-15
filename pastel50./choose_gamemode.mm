@@ -45,7 +45,7 @@
         [_quote_view setText:@"There is a place in the world also called Singapore in Michigan"];
     }
     _quote_view.alpha = 1;
-    double delayInSeconds = 5.0;
+    double delayInSeconds = 4.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //segue
