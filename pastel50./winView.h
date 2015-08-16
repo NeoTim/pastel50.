@@ -13,5 +13,9 @@
 - (IBAction)backto_mm:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *h1;
 @property (strong, nonatomic) IBOutlet UILabel *h2;
-
+//Headsup
+@property (strong, nonatomic) IBOutlet UIView *headsup_container;
+@property (strong, nonatomic) IBOutlet UIImageView *icon;
+@property (strong, nonatomic) IBOutlet UILabel *header;
+@property (strong, nonatomic) IBOutlet UILabel *content;
 @end

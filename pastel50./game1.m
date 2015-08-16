@@ -19,6 +19,8 @@ int gamestate [4][4];
 int current_wanted_state [4][4];
 //game level count
 int game_level_count;
+//bool
+bool didwin;
 //timer
 NSTimer *timer;
 double time_left = 30;
@@ -168,6 +170,11 @@ double time_count = 0;
         
 
     }
+    if (didwin == true) {
+        didwin = false;
+        [persectimer invalidate];
+        persectimer = nil;
+    }
 }
 -(void)timercount{
     //runs every 0.1 seconds
@@ -186,6 +193,7 @@ double time_count = 0;
     [self gamestart_countdown];
     [_time_disp setText:[NSString stringWithFormat:@"%0.1f", time_left]];
     game_level_count = 0;
+    didwin = false;
     //init with drawings
     //GUIDEview
     _guide_view.alpha = 0;
@@ -729,8 +737,9 @@ double time_count = 0;
     [self check];
 
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//CHECK THE FRGN FUCNTIONS
+//CHECK THE FUCNTIONS
 -(void)check{
    if (gamestate[0][0] == current_wanted_state [0][0] & gamestate[0][1] == current_wanted_state [0][1] & gamestate[0][2] == current_wanted_state [0][2] & gamestate[0][3] == current_wanted_state [0][3]
              & gamestate[1][0] == current_wanted_state [1][0] & gamestate[1][1] == current_wanted_state [1][1] & gamestate[1][2] == current_wanted_state [1][2] & gamestate[1][3] == current_wanted_state [1][3]
@@ -822,12 +831,22 @@ double time_count = 0;
             & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & game_level_count == 2 & time_count < 30){
        //did win
        game_level_count = 0;
+       didwin = true;
        //kill game
        [timer invalidate];
        timer = nil;
        //
        //set completion for game 2
-       [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"level_2"];
+       if ([[NSUserDefaults standardUserDefaults]integerForKey:@"level_2" ] == 0) {
+           //user has unlocked level 2
+           [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"level_2"];
+           //send levelunlock
+           [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"unlocked"];
+       }
+       else{
+           //send levelunlock
+           [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"unlocked"];
+       }
        //
        time_count = 0;
        time_left = 30;
@@ -863,11 +882,10 @@ double time_count = 0;
            _seconds_unit.alpha  = 0;
            _game_progress.alpha = 0;
        }completion:nil];
-       //segue to next view
+       //segue to win view
        double delayInSeconds = 1.8;
        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-           //this will be executed after 1 seconds
            [self performSegueWithIdentifier:@"won" sender:nil];
        });
    }

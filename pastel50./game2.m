@@ -20,6 +20,8 @@ int current_wanted_state_game2 [4][4];
 int game2_level_count;
 //timer
 NSTimer *timer_game2;
+//bool
+bool didwin_game2;
 //time values
 double time_left_game2  = 35;
 double time_count_game2 = 0;
@@ -73,6 +75,12 @@ double time_count_game2 = 0;
         [UIView animateWithDuration:0.4 animations:^{
             [_time_dis setTextColor:[UIColor redColor]];
         }];
+    }
+    if (didwin_game2 == true) {
+        //reset bool
+        didwin_game2 = false;
+        [persectimer invalidate];
+        persectimer = nil;
     }
     if (time_count_game2 == 35 | time_count_game2 > 35) {
         //main timer did end
@@ -190,7 +198,6 @@ double time_count_game2 = 0;
     //init with random
     [self random];
 }
-
 -(void)random {
     ////////////////////////////////////////////////////////////////////////////////
     //RANDOM FOR WANTED STATE
@@ -564,7 +571,6 @@ double time_count_game2 = 0;
 
 
 }
-
 /////////////BUTTON MAIN IBACTIONS
 //row1 IF ROW1 IS MODIFIED, CHECK FOR EQ and bool
 - (IBAction)R1_C1:(id)sender{
@@ -888,6 +894,8 @@ double time_count_game2 = 0;
     [self check];
 
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //CHECK THE FRGN FUCNTIONS
 -(void)check{
@@ -975,12 +983,14 @@ double time_count_game2 = 0;
              & gamestate_game2[1][0] == current_wanted_state_game2 [1][0] & gamestate_game2[1][1] == current_wanted_state_game2 [1][1] & gamestate_game2[1][2] == current_wanted_state_game2 [1][2] & gamestate_game2[1][3] == current_wanted_state_game2 [1][3]
              & gamestate_game2[2][0] == current_wanted_state_game2 [2][0] & gamestate_game2[2][1] == current_wanted_state_game2 [2][1] & gamestate_game2[2][2] == current_wanted_state_game2 [2][2] & gamestate_game2[2][3] == current_wanted_state_game2 [2][3]
              & gamestate_game2[3][0] == current_wanted_state_game2 [3][0] & gamestate_game2[3][1] == current_wanted_state_game2 [3][1] & gamestate_game2[3][2] == current_wanted_state_game2 [3][2] & gamestate_game2[3][3] == current_wanted_state_game2 [3][3] & game2_level_count == 1){
-        //stop game, user has done 2 in 30 secs
+        //WON
         game2_level_count = 0;
+        didwin_game2 = true;
         //kill game
         [timer_game2 invalidate];
         timer_game2 = nil;
         time_count_game2 = 0;
+        time_left_game2 = 30;
         //lockdown
         _R1_C1.enabled = NO;
         _R1_C2.enabled = NO;
