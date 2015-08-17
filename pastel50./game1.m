@@ -25,6 +25,8 @@ bool didwin;
 NSTimer *timer;
 double time_left = 30;
 double time_count = 0;
+//headsup init
+int x,y,width,height;
 ///////////////////////ALL THE CHRONOS STUFF
 //countdown start timer
 -(void) gamestart_countdown{
@@ -188,6 +190,21 @@ double time_count = 0;
 ///////////////////VDL
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //initwith achieve view
+    x      = self.headsup_view_container.frame.origin.x;
+    y      = self.headsup_view_container.frame.origin.y;
+    width  = self.headsup_view_container.frame.size.width;
+    height = self.headsup_view_container.frame.size.height;
+    //shadows for the achieve view
+    CALayer *layer1      = self.headsup_view_container.layer;
+    layer1.shadowColor   = [[UIColor grayColor] CGColor];
+    layer1.shadowRadius  = 10.0f;
+    layer1.shadowOpacity = 0.50f;
+    layer1.shadowOffset  = CGSizeMake(1, 1);
+    layer1.shadowPath    = [[UIBezierPath bezierPathWithRect:_headsup_view_container.bounds] CGPath];
+    //set frame
+    self.headsup_view_container.frame = CGRectMake(x, -height -10, width, height);
+    //initwith main game
     [_time_disp setTextColor:[UIColor blackColor]];
     //timer init
     [self gamestart_countdown];
@@ -889,6 +906,29 @@ double time_count = 0;
            [self performSegueWithIdentifier:@"won" sender:nil];
        });
    }
+    //run the check for achievements
+    [self achievement_check];
+}
+-(void)achievement_check{
+    //detected button state
+    if ( gamestate[0][0] == 1 & gamestate[0][1] == 1  & gamestate[0][2] == 1 & gamestate[0][3] == 1
+        & gamestate[1][0] == 1 & gamestate[1][1] == 1 & gamestate[1][2] == 1 & gamestate[1][3] == 1
+        & gamestate[2][0] == 1 & gamestate[2][1] == 1 & gamestate[2][2] == 1 & gamestate[2][3] == 1
+        & gamestate[3][0] == 1 & gamestate[3][1] == 1 & gamestate[3][2] == 1 & gamestate[3][3] == 1) {
+        //unlocked all red
+        //setbool for achv
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"all_red"];
+        //set headsup content
+        [_headsup_header setText:@"Achievement Get!"];
+        [_headsup_content setText:@"All-Red"];
+        //animate down
+        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            _headsup_view_container.frame = CGRectMake(x, y, width, height);
+        }completion:nil];
+        [UIView animateWithDuration:0.5 delay:1.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            _headsup_view_container.frame = CGRectMake(x, -height - 10, width, height);
+        }completion:nil];
+    }
 }
 
 @end

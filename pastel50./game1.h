@@ -10,6 +10,12 @@
 
 @interface game1 : UIViewController
 
+//headsup
+@property (strong, nonatomic) IBOutlet UIView *headsup_view_container;
+@property (strong, nonatomic) IBOutlet UIImageView *headsup_img;
+@property (strong, nonatomic) IBOutlet UILabel *headsup_header;
+@property (strong, nonatomic) IBOutlet UILabel *headsup_content;
+//
 @property (strong, nonatomic) IBOutlet UILabel            *time_disp;
 @property (strong, nonatomic) IBOutlet UILabel            *seconds_unit;
 

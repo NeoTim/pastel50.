@@ -537,6 +537,31 @@
                                 </view>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
+                            <view contentMode="scaleToFill" id="qAX-Fk-ulv" userLabel="headsup">
+                                <rect key="frame" x="16" y="25" width="288" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imglogo2.png" id="9cB-oR-q5u">
+                                        <rect key="frame" x="8" y="10" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3uU-eg-rov">
+                                        <rect key="frame" x="80" y="49" width="191" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                        <color key="textColor" red="0.38319262859999997" green="0.38318115470000003" blue="0.38318768139999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FYS-0w-6QN">
+                                        <rect key="frame" x="80" y="10" width="191" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90730977059999995" green="0.92142927649999995" blue="0.93115901950000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -579,6 +604,10 @@
                         <outlet property="countdown_start_label" destination="Ryq-TS-Fjm" id="frP-hx-GqC"/>
                         <outlet property="game_progress" destination="9a2-EQ-iG2" id="2ph-wp-DHO"/>
                         <outlet property="guide_view" destination="efp-ZR-5Aw" id="D8a-ZL-Ssy"/>
+                        <outlet property="headsup_content" destination="3uU-eg-rov" id="BBB-sR-ZTa"/>
+                        <outlet property="headsup_header" destination="FYS-0w-6QN" id="QHm-Vv-fxB"/>
+                        <outlet property="headsup_img" destination="9cB-oR-q5u" id="3f1-Pb-RL6"/>
+                        <outlet property="headsup_view_container" destination="qAX-Fk-ulv" id="bd1-Nc-7Pd"/>
                         <outlet property="progress_view_time" destination="VUF-it-5Fh" id="GPp-Of-Fg9"/>
                         <outlet property="seconds_unit" destination="1FA-AV-jxz" id="Kwg-RT-lsl"/>
                         <outlet property="time_disp" destination="Cst-HL-nlU" id="hvt-PR-XnW"/>
@@ -1334,7 +1363,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pXZ-tw-4Hs"/>
-        <segue reference="Rt5-5m-woN"/>
+        <segue reference="adx-nh-RMr"/>
+        <segue reference="Rq7-ok-BFJ"/>
     </inferredMetricsTieBreakers>
 </document>
