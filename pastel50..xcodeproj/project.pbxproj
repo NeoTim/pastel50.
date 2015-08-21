@@ -39,6 +39,8 @@
 		97EF24571B7886650030FE8B /* game2.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF24561B7886650030FE8B /* game2.m */; };
 		97F1A57A1B7B95A700D774D0 /* lose_view.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F1A5791B7B95A700D774D0 /* lose_view.m */; };
 		97F1A57D1B7B97FB00D774D0 /* Main_Menu_Launchpad.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F1A57C1B7B97FB00D774D0 /* Main_Menu_Launchpad.m */; };
+		97FDC96F1B829DB500BA2A07 /* game4_splash.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FDC96E1B829DB500BA2A07 /* game4_splash.m */; };
+		97FDC9721B829DC400BA2A07 /* game4.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FDC9711B829DC400BA2A07 /* game4.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,10 @@
 		97F1A5791B7B95A700D774D0 /* lose_view.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lose_view.m; sourceTree = "<group>"; };
 		97F1A57B1B7B97FB00D774D0 /* Main_Menu_Launchpad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Main_Menu_Launchpad.h; sourceTree = "<group>"; };
 		97F1A57C1B7B97FB00D774D0 /* Main_Menu_Launchpad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Main_Menu_Launchpad.m; sourceTree = "<group>"; };
+		97FDC96D1B829DB500BA2A07 /* game4_splash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game4_splash.h; sourceTree = "<group>"; };
+		97FDC96E1B829DB500BA2A07 /* game4_splash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game4_splash.m; sourceTree = "<group>"; };
+		97FDC9701B829DC400BA2A07 /* game4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game4.h; sourceTree = "<group>"; };
+		97FDC9711B829DC400BA2A07 /* game4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game4.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,10 @@
 				976131991B7AE34E00C17395 /* game3_splash.m */,
 				9761319B1B7AE35E00C17395 /* game3.h */,
 				9761319C1B7AE35E00C17395 /* game3.m */,
+				97FDC96D1B829DB500BA2A07 /* game4_splash.h */,
+				97FDC96E1B829DB500BA2A07 /* game4_splash.m */,
+				97FDC9701B829DC400BA2A07 /* game4.h */,
+				97FDC9711B829DC400BA2A07 /* game4.m */,
 			);
 			name = "game VCs";
 			sourceTree = "<group>";
@@ -371,11 +381,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				97EB281B1B70AC6000202EAE /* AppDelegate.m in Sources */,
+				97FDC96F1B829DB500BA2A07 /* game4_splash.m in Sources */,
 				976DD1341B783F6E00682AEF /* WinViewController.m in Sources */,
 				97EB28181B70AC6000202EAE /* main.m in Sources */,
 				97EF24571B7886650030FE8B /* game2.m in Sources */,
 				97DE740D1B7D8B8800F7F7B3 /* winView.m in Sources */,
 				9771D8CB1B70E165007C8B43 /* choose_gamemode.mm in Sources */,
+				97FDC9721B829DC400BA2A07 /* game4.m in Sources */,
 				97780BA51B72491E00228911 /* game1.m in Sources */,
 				9761319A1B7AE34E00C17395 /* game3_splash.m in Sources */,
 				979701031B7CA5E7004C31FB /* push_no_anim.m in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RNc-tU-0xU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="W5F-b7-Ebc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -693,7 +693,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6kJ-DK-lZT" kind="push" id="NET-3S-9Nr"/>
+                                    <segue destination="6kJ-DK-lZT" kind="push" identifier="game3" id="NET-3S-9Nr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -706,6 +706,7 @@
                         <outlet property="level_2" destination="nlG-BX-ZfS" id="xJx-9z-oFs"/>
                         <outlet property="level_3" destination="hYh-mf-M10" id="64J-R1-vjU"/>
                         <outlet property="textview_container" destination="3dM-kQ-jZa" id="WrG-Qz-6IX"/>
+                        <segue destination="sMN-wD-CHH" kind="push" identifier="game4" id="zmc-v8-uHm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oG-sJ-JlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -805,6 +806,396 @@
             </objects>
             <point key="canvasLocation" x="1403" y="1128"/>
         </scene>
+        <!--Game4 splash-->
+        <scene sceneID="o2L-k4-asJ">
+            <objects>
+                <viewController id="sMN-wD-CHH" customClass="game4_splash" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r9X-gb-4EZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fullerton.png" id="e8Z-ph-QQN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eCC-OD-2ix">
+                                <rect key="frame" x="148" y="151" width="25" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level IV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VDY-z0-7jU">
+                                <rect key="frame" x="89" y="118" width="142" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Fullerton" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eCc-SI-Yzu">
+                                <rect key="frame" x="78" y="190" width="165" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="27"/>
+                                <color key="textColor" red="0.38319262859999997" green="0.38318115470000003" blue="0.38318768139999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yu9-2I-tMd"/>
+                    <connections>
+                        <outlet property="background" destination="e8Z-ph-QQN" id="0RZ-E6-cxa"/>
+                        <segue destination="W5F-b7-Ebc" kind="push" identifier="startgame" id="I7X-iA-9f8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ukd-7D-suF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1403" y="1794"/>
+        </scene>
+        <!--game4-->
+        <scene sceneID="Hbu-F4-qOH">
+            <objects>
+                <viewController title="game4" id="W5F-b7-Ebc" customClass="game4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eJl-HJ-uO7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3wh-LV-Uzd" userLabel="timedisp">
+                                <rect key="frame" x="115" y="51" width="91" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qI1-81-8O1" userLabel="time">
+                                <rect key="frame" x="142" y="30" width="38" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="19"/>
+                                <color key="textColor" red="0.68708586689999995" green="0.68706530330000004" blue="0.68707698579999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="3SN-wl-hei" userLabel="gameprogress">
+                                <rect key="frame" x="0.0" y="566" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="progressTintColor" red="0.8636885285" green="0.36025351290000002" blue="0.37666141990000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
+                            <view contentMode="center" id="ndr-fJ-Dky" userLabel="mainusertap_container">
+                                <rect key="frame" x="0.0" y="102" width="320" height="344"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cig-4m-2rV">
+                                        <rect key="frame" x="8" y="20" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R1_C1">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R1_C1:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="7JS-p9-79H"/>
+                                            <action selector="R1_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="COE-8D-KZp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kIw-Kg-9nT">
+                                        <rect key="frame" x="86" y="20" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R1_C2">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R1_C2:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="FqF-Ht-7is"/>
+                                            <action selector="R1_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="atc-b8-IkO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LjL-Yz-eil">
+                                        <rect key="frame" x="164" y="20" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R1_C3">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R1_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="9Sh-fy-lO9"/>
+                                            <action selector="R1_C3:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="fXB-Xu-Ot5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tvs-et-C7q">
+                                        <rect key="frame" x="242" y="20" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R1_C4">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R1_C4:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="Wtd-AO-zqv"/>
+                                            <action selector="R1_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="gMx-Mg-u54"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g86-ov-hlq">
+                                        <rect key="frame" x="8" y="98" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R2_C1">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R2_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="I81-xK-mgR"/>
+                                            <action selector="R2_C1:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="m1Y-mG-WeA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fnv-lE-vdp">
+                                        <rect key="frame" x="86" y="98" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R2_C2">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R2_C2:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="60s-cZ-DbM"/>
+                                            <action selector="R2_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="8gn-oO-kZr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1HJ-bI-XiA">
+                                        <rect key="frame" x="164" y="98" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R2_C3">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R2_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="fmo-5U-2YR"/>
+                                            <action selector="R2_C3:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="r05-n8-ICW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="z7w-V9-63q">
+                                        <rect key="frame" x="242" y="98" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R2_C4">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R2_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="GPW-Dc-l8B"/>
+                                            <action selector="R2_C4:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="rXy-HL-BqH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="big-Y6-Kak">
+                                        <rect key="frame" x="8" y="176" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R3_C1">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R3_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="1wf-mg-OVC"/>
+                                            <action selector="R3_C1:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="a2T-MI-SoY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FlZ-Gi-cOV">
+                                        <rect key="frame" x="86" y="176" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R3_C2">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R3_C2:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="B8Q-34-zsU"/>
+                                            <action selector="R3_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="DQy-gU-dWZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Lq2-8J-ha5">
+                                        <rect key="frame" x="164" y="176" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R3_C3">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R3_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="EdU-PE-XNV"/>
+                                            <action selector="R3_C3:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="GE7-rs-iP7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Uin-Ad-MuR">
+                                        <rect key="frame" x="242" y="176" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R3_C4">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R3_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="1Mj-pO-vxM"/>
+                                            <action selector="R3_C4:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="DH5-BO-gdh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uJp-7M-YiJ">
+                                        <rect key="frame" x="8" y="254" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R4_C1">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R4_C1:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="lwT-9t-fZD"/>
+                                            <action selector="R4_C1:" destination="h0d-lw-eIB" eventType="touchUpInside" id="wyY-ND-GIi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="GZP-E8-hMP">
+                                        <rect key="frame" x="86" y="254" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R4_C2">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R4_C2:" destination="h0d-lw-eIB" eventType="touchUpInside" id="D1j-Dq-kLc"/>
+                                            <action selector="R4_C2:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="TnU-h3-7Or"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s63-bL-fEz">
+                                        <rect key="frame" x="164" y="254" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R4_C3">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R4_C3:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="TS5-5m-F1L"/>
+                                            <action selector="R4_C3:" destination="h0d-lw-eIB" eventType="touchUpInside" id="fCQ-hK-Dwd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mZZ-Tl-jtV">
+                                        <rect key="frame" x="242" y="254" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.91372549020000005" green="0.0" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="R4_C4">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="R4_C4:" destination="W5F-b7-Ebc" eventType="touchUpInside" id="37s-v9-hJw"/>
+                                            <action selector="R4_C4:" destination="h0d-lw-eIB" eventType="touchUpInside" id="gA4-i0-mbn"/>
+                                        </connections>
+                                    </button>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="UFD-b6-EqR">
+                                        <rect key="frame" x="0.0" y="342" width="320" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="progressTintColor" red="0.32856267690000002" green="0.64410710329999998" blue="0.95445334910000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="trackTintColor" red="0.68708586689999995" green="0.68706530330000004" blue="0.68707698579999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </progressView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95075207949999996" green="0.95072358850000005" blue="0.95073968170000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" id="OEh-7C-v70" userLabel="blurview">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0Dk-Hn-qxD" userLabel="count_down view">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soliddot.png" id="0tk-Nl-W7p">
+                                            <rect key="frame" x="74" y="198" width="172" height="172"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DbP-0m-cxF">
+                                            <rect key="frame" x="85" y="209" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="61"/>
+                                            <color key="textColor" red="0.95075207949999996" green="0.95072358850000005" blue="0.95073968170000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the dots to change their color" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Ky-86-fhJ">
+                                            <rect key="frame" x="0.0" y="136" width="320" height="54"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" id="Ybw-Vm-bGj" userLabel="headsup">
+                                <rect key="frame" x="16" y="25" width="288" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imglogo2.png" id="QUO-59-jzl">
+                                        <rect key="frame" x="8" y="10" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IY4-kL-IAK">
+                                        <rect key="frame" x="80" y="49" width="191" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                        <color key="textColor" red="0.38319262859999997" green="0.38318115470000003" blue="0.38318768139999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OK7-JK-Yev">
+                                        <rect key="frame" x="80" y="10" width="191" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90730977059999995" green="0.92142927649999995" blue="0.93115901950000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="h0h-pg-Aa4"/>
+                    <connections>
+                        <outlet property="R1_C1" destination="cig-4m-2rV" id="Epo-G5-Dmd"/>
+                        <outlet property="R1_C2" destination="kIw-Kg-9nT" id="dUY-Ae-pSa"/>
+                        <outlet property="R1_C3" destination="LjL-Yz-eil" id="wBo-CE-MBc"/>
+                        <outlet property="R1_C4" destination="Tvs-et-C7q" id="xI0-ZW-IYW"/>
+                        <outlet property="R2_C1" destination="g86-ov-hlq" id="Ueo-Yz-TQ0"/>
+                        <outlet property="R2_C2" destination="Fnv-lE-vdp" id="ajg-RO-EXV"/>
+                        <outlet property="R2_C3" destination="1HJ-bI-XiA" id="ola-km-xBZ"/>
+                        <outlet property="R2_C4" destination="z7w-V9-63q" id="36x-Cg-0Vp"/>
+                        <outlet property="R3_C1" destination="big-Y6-Kak" id="UEQ-YQ-AUo"/>
+                        <outlet property="R3_C2" destination="FlZ-Gi-cOV" id="9bu-lF-Hxh"/>
+                        <outlet property="R3_C3" destination="Lq2-8J-ha5" id="Ub2-pe-Ft1"/>
+                        <outlet property="R3_C4" destination="Uin-Ad-MuR" id="Q9x-Sv-fbY"/>
+                        <outlet property="R4_C1" destination="uJp-7M-YiJ" id="JUy-40-66N"/>
+                        <outlet property="R4_C2" destination="GZP-E8-hMP" id="vwI-vm-pV1"/>
+                        <outlet property="R4_C3" destination="s63-bL-fEz" id="uQL-14-d1r"/>
+                        <outlet property="R4_C4" destination="mZZ-Tl-jtV" id="olp-MM-054"/>
+                        <outlet property="blur_view" destination="OEh-7C-v70" id="dkQ-Lo-aOr"/>
+                        <outlet property="blurview" destination="OEh-7C-v70" id="nod-8R-g5h"/>
+                        <outlet property="content" destination="IY4-kL-IAK" id="YPW-xV-74b"/>
+                        <outlet property="countdown_disp" destination="DbP-0m-cxF" id="OKr-Ed-JAk"/>
+                        <outlet property="countdown_label" destination="DbP-0m-cxF" id="fJ1-He-BvP"/>
+                        <outlet property="game_progress" destination="3SN-wl-hei" id="Rcf-Gp-TLw"/>
+                        <outlet property="header_headsup" destination="OK7-JK-Yev" id="EkI-9y-86O"/>
+                        <outlet property="headsup_view_container" destination="Ybw-Vm-bGj" id="r8v-Vm-VMS"/>
+                        <outlet property="headsup_view_img" destination="QUO-59-jzl" id="teW-zn-sq0"/>
+                        <outlet property="progress_view_time" destination="UFD-b6-EqR" id="XBf-pR-cF6"/>
+                        <outlet property="seconds_unit" destination="qI1-81-8O1" id="A1W-Jd-clG"/>
+                        <outlet property="time_dis" destination="3wh-LV-Uzd" id="pR3-Tb-A26"/>
+                        <outlet property="tut_" destination="4Ky-86-fhJ" id="j67-rm-oOy"/>
+                        <outlet property="usertap_view" destination="ndr-fJ-Dky" id="xVj-uA-2u4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPP-69-yBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1852" y="1794"/>
+        </scene>
         <!--game2-->
         <scene sceneID="kmC-y1-1HP">
             <objects>
@@ -893,13 +1284,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cCn-4Q-3lG" userLabel="timeadd">
-                                        <rect key="frame" x="185" y="55" width="50" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
-                                        <color key="textColor" red="0.68708586689999995" green="0.68706530330000004" blue="0.68707698579999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t9F-vC-JaW" userLabel="time">
@@ -1204,11 +1588,10 @@
                         <outlet property="guide_view" destination="JOG-ls-V8V" id="y7P-At-i1O"/>
                         <outlet property="progress_view_time" destination="hiM-0y-E7G" id="3DD-K8-Hup"/>
                         <outlet property="seconds_unit" destination="t9F-vC-JaW" id="qAu-ss-j3N"/>
-                        <outlet property="time_carried_forward_disp" destination="cCn-4Q-3lG" id="ssF-ye-I8H"/>
                         <outlet property="time_dis" destination="wo7-Oc-Z4F" id="X9r-fE-CZu"/>
                         <outlet property="usertap_view" destination="9tS-ND-WQh" id="IVb-J1-dZI"/>
                         <segue destination="9FL-TR-P34" kind="custom" identifier="lost" customClass="push_no_anim" id="pXZ-tw-4Hs"/>
-                        <segue destination="d7J-hn-j71" kind="custom" identifier="lost" customClass="push_no_anim" id="Rt5-5m-woN"/>
+                        <segue destination="d7J-hn-j71" kind="custom" identifier="won" customClass="push_no_anim" id="Rt5-5m-woN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftV-wv-YkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1265,7 +1648,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lw3-Zl-dMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2608" y="-263"/>
+            <point key="canvasLocation" x="2611" y="-127"/>
         </scene>
         <!--winview-->
         <scene sceneID="cth-HU-jHs">
@@ -1340,7 +1723,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxm-J6-mGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2608" y="428"/>
+            <point key="canvasLocation" x="2611" y="564"/>
         </scene>
     </scenes>
     <resources>
@@ -1348,6 +1731,7 @@
         <image name="blu.png" width="365" height="365"/>
         <image name="changi.png" width="320" height="568"/>
         <image name="flyer.png" width="320" height="568"/>
+        <image name="fullerton.png" width="320" height="568"/>
         <image name="hollowdot.png" width="365" height="365"/>
         <image name="imglogo2.png" width="365" height="365"/>
         <image name="merlion.png" width="2714" height="1983"/>
@@ -1363,7 +1747,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="adx-nh-RMr"/>
-        <segue reference="Rq7-ok-BFJ"/>
+        <segue reference="pXZ-tw-4Hs"/>
+        <segue reference="Rt5-5m-woN"/>
     </inferredMetricsTieBreakers>
 </document>
