@@ -15,6 +15,9 @@
 @implementation ViewController
 //Throwing all the animations into viewdidappear
 -(void)viewDidAppear:(BOOL)animated{
+    _background_img.alpha = 1;
+    _pastel_text.alpha= 1;
+    _start_button.alpha = 1;
     //ANIMATIONS
     //init with animations and buttons
     _start_button.layer.cornerRadius = 15.0f;
@@ -130,10 +133,11 @@
         _background_img.alpha = 0;
     }];
     //
-    double delayInSeconds = 1.6;
+    double delayInSeconds = 1.3;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //segue to next view
+        [self performSegueWithIdentifier:@"settings" sender:nil];
     });
 
 }

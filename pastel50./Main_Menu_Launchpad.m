@@ -7,12 +7,15 @@
 //
 
 #import "Main_Menu_Launchpad.h"
-
+#import <UIKit/UIKit.h>
+#import "AVFoundation/AVAudioPlayer.h"
+#import <AudioToolbox/AudioToolbox.h>
 @interface Main_Menu_Launchpad ()
 
 @end
 
 @implementation Main_Menu_Launchpad
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //init buttons
@@ -84,6 +87,7 @@
     else{
         _level_3.enabled = NO;
     }
+    [self checkformusic];
 }
 -(void)viewDidAppear:(BOOL)animated{
     //init with uibutton transition
@@ -95,8 +99,16 @@
     [UIView transitionWithView:_level_3 duration:0.6 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         _level_3.alpha = 1;
     }completion:nil];
-   
-
+}
+-(void)checkformusic{
+    //init with music
+    BOOL soundenabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"sound_setting"];
+    if (soundenabled == YES) {
+        //play music
+    }
+    else{
+        //no music
+    }
 }
 - (IBAction)level_1:(id)sender {
     //segue to level 1

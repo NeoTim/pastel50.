@@ -149,7 +149,7 @@ int x_headsup_game4,y_headsup_game4,width_headsup_game4,height_headsup_game4;
 }
 //
 //score for game
-int score;
+int score = 0;
 ///////////////////VDL
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -200,10 +200,209 @@ int score;
     _R4_C3.enabled = NO;
     _R4_C4.enabled = NO;
     //
+    [self randomise_images];
 
 }
 //socket delegating
+-(void)randomise_images{
+    ////////////////////////////////////////////////////////////////////////////////
+    //RANDOM FOR GAME STATE
+    //rand for row 1
+    gamestate_game4[0][0] = arc4random()%3; gamestate_game4[0][1] = arc4random()%3; gamestate_game4[0][2] = arc4random()%3; gamestate_game4[0][3] = arc4random()%3;
+    //rand for row 2
+    gamestate_game4[1][0] = arc4random()%3; gamestate_game4[1][1] = arc4random()%3; gamestate_game4[1][2] = arc4random()%3; gamestate_game4[1][3] = arc4random()%3;
+    //rand for row 3
+    gamestate_game4[2][0] = arc4random()%3; gamestate_game4[2][1] = arc4random()%3; gamestate_game4[2][2] = arc4random()%3; gamestate_game4[2][3] = arc4random()%3;
+    //rand for row 4
+    gamestate_game4[3][0] = arc4random()%3; gamestate_game4[3][1] = arc4random()%3; gamestate_game4[3][2] = arc4random()%3; gamestate_game4[3][3] = arc4random()%3;
+    
+    //set MAIN PLAYER VIEW
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    //ROW1
+    if (gamestate_game4[0][0] == 1) {
+        [_R1_C1 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[0][0] == 2) {
+        [_R1_C1 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R1_C1 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[0][1] == 1) {
+        [_R1_C2 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[0][1] == 2) {
+        [_R1_C2 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R1_C2 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[0][2] == 1) {
+        [_R1_C3 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[0][2] == 2) {
+        [_R1_C3 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R1_C3 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[0][3] == 1) {
+        [_R1_C4 setBackgroundImage:[UIImage imageNamed:@"soliddot"]  forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[0][3] == 2) {
+        [_R1_C4 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R1_C4 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //ROW2
+    if (gamestate_game4[1][0] == 1) {
+        [_R2_C1 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[1][0] == 2) {
+        [_R2_C1 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R2_C1 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[1][1] == 1) {
+        [_R2_C2 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[1][1] == 2) {
+        [_R2_C2 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R2_C2 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[1][2] == 1) {
+        [_R2_C3 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[1][2] == 2) {
+        [_R2_C3 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R2_C3 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[1][3] == 1) {
+        [_R2_C4 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[1][3] == 2) {
+        [_R2_C4 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R2_C4 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //ROW3
+    if (gamestate_game4[2][0] == 1) {
+        [_R3_C1 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[2][0] == 2) {
+        [_R3_C1 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R3_C1 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[2][1] == 1) {
+        [_R3_C2 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[2][1] == 2) {
+        [_R3_C2 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R3_C2 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[2][2] == 1) {
+        [_R3_C3 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[2][2] == 2) {
+        [_R3_C3 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R3_C3 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[2][3] == 1) {
+        [_R3_C4 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[2][3] == 2) {
+        [_R3_C4 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R3_C4 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    //ROW4
+    if (gamestate_game4[3][0] == 1) {
+        [_R4_C1 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[3][0] == 2) {
+        [_R4_C1 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R4_C1 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[3][1] == 1) {
+        [_R4_C2 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[3][1] == 2) {
+        [_R4_C2 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R4_C2 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[3][2] == 1) {
+        [_R4_C3 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[3][2] == 2) {
+        [_R4_C3 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R4_C3 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+    //
+    if (gamestate_game4[3][3] == 1) {
+        [_R4_C4 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+    }
+    else if (gamestate_game4[3][3] == 2) {
+        [_R4_C4 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
+    }
+    else{
+        [_R4_C4 setBackgroundImage:[UIImage imageNamed:@"pink"] forState:UIControlStateNormal];
+    }
+
+}
 -(void)random_init{
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _R1_C1.alpha = 0;
+        _R1_C2.alpha = 0;
+        _R1_C3.alpha = 0;
+        _R1_C4.alpha = 0;
+        _R2_C1.alpha = 0;
+        _R2_C2.alpha = 0;
+        _R2_C3.alpha = 0;
+        _R2_C4.alpha = 0;
+        _R3_C1.alpha = 0;
+        _R3_C2.alpha = 0;
+        _R3_C3.alpha = 0;
+        _R3_C4.alpha = 0;
+        _R4_C1.alpha = 0;
+        _R4_C2.alpha = 0;
+        _R4_C3.alpha = 0;
+        _R4_C4.alpha = 0;
+    }completion:nil];
+    
     //matirx to set enabled for button grid socket
     if (button_wanted == 0) {
         //#teamOCD
@@ -381,6 +580,24 @@ int score;
         _R4_C1.enabled = NO;_R4_C2.enabled = NO;_R4_C3.enabled = NO;_R4_C4.enabled = YES;
         //
     }
+    [UIView animateWithDuration:0.2 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _R1_C1.alpha = 1;
+        _R1_C2.alpha = 1;
+        _R1_C3.alpha = 1;
+        _R1_C4.alpha = 1;
+        _R2_C1.alpha = 1;
+        _R2_C2.alpha = 1;
+        _R2_C3.alpha = 1;
+        _R2_C4.alpha = 1;
+        _R3_C1.alpha = 1;
+        _R3_C2.alpha = 1;
+        _R3_C3.alpha = 1;
+        _R3_C4.alpha = 1;
+        _R4_C1.alpha = 1;
+        _R4_C2.alpha = 1;
+        _R4_C3.alpha = 1;
+        _R4_C4.alpha = 1;
+    }completion:nil];
 }
 /////////////BUTTON MAIN IBACTIONS
 //row1 IF ROW1 IS MODIFIED, CHECK FOR EQ and bool
@@ -390,7 +607,8 @@ int score;
     if (rand == 0) { button_wanted = 1;} else if (rand == 1){button_wanted = 2;} else if (rand == 2){button_wanted = 3;} else if (rand == 3){button_wanted = 4;} else if (rand == 4){button_wanted = 5;} else if (rand == 5){button_wanted = 6;} else if (rand == 6){button_wanted = 7;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 }
 - (IBAction)R1_C2:(id)sender{
     //rand next button
@@ -398,7 +616,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 2;} else if (rand == 2){button_wanted = 3;} else if (rand == 3){button_wanted = 4;} else if (rand == 4){button_wanted = 5;} else if (rand == 5){button_wanted = 6;} else if (rand == 6){button_wanted = 7;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 
 }
 - (IBAction)R1_C3:(id)sender{
@@ -407,7 +626,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 4;} else if (rand == 3){button_wanted = 5;} else if (rand == 4){button_wanted = 6;} else if (rand == 5){button_wanted = 7;} else if (rand == 6){button_wanted = 8;} else if (rand == 7){button_wanted = 9;} else if (rand == 8){button_wanted = 10;} else if (rand == 9){} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 
 }
 - (IBAction)R1_C4:(id)sender{
@@ -416,7 +636,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 5;} else if (rand == 5){button_wanted = 6;} else if (rand == 6){button_wanted = 7;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -428,7 +649,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 6;} else if (rand == 6){button_wanted = 7;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 
 }
 - (IBAction)R2_C2:(id)sender{
@@ -437,7 +659,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 7;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 
 }
 - (IBAction)R2_C3:(id)sender{
@@ -446,7 +669,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 
 }
 - (IBAction)R2_C4:(id)sender{
@@ -455,7 +679,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -467,7 +692,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 }
 - (IBAction)R3_C2:(id)sender{
     //rand next button
@@ -475,7 +701,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 }
 - (IBAction)R3_C3:(id)sender{
     //rand next button
@@ -489,7 +716,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
   }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -500,7 +728,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 11;} else if (rand == 12){button_wanted = 12;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
    }
 - (IBAction)R4_C2:(id)sender{
     //rand next button
@@ -508,7 +737,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 11;} else if (rand == 12){button_wanted = 12;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
     
 }
 - (IBAction)R4_C3:(id)sender{
@@ -517,7 +747,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 11;} else if (rand == 12){button_wanted = 12;} else if (rand == 13){button_wanted = 13;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
     
 }
 - (IBAction)R4_C4:(id)sender{
@@ -526,7 +757,8 @@ int score;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 11;} else if (rand == 12){button_wanted = 12;} else if (rand == 13){button_wanted = 13;}else if (rand == 14){button_wanted = 1;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate");
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -535,5 +767,6 @@ int score;
 -(void)check{
 
 }
+
 @end
 

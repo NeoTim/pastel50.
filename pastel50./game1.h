@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface game1 : UIViewController
+@interface game1 : UIViewController{
+    AVAudioPlayer *audioPlayer;
+}
 
 //headsup
 @property (strong, nonatomic) IBOutlet UIView *headsup_view_container;
@@ -93,5 +96,14 @@
 @property (strong, nonatomic) IBOutlet UILabel            *countdown_start_label;
 /////
 @property (strong, nonatomic) IBOutlet UIProgressView     *game_progress;
+@property (strong, nonatomic) IBOutlet UIButton *pause_button;
+- (IBAction)pause_button:(id)sender;
+
+//Pause view
+@property (strong, nonatomic) IBOutlet UIVisualEffectView *pauseview_container;
+- (IBAction)Quit:(id)sender;
+- (IBAction)restart:(id)sender;
+- (IBAction)backto_game:(id)sender;
+
 
 @end

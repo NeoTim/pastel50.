@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		975606471B89C72B0027C875 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975606461B89C72B0027C875 /* AVFoundation.framework */; };
+		975606511B89DFB00027C875 /* Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 975606501B89DFB00027C875 /* Music.mp3 */; };
+		975606541B89E3BD0027C875 /* PAUSE buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 975606521B89E3BD0027C875 /* PAUSE buttons.png */; };
+		975606551B89E3BD0027C875 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 975606531B89E3BD0027C875 /* play.png */; };
 		9761319A1B7AE34E00C17395 /* game3_splash.m in Sources */ = {isa = PBXBuildFile; fileRef = 976131991B7AE34E00C17395 /* game3_splash.m */; };
 		9761319D1B7AE35E00C17395 /* game3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9761319C1B7AE35E00C17395 /* game3.m */; };
 		9761319F1B7AE8D500C17395 /* merlion.png in Resources */ = {isa = PBXBuildFile; fileRef = 9761319E1B7AE8D500C17395 /* merlion.png */; };
@@ -39,6 +43,7 @@
 		97EF24571B7886650030FE8B /* game2.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EF24561B7886650030FE8B /* game2.m */; };
 		97F1A57A1B7B95A700D774D0 /* lose_view.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F1A5791B7B95A700D774D0 /* lose_view.m */; };
 		97F1A57D1B7B97FB00D774D0 /* Main_Menu_Launchpad.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F1A57C1B7B97FB00D774D0 /* Main_Menu_Launchpad.m */; };
+		97FD5E2E1B883AAB006F11E7 /* settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FD5E2D1B883AAB006F11E7 /* settings.m */; };
 		97FDC96F1B829DB500BA2A07 /* game4_splash.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FDC96E1B829DB500BA2A07 /* game4_splash.m */; };
 		97FDC9721B829DC400BA2A07 /* game4.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FDC9711B829DC400BA2A07 /* game4.m */; };
 /* End PBXBuildFile section */
@@ -54,6 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		975606461B89C72B0027C875 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		975606501B89DFB00027C875 /* Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Music.mp3; sourceTree = "<group>"; };
+		975606521B89E3BD0027C875 /* PAUSE buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PAUSE buttons.png"; sourceTree = "<group>"; };
+		975606531B89E3BD0027C875 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		976131981B7AE34E00C17395 /* game3_splash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game3_splash.h; sourceTree = "<group>"; };
 		976131991B7AE34E00C17395 /* game3_splash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game3_splash.m; sourceTree = "<group>"; };
 		9761319B1B7AE35E00C17395 /* game3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game3.h; sourceTree = "<group>"; };
@@ -103,6 +112,8 @@
 		97F1A5791B7B95A700D774D0 /* lose_view.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lose_view.m; sourceTree = "<group>"; };
 		97F1A57B1B7B97FB00D774D0 /* Main_Menu_Launchpad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Main_Menu_Launchpad.h; sourceTree = "<group>"; };
 		97F1A57C1B7B97FB00D774D0 /* Main_Menu_Launchpad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Main_Menu_Launchpad.m; sourceTree = "<group>"; };
+		97FD5E2C1B883AAB006F11E7 /* settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settings.h; sourceTree = "<group>"; };
+		97FD5E2D1B883AAB006F11E7 /* settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settings.m; sourceTree = "<group>"; };
 		97FDC96D1B829DB500BA2A07 /* game4_splash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game4_splash.h; sourceTree = "<group>"; };
 		97FDC96E1B829DB500BA2A07 /* game4_splash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game4_splash.m; sourceTree = "<group>"; };
 		97FDC9701B829DC400BA2A07 /* game4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game4.h; sourceTree = "<group>"; };
@@ -114,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				975606471B89C72B0027C875 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +188,7 @@
 		97EB28091B70AC6000202EAE = {
 			isa = PBXGroup;
 			children = (
+				975606461B89C72B0027C875 /* AVFoundation.framework */,
 				97EB28141B70AC6000202EAE /* pastel50. */,
 				97EB28311B70AC6000202EAE /* pastel50.Tests */,
 				97EB28131B70AC6000202EAE /* Products */,
@@ -210,6 +223,8 @@
 				97DE740C1B7D8B8800F7F7B3 /* winView.m */,
 				979701011B7CA5E7004C31FB /* push_no_anim.h */,
 				979701021B7CA5E7004C31FB /* push_no_anim.m */,
+				97FD5E2C1B883AAB006F11E7 /* settings.h */,
+				97FD5E2D1B883AAB006F11E7 /* settings.m */,
 			);
 			path = pastel50.;
 			sourceTree = "<group>";
@@ -217,6 +232,7 @@
 		97EB28151B70AC6000202EAE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				975606501B89DFB00027C875 /* Music.mp3 */,
 				97EB28161B70AC6000202EAE /* Info.plist */,
 				97EB28171B70AC6000202EAE /* main.m */,
 			);
@@ -256,6 +272,8 @@
 		97EB283F1B70AEE700202EAE /* image_res */ = {
 			isa = PBXGroup;
 			children = (
+				975606521B89E3BD0027C875 /* PAUSE buttons.png */,
+				975606531B89E3BD0027C875 /* play.png */,
 				97E5A4A91B7896DB00060468 /* backs */,
 				97E5A4A81B7896C400060468 /* dots */,
 				97E565591B72058100B66B4C /* pastel50_v2-BACKGROUND.png */,
@@ -355,8 +373,11 @@
 				97780B9C1B723B8900228911 /* HDB_pic.jpg in Resources */,
 				97EA27D31B79EDAB00C6DD9F /* flyer.png in Resources */,
 				97EF244D1B7873770030FE8B /* changi.png in Resources */,
+				975606511B89DFB00027C875 /* Music.mp3 in Resources */,
+				975606541B89E3BD0027C875 /* PAUSE buttons.png in Resources */,
 				9761319F1B7AE8D500C17395 /* merlion.png in Resources */,
 				97780B961B72311900228911 /* pastel 50 bck.png in Resources */,
+				975606551B89E3BD0027C875 /* play.png in Resources */,
 				977425071B7F12C80024AA02 /* sgisland.png in Resources */,
 				97EB28291B70AC6000202EAE /* LaunchScreen.xib in Resources */,
 				97EA27D51B79EE2000C6DD9F /* fullerton.png in Resources */,
@@ -384,6 +405,7 @@
 				97FDC96F1B829DB500BA2A07 /* game4_splash.m in Sources */,
 				976DD1341B783F6E00682AEF /* WinViewController.m in Sources */,
 				97EB28181B70AC6000202EAE /* main.m in Sources */,
+				97FD5E2E1B883AAB006F11E7 /* settings.m in Sources */,
 				97EF24571B7886650030FE8B /* game2.m in Sources */,
 				97DE740D1B7D8B8800F7F7B3 /* winView.m in Sources */,
 				9771D8CB1B70E165007C8B43 /* choose_gamemode.mm in Sources */,

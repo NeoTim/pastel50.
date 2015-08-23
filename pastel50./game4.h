@@ -23,6 +23,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *tut_;
 //main game interface
 //MAIN USER TAP
+//err catch
+//
 @property (strong, nonatomic) IBOutlet UIView             *usertap_view;
 @property (strong, nonatomic) IBOutlet UIButton           *R1_C1;
 @property (strong, nonatomic) IBOutlet UIButton           *R1_C2;
@@ -73,6 +75,9 @@
 @property (strong, nonatomic) IBOutlet UILabel            *countdown_label;
 //game progress
 @property (strong, nonatomic) IBOutlet UIProgressView     *game_progress;
+
+////
+@property (strong, nonatomic) IBOutlet UILabel *score_disp;
 
 
 @end

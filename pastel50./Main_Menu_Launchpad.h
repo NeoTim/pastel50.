@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import "AVFoundation/AVAudioPlayer.h"
+
 
 @interface Main_Menu_Launchpad : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *textview_container;

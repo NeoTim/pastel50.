@@ -9,9 +9,7 @@
 #import "game1.h"
 
 @interface game1 ()
-
 @end
-
 @implementation game1
 bool didplay_before;
 //initwith array state
@@ -20,11 +18,12 @@ int current_wanted_state [4][4];
 //game level count
 int game_level_count;
 //bool
-bool didwin;
+bool didstop;
 //timer
 NSTimer *timer;
 double time_left = 30;
 double time_count = 0;
+double paused_time_left [2][1];
 //headsup init
 int x,y,width,height;
 ///////////////////////ALL THE CHRONOS STUFF
@@ -114,6 +113,8 @@ int x,y,width,height;
     }
     if (time_count == 30) {
         //LOST
+        //stop music
+        [audioPlayer stop];
         //shake animation
         CAKeyframeAnimation *shake_animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
         shake_animation.timingFunction       = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
@@ -162,6 +163,8 @@ int x,y,width,height;
             _time_disp.alpha          = 0;
             _seconds_unit.alpha       = 0;
             _progress_view_time.alpha = 0;
+            _pause_button.alpha = 0;
+
         }completion:nil];
         double delayInSeconds = 1.5;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -172,8 +175,8 @@ int x,y,width,height;
         
 
     }
-    if (didwin == true) {
-        didwin = false;
+    if (didstop == true) {
+        didstop = false;
         [persectimer invalidate];
         persectimer = nil;
     }
@@ -182,14 +185,27 @@ int x,y,width,height;
     //runs every 0.1 seconds
     time_left = time_left - 0.1;
     [_progress_view_time setProgress: (time_left / 30) animated:YES];
+    if (time_left == 0 | time_left < 0) {
+        [_time_disp setText:@"0.0"];
+    }
+    else{
     [_time_disp setText:[NSString stringWithFormat:@"%0.1f", time_left]];
-
-
+    }
 }
 
 ///////////////////VDL
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //init pauseview
+    _pauseview_container.alpha = 0;
+    //init with sound
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"sound_setting"] == YES) {
+        NSString *music = [[NSBundle mainBundle]pathForResource:@"Music" ofType:@"mp3"];
+        audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:music] error:NULL];
+        //play sounds
+        audioPlayer.numberOfLoops = -1;
+        [audioPlayer play];
+    }
     //initwith achieve view
     x      = self.headsup_view_container.frame.origin.x;
     y      = self.headsup_view_container.frame.origin.y;
@@ -210,7 +226,7 @@ int x,y,width,height;
     [self gamestart_countdown];
     [_time_disp setText:[NSString stringWithFormat:@"%0.1f", time_left]];
     game_level_count = 0;
-    didwin = false;
+    didstop = false;
     //init with drawings
     //GUIDEview
     _guide_view.alpha = 0;
@@ -848,7 +864,8 @@ int x,y,width,height;
             & gamestate[3][0] == current_wanted_state [3][0] & gamestate[3][1] == current_wanted_state [3][1] & gamestate[3][2] == current_wanted_state [3][2] & gamestate[3][3] == current_wanted_state [3][3] & game_level_count == 2 & time_count < 30){
        //did win
        game_level_count = 0;
-       didwin = true;
+       didstop = true;
+       [audioPlayer stop];
        //kill game
        [timer invalidate];
        timer = nil;
@@ -898,6 +915,8 @@ int x,y,width,height;
            _time_disp.alpha     = 0;
            _seconds_unit.alpha  = 0;
            _game_progress.alpha = 0;
+           _pause_button.alpha = 0;
+
        }completion:nil];
        //segue to win view
        double delayInSeconds = 1.8;
@@ -931,4 +950,145 @@ int x,y,width,height;
     }
 }
 
+- (IBAction)Quit:(id)sender {
+    //pop to root view
+    //back
+    [UIView animateWithDuration:0.3 animations:^{
+        _pauseview_container.alpha = 0;
+    }];
+    //stop music
+    [audioPlayer stop];
+    //
+    NSLog(@"back to restart");
+    [timer invalidate];
+    timer = nil;
+    //detrigger persec
+    didstop = true;
+    [_time_disp setText:@"0.0"];
+    time_count = 0;
+    time_left = 30;
+    //lockdown
+    _R1_C1.enabled = NO;
+    _R1_C2.enabled = NO;
+    _R1_C3.enabled = NO;
+    _R1_C4.enabled = NO;
+    _R2_C1.enabled = NO;
+    _R2_C2.enabled = NO;
+    _R2_C3.enabled = NO;
+    _R2_C4.enabled = NO;
+    _R3_C1.enabled = NO;
+    _R3_C2.enabled = NO;
+    _R3_C3.enabled = NO;
+    _R3_C4.enabled = NO;
+    _R4_C1.enabled = NO;
+    _R4_C2.enabled = NO;
+    _R4_C3.enabled = NO;
+    _R4_C4.enabled = NO;
+    [UIView animateWithDuration:0.8 animations:^{
+        _guide_view.alpha = 0.0;
+    }];
+    //get usertap point
+    float x, y , width, height;
+    x      = _usertap_view.frame.origin.x;
+    y      = _usertap_view.frame.origin.y;
+    width  = _usertap_view.frame.size.width;
+    height = _usertap_view.frame.size.height;
+    [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _usertap_view.frame       = CGRectMake(x, y + 800, width, height);
+        _time_disp.alpha          = 0;
+        _seconds_unit.alpha       = 0;
+        _progress_view_time.alpha = 0;
+        _pause_button.alpha = 0;
+        
+    }completion:nil];
+    double delayInSeconds = 1.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        //pop to previous view
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    });
+
+}
+
+- (IBAction)restart:(id)sender {
+    //back
+    [UIView animateWithDuration:0.3 animations:^{
+        _pauseview_container.alpha = 0;
+    }];
+    //stop music
+    [audioPlayer stop];
+    //
+    NSLog(@"back to restart");
+    [timer invalidate];
+    timer = nil;
+    //detrigger persec
+    didstop = true;
+    [_time_disp setText:@"0.0"];
+    time_count = 0;
+    time_left = 30;
+    //lockdown
+    _R1_C1.enabled = NO;
+    _R1_C2.enabled = NO;
+    _R1_C3.enabled = NO;
+    _R1_C4.enabled = NO;
+    _R2_C1.enabled = NO;
+    _R2_C2.enabled = NO;
+    _R2_C3.enabled = NO;
+    _R2_C4.enabled = NO;
+    _R3_C1.enabled = NO;
+    _R3_C2.enabled = NO;
+    _R3_C3.enabled = NO;
+    _R3_C4.enabled = NO;
+    _R4_C1.enabled = NO;
+    _R4_C2.enabled = NO;
+    _R4_C3.enabled = NO;
+    _R4_C4.enabled = NO;
+    [UIView animateWithDuration:0.8 animations:^{
+        _guide_view.alpha = 0.0;
+    }];
+    //get usertap point
+    float x, y , width, height;
+    x      = _usertap_view.frame.origin.x;
+    y      = _usertap_view.frame.origin.y;
+    width  = _usertap_view.frame.size.width;
+    height = _usertap_view.frame.size.height;
+    [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _usertap_view.frame       = CGRectMake(x, y + 800, width, height);
+        _time_disp.alpha          = 0;
+        _seconds_unit.alpha       = 0;
+        _progress_view_time.alpha = 0;
+        _pause_button.alpha = 0;
+        
+    }completion:nil];
+    double delayInSeconds = 1.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        //pop to previous view
+        [self.navigationController popViewControllerAnimated:YES];
+    });
+
+}
+- (IBAction)backto_game:(id)sender {
+    [UIView animateWithDuration:0.8 animations:^{
+        _pauseview_container.alpha = 0;
+    }completion:nil];
+    //return persec state & timer state
+    time_left = paused_time_left [0][0];
+    time_count = paused_time_left [1][0];
+    [self timer_start];
+}
+- (IBAction)pause_button:(id)sender {
+    //save time stateq
+    paused_time_left [0][0] = time_left;
+    paused_time_left [1][0] = time_count;
+    //prevent persec from killing
+    didstop = true;
+    //kill timers
+    [timer invalidate];
+    timer = nil;
+    //bring up pause menu
+    [UIView animateWithDuration:0.8 animations:^{
+        _pauseview_container.alpha = 1;
+    }];
+}
 @end
