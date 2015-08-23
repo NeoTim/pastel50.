@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		975606471B89C72B0027C875 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975606461B89C72B0027C875 /* AVFoundation.framework */; };
-		975606511B89DFB00027C875 /* Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 975606501B89DFB00027C875 /* Music.mp3 */; };
 		975606541B89E3BD0027C875 /* PAUSE buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 975606521B89E3BD0027C875 /* PAUSE buttons.png */; };
 		975606551B89E3BD0027C875 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 975606531B89E3BD0027C875 /* play.png */; };
+		975606571B89EE2B0027C875 /* Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 975606561B89EE2B0027C875 /* Music.mp3 */; };
 		9761319A1B7AE34E00C17395 /* game3_splash.m in Sources */ = {isa = PBXBuildFile; fileRef = 976131991B7AE34E00C17395 /* game3_splash.m */; };
 		9761319D1B7AE35E00C17395 /* game3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9761319C1B7AE35E00C17395 /* game3.m */; };
 		9761319F1B7AE8D500C17395 /* merlion.png in Resources */ = {isa = PBXBuildFile; fileRef = 9761319E1B7AE8D500C17395 /* merlion.png */; };
@@ -60,9 +60,9 @@
 
 /* Begin PBXFileReference section */
 		975606461B89C72B0027C875 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		975606501B89DFB00027C875 /* Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Music.mp3; sourceTree = "<group>"; };
 		975606521B89E3BD0027C875 /* PAUSE buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PAUSE buttons.png"; sourceTree = "<group>"; };
 		975606531B89E3BD0027C875 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		975606561B89EE2B0027C875 /* Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Music.mp3; sourceTree = "<group>"; };
 		976131981B7AE34E00C17395 /* game3_splash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game3_splash.h; sourceTree = "<group>"; };
 		976131991B7AE34E00C17395 /* game3_splash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game3_splash.m; sourceTree = "<group>"; };
 		9761319B1B7AE35E00C17395 /* game3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game3.h; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		97EB28151B70AC6000202EAE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				975606501B89DFB00027C875 /* Music.mp3 */,
+				975606561B89EE2B0027C875 /* Music.mp3 */,
 				97EB28161B70AC6000202EAE /* Info.plist */,
 				97EB28171B70AC6000202EAE /* main.m */,
 			);
@@ -373,10 +373,10 @@
 				97780B9C1B723B8900228911 /* HDB_pic.jpg in Resources */,
 				97EA27D31B79EDAB00C6DD9F /* flyer.png in Resources */,
 				97EF244D1B7873770030FE8B /* changi.png in Resources */,
-				975606511B89DFB00027C875 /* Music.mp3 in Resources */,
 				975606541B89E3BD0027C875 /* PAUSE buttons.png in Resources */,
 				9761319F1B7AE8D500C17395 /* merlion.png in Resources */,
 				97780B961B72311900228911 /* pastel 50 bck.png in Resources */,
+				975606571B89EE2B0027C875 /* Music.mp3 in Resources */,
 				975606551B89E3BD0027C875 /* play.png in Resources */,
 				977425071B7F12C80024AA02 /* sgisland.png in Resources */,
 				97EB28291B70AC6000202EAE /* LaunchScreen.xib in Resources */,
