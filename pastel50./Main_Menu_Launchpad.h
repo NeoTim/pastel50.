@@ -20,7 +20,7 @@
 - (IBAction)level2:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *level_3;
 
-//notification headsup
-
+@property (strong, nonatomic) IBOutlet UIButton *settings_button;
+- (IBAction)settings_button:(id)sender;
 
 @end

@@ -137,7 +137,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q0d-Rd-Rud">
                                 <rect key="frame" x="97" y="307" width="126" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -149,6 +149,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="h34-4V-AJN"/>
                     <connections>
                         <outlet property="background" destination="meZ-ml-Bps" id="gEn-nq-Z8x"/>
                         <outlet property="done_button" destination="Q0d-Rd-Rud" id="ucD-B6-mnF"/>
@@ -159,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Eg-T4-TEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-199" y="1010"/>
+            <point key="canvasLocation" x="593" y="1350"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sLR-Kv-LZn">
@@ -785,7 +786,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nlG-BX-ZfS">
                                 <rect key="frame" x="250" y="256" width="42" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Game level 2" image="blu.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -818,6 +819,18 @@
                                     <segue destination="6kJ-DK-lZT" kind="push" identifier="game3" id="NET-3S-9Nr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H3V-Rg-sXM">
+                                <rect key="frame" x="121" y="507" width="78" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="23"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="settings_button:" destination="y2c-7c-B8e" eventType="touchUpInside" id="JxE-md-gXL"/>
+                                    <segue destination="yAO-pY-VTM" kind="push" id="2d0-fJ-m7v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -827,6 +840,7 @@
                         <outlet property="level1" destination="0cX-Ma-5By" id="KiG-qB-0Tl"/>
                         <outlet property="level_2" destination="nlG-BX-ZfS" id="xJx-9z-oFs"/>
                         <outlet property="level_3" destination="hYh-mf-M10" id="64J-R1-vjU"/>
+                        <outlet property="settings_button" destination="H3V-Rg-sXM" id="XHt-Oc-nGU"/>
                         <outlet property="textview_container" destination="3dM-kQ-jZa" id="WrG-Qz-6IX"/>
                         <segue destination="sMN-wD-CHH" kind="push" identifier="game4" id="zmc-v8-uHm"/>
                     </connections>
@@ -1417,6 +1431,17 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zoM-Du-fGL" userLabel="pausebutton">
+                                        <rect key="frame" x="20" y="30" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="PAUSE buttons.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pause_button:" destination="RAb-CG-KOc" eventType="touchUpInside" id="eVS-Nr-P9p"/>
+                                            <action selector="pause_button:" destination="h0d-lw-eIB" eventType="touchUpInside" id="qdx-fM-oKT"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t9F-vC-JaW" userLabel="time">
                                         <rect key="frame" x="142" y="30" width="38" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1676,6 +1701,59 @@
                                 </view>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" id="uaM-SZ-VsO" userLabel="pauseview">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fmK-MJ-JB9">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="my4-BL-mcU">
+                                            <rect key="frame" x="97" y="292" width="126" height="61"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="22"/>
+                                            <state key="normal" title="Quit to menu">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Quit:" destination="h0d-lw-eIB" eventType="touchUpInside" id="4c7-Ag-O6I"/>
+                                                <action selector="Quit:" destination="RAb-CG-KOc" eventType="touchUpInside" id="J2E-d4-juT"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FoO-4N-5Jc">
+                                            <rect key="frame" x="110" y="214" width="100" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="22"/>
+                                            <state key="normal" title="Restart">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="restart:" destination="h0d-lw-eIB" eventType="touchUpInside" id="2Mk-Td-uiZ"/>
+                                                <action selector="restart:" destination="RAb-CG-KOc" eventType="touchUpInside" id="qaJ-wW-yMr"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paused" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yiI-kU-oS7">
+                                            <rect key="frame" x="87" y="81" width="146" height="75"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="38"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cKd-og-HSG">
+                                            <rect key="frame" x="20" y="30" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Back" image="play.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="backto_game:" destination="h0d-lw-eIB" eventType="touchUpInside" id="UA0-JC-7da"/>
+                                                <action selector="backto_game:" destination="RAb-CG-KOc" eventType="touchUpInside" id="uUj-A7-AjH"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1717,6 +1795,8 @@
                         <outlet property="countdown_label" destination="ZNf-K0-FxY" id="zpW-f3-OF9"/>
                         <outlet property="game_progress" destination="bqK-Qz-Qjd" id="SIZ-rk-WWm"/>
                         <outlet property="guide_view" destination="JOG-ls-V8V" id="y7P-At-i1O"/>
+                        <outlet property="pause_button" destination="zoM-Du-fGL" id="ayr-J6-kaZ"/>
+                        <outlet property="pauseview_container" destination="uaM-SZ-VsO" id="YkX-X4-Nit"/>
                         <outlet property="progress_view_time" destination="hiM-0y-E7G" id="3DD-K8-Hup"/>
                         <outlet property="seconds_unit" destination="t9F-vC-JaW" id="qAu-ss-j3N"/>
                         <outlet property="time_dis" destination="wo7-Oc-Z4F" id="X9r-fE-CZu"/>
@@ -1880,6 +1960,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="2d0-fJ-m7v"/>
         <segue reference="adx-nh-RMr"/>
         <segue reference="Rq7-ok-BFJ"/>
     </inferredMetricsTieBreakers>

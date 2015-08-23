@@ -112,6 +112,7 @@ int x,y,width,height;
         [_time_disp setTextColor:[UIColor redColor]];
     }
     if (time_count == 30) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         //LOST
         //stop music
         [audioPlayer stop];
@@ -218,6 +219,14 @@ int x,y,width,height;
     layer1.shadowOpacity = 0.50f;
     layer1.shadowOffset  = CGSizeMake(1, 1);
     layer1.shadowPath    = [[UIBezierPath bezierPathWithRect:_headsup_view_container.bounds] CGPath];
+    //shadows for pause button
+    CALayer *layerp      = self.pause_button.layer;
+    layerp.shadowColor   = [[UIColor grayColor] CGColor];
+    layerp.shadowRadius  = 10.0f;
+    layerp.cornerRadius = self.pause_button.frame.size.width / 2;
+    layerp.shadowOpacity = 0.50f;
+    layerp.shadowOffset  = CGSizeMake(1, 1);
+    layerp.shadowPath    = [[UIBezierPath bezierPathWithRect:_pause_button.bounds] CGPath];
     //set frame
     self.headsup_view_container.frame = CGRectMake(x, -height -10, width, height);
     //initwith main game
@@ -1064,11 +1073,12 @@ int x,y,width,height;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //pop to previous view
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:NO];
     });
 
 }
 - (IBAction)backto_game:(id)sender {
+    [audioPlayer play];
     [UIView animateWithDuration:0.8 animations:^{
         _pauseview_container.alpha = 0;
     }completion:nil];
@@ -1078,6 +1088,7 @@ int x,y,width,height;
     [self timer_start];
 }
 - (IBAction)pause_button:(id)sender {
+    [audioPlayer pause];
     //save time stateq
     paused_time_left [0][0] = time_left;
     paused_time_left [1][0] = time_count;

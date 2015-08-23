@@ -87,29 +87,19 @@
     else{
         _level_3.enabled = NO;
     }
-    [self checkformusic];
 }
 -(void)viewDidAppear:(BOOL)animated{
     //init with uibutton transition
     //button 2 level 2
-    [UIView transitionWithView:_level_2 duration:0.8 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+    [UIView transitionWithView:_level_2 duration:0.3 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
         _level_2.alpha = 1;
     }completion:nil];
     //button 3 level 3
-    [UIView transitionWithView:_level_3 duration:0.6 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+    [UIView transitionWithView:_level_3 duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         _level_3.alpha = 1;
     }completion:nil];
 }
--(void)checkformusic{
-    //init with music
-    BOOL soundenabled = [[NSUserDefaults standardUserDefaults] boolForKey:@"sound_setting"];
-    if (soundenabled == YES) {
-        //play music
-    }
-    else{
-        //no music
-    }
-}
+
 - (IBAction)level_1:(id)sender {
     //segue to level 1
     //done on storyboard
@@ -117,5 +107,8 @@
 - (IBAction)level2:(id)sender {
     //segue to level 2
     //done on storyboard
+}
+- (IBAction)settings_button:(id)sender {
+    //segue to settings view
 }
 @end

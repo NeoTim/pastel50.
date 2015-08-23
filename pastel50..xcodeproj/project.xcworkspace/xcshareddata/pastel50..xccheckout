@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>4B075E84-9884-465D-8A58-71C7D1672DBE</string>
 	<key>IDESourceControlProjectName</key>
-	<string>pastel50.</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D2605EC4E41FA60E6F70623F82C7674119310B41</key>
 		<string>https://github.com/sean1188/pastel50..git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>pastel50..xcodeproj</string>
+	<string>pastel50..xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D2605EC4E41FA60E6F70623F82C7674119310B41</key>

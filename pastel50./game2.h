@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface game2 : UIViewController
+#import <AVFoundation/AVFoundation.h>
+@interface game2 : UIViewController{
+    AVAudioPlayer *audioPlayer;
+}
 @property (strong, nonatomic) IBOutlet UILabel            *time_dis;
 @property (strong, nonatomic) IBOutlet UILabel            *seconds_unit;
-@property (strong, nonatomic) IBOutlet UILabel            *time_carried_forward_disp;
-
 //MAIN USER TAP
 @property (strong, nonatomic) IBOutlet UIView             *usertap_view;
 @property (strong, nonatomic) IBOutlet UIButton           *R1_C1;
@@ -85,5 +85,12 @@
 @property (strong, nonatomic) IBOutlet UILabel            *countdown_label;
 //game progress
 @property (strong, nonatomic) IBOutlet UIProgressView     *game_progress;
+@property (strong, nonatomic) IBOutlet UIButton *pause_button;
+- (IBAction)pause_button:(id)sender;
 
+//Pause view
+@property (strong, nonatomic) IBOutlet UIVisualEffectView *pauseview_container;
+- (IBAction)Quit:(id)sender;
+- (IBAction)restart:(id)sender;
+- (IBAction)backto_game:(id)sender;
 @end
