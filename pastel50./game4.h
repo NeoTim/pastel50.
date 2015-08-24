@@ -75,9 +75,16 @@
 @property (strong, nonatomic) IBOutlet UILabel            *countdown_label;
 //game progress
 @property (strong, nonatomic) IBOutlet UIProgressView     *game_progress;
-
 ////
 @property (strong, nonatomic) IBOutlet UILabel *score_disp;
 
+@property (strong, nonatomic) IBOutlet UIButton *pause_button;
+- (IBAction)pause_button:(id)sender;
+
+//Pause view
+@property (strong, nonatomic) IBOutlet UIVisualEffectView *pauseview_container;
+- (IBAction)Quit:(id)sender;
+- (IBAction)restart:(id)sender;
+- (IBAction)backto_game:(id)sender;
 
 @end

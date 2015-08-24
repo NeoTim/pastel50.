@@ -96,6 +96,7 @@
 @property (strong, nonatomic) IBOutlet UILabel            *countdown_start_label;
 /////
 @property (strong, nonatomic) IBOutlet UIProgressView     *game_progress;
+
 @property (strong, nonatomic) IBOutlet UIButton *pause_button;
 - (IBAction)pause_button:(id)sender;
 

@@ -7,6 +7,7 @@
 //
 
 #import "game4.h"
+#import <Parse/Parse.h>
 
 //
 //  game3.m
@@ -40,6 +41,8 @@ double time_left_game4  = 35;
 int button_wanted;
 //values for headsup
 int x_headsup_game4,y_headsup_game4,width_headsup_game4,height_headsup_game4;
+//highscore
+int highscore;
 ///////////////////////ALL THE CHRONOS STUFF
 //countdown start timer
 -(void) gamestart_countdown{
@@ -94,7 +97,6 @@ int x_headsup_game4,y_headsup_game4,width_headsup_game4,height_headsup_game4;
         [timer_game4 invalidate];
         timer_game4 = nil;
         ///
-        ///
         //game is over
         //LOST
         //shake animation
@@ -143,16 +145,21 @@ int x_headsup_game4,y_headsup_game4,width_headsup_game4,height_headsup_game4;
             _time_dis.alpha = 0;
             _seconds_unit.alpha = 0;
         }completion:nil];
-        //segue to lose view
+        //check for highscore
+        //segue to achv view
+        [self performSegueWithIdentifier:@"next" sender:self];
     }
 
 }
+
 //
 //score for game
 int score = 0;
 ///////////////////VDL
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //init highscore
+    highscore = [[NSUserDefaults standardUserDefaults] integerForKey:@"game4_highscore"];
     //headsup
     //get inital position
     x_headsup_game4 = self.headsup_view_container.frame.origin.x;
@@ -220,7 +227,7 @@ int score = 0;
     //////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW1
     if (gamestate_game4[0][0] == 1) {
-        [_R1_C1 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R1_C1 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[0][0] == 2) {
         [_R1_C1 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -230,7 +237,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[0][1] == 1) {
-        [_R1_C2 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R1_C2 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[0][1] == 2) {
         [_R1_C2 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -240,7 +247,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[0][2] == 1) {
-        [_R1_C3 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R1_C3 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[0][2] == 2) {
         [_R1_C3 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -250,7 +257,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[0][3] == 1) {
-        [_R1_C4 setBackgroundImage:[UIImage imageNamed:@"soliddot"]  forState:UIControlStateNormal];
+        [_R1_C4 setBackgroundImage:[UIImage imageNamed:@"ellow"]  forState:UIControlStateNormal];
     }
     else if (gamestate_game4[0][3] == 2) {
         [_R1_C4 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -261,7 +268,7 @@ int score = 0;
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW2
     if (gamestate_game4[1][0] == 1) {
-        [_R2_C1 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R2_C1 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[1][0] == 2) {
         [_R2_C1 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -271,7 +278,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[1][1] == 1) {
-        [_R2_C2 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R2_C2 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[1][1] == 2) {
         [_R2_C2 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -281,7 +288,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[1][2] == 1) {
-        [_R2_C3 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R2_C3 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[1][2] == 2) {
         [_R2_C3 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -291,7 +298,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[1][3] == 1) {
-        [_R2_C4 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R2_C4 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[1][3] == 2) {
         [_R2_C4 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -302,7 +309,7 @@ int score = 0;
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW3
     if (gamestate_game4[2][0] == 1) {
-        [_R3_C1 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R3_C1 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[2][0] == 2) {
         [_R3_C1 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -312,7 +319,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[2][1] == 1) {
-        [_R3_C2 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R3_C2 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[2][1] == 2) {
         [_R3_C2 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -322,7 +329,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[2][2] == 1) {
-        [_R3_C3 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R3_C3 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[2][2] == 2) {
         [_R3_C3 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -332,7 +339,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[2][3] == 1) {
-        [_R3_C4 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R3_C4 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[2][3] == 2) {
         [_R3_C4 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -343,7 +350,7 @@ int score = 0;
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     //ROW4
     if (gamestate_game4[3][0] == 1) {
-        [_R4_C1 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R4_C1 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[3][0] == 2) {
         [_R4_C1 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -353,7 +360,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[3][1] == 1) {
-        [_R4_C2 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R4_C2 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[3][1] == 2) {
         [_R4_C2 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -363,7 +370,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[3][2] == 1) {
-        [_R4_C3 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R4_C3 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[3][2] == 2) {
         [_R4_C3 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -373,7 +380,7 @@ int score = 0;
     }
     //
     if (gamestate_game4[3][3] == 1) {
-        [_R4_C4 setBackgroundImage:[UIImage imageNamed:@"soliddot"] forState:UIControlStateNormal];
+        [_R4_C4 setBackgroundImage:[UIImage imageNamed:@"ellow"] forState:UIControlStateNormal];
     }
     else if (gamestate_game4[3][3] == 2) {
         [_R4_C4 setBackgroundImage:[UIImage imageNamed:@"blu"] forState:UIControlStateNormal];
@@ -761,12 +768,6 @@ int score = 0;
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-//CHECK
--(void)check{
-
-}
 
 @end
 
