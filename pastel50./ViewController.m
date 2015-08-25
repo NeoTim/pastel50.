@@ -81,6 +81,12 @@
 }
 
 - (IBAction)start_button:(id)sender {
+    //play UISound
+    NSString *click = [[NSBundle mainBundle]pathForResource:@"click" ofType:@"mp3"];
+    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:click] error:NULL];
+    //play sounds
+    audioPlayer.numberOfLoops = 1;
+    [audioPlayer play];
     //animate out
     //get current view status
     float width = _bottom_view.frame.size.width;
@@ -111,6 +117,12 @@
     });
 }
 - (IBAction)settings_button:(id)sender {
+    //play UISound
+    NSString *click = [[NSBundle mainBundle]pathForResource:@"click" ofType:@"mp3"];
+    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:click] error:NULL];
+    //play sounds
+    audioPlayer.numberOfLoops = 1;
+    [audioPlayer play];
     //animate out
     //get current view status
     float width = _bottom_view.frame.size.width;

@@ -11,7 +11,9 @@
 #import "AVFoundation/AVAudioPlayer.h"
 
 
-@interface Main_Menu_Launchpad : UIViewController
+@interface Main_Menu_Launchpad : UIViewController{
+    AVAudioPlayer *audioPlayer;
+};
 @property (strong, nonatomic) IBOutlet UIView *textview_container;
 @property (strong, nonatomic) IBOutlet UIView *card_view_text;
 - (IBAction)level_1:(id)sender;
@@ -19,6 +21,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *level_2;
 - (IBAction)level2:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *level_3;
+@property (strong, nonatomic) IBOutlet UIButton *level_4;
+- (IBAction)level_4:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *settings_button;
 - (IBAction)settings_button:(id)sender;

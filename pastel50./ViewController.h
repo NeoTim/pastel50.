@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController{
+    AVAudioPlayer *audioPlayer;
+}
 @property (strong, nonatomic) IBOutlet UIVisualEffectView *blureffect;
 @property (strong, nonatomic) IBOutlet UILabel *pastel_text;
 @property (strong, nonatomic) IBOutlet UIButton *start_button;

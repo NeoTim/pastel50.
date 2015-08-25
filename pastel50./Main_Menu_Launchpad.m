@@ -42,6 +42,15 @@
         _textview_container.frame = CGRectMake(x, y + 130 , width, height);
     }];
     //shadows for individual buttons
+    CALayer *button4 = self.level_4.layer;
+    button4.shadowOffset  = CGSizeMake(1, 1);
+    button4.shadowColor   = [[UIColor blackColor] CGColor];
+    button4.shadowRadius  = 10.0f;
+    button4.shadowOpacity = 0.40f;
+    button4.cornerRadius = self.level_4.frame.size.width / 2;
+    button4.shadowPath    = [[UIBezierPath bezierPathWithRect:_level_4.bounds] CGPath];
+    [_level1 clipsToBounds];
+    //shadows for individual buttons
     CALayer *button1 = self.level1.layer;
     button1.shadowOffset  = CGSizeMake(1, 1);
     button1.shadowColor   = [[UIColor blackColor] CGColor];
@@ -101,14 +110,41 @@
 }
 
 - (IBAction)level_1:(id)sender {
+    //play UISound
+    NSString *click = [[NSBundle mainBundle]pathForResource:@"click" ofType:@"mp3"];
+    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:click] error:NULL];
+    //play sounds
+    audioPlayer.numberOfLoops = 1;
+    [audioPlayer play];
     //segue to level 1
     //done on storyboard
 }
 - (IBAction)level2:(id)sender {
+    //play UISound
+    NSString *click = [[NSBundle mainBundle]pathForResource:@"click" ofType:@"mp3"];
+    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:click] error:NULL];
+    //play sounds
+    audioPlayer.numberOfLoops = 1;
+    [audioPlayer play];
     //segue to level 2
     //done on storyboard
 }
 - (IBAction)settings_button:(id)sender {
+    //play UISound
+    NSString *click = [[NSBundle mainBundle]pathForResource:@"click" ofType:@"mp3"];
+    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:click] error:NULL];
+    //play sounds
+    audioPlayer.numberOfLoops = 1;
+    [audioPlayer play];
+    //segue to settings view
+}
+- (IBAction)level_4:(id)sender {
+    //play UISound
+    NSString *click = [[NSBundle mainBundle]pathForResource:@"click" ofType:@"mp3"];
+    audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:click] error:NULL];
+    //play sounds
+    audioPlayer.numberOfLoops = 1;
+    [audioPlayer play];
     //segue to settings view
 }
 @end
