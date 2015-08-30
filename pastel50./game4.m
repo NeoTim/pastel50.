@@ -146,6 +146,10 @@ int highscore;
             _seconds_unit.alpha = 0;
         }completion:nil];
         //check for highscore
+        if (score > [[NSUserDefaults standardUserDefaults] integerForKey:@"game4_highscore"]) {
+            NSLog(@"did highscore");
+            [[NSUserDefaults standardUserDefaults]setInteger:score forKey:@"game4_highscore"];
+        }
         //segue to achv view
         [self performSegueWithIdentifier:@"next" sender:self];
     }
@@ -158,6 +162,8 @@ int score = 0;
 ///////////////////VDL
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //init pause view
+    _pauseview_container.alpha = 0;
     //init highscore
     highscore = [[NSUserDefaults standardUserDefaults] integerForKey:@"game4_highscore"];
     //headsup
@@ -768,6 +774,140 @@ int score = 0;
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// intit with pause menu
+
+- (IBAction)Quit:(id)sender {
+    //pop to root view
+    //back
+    [UIView animateWithDuration:0.3 animations:^{
+        _pauseview_container.alpha = 0;
+    }];
+    //stop music
+    //
+    NSLog(@"back to restart");
+    [timer_game4 invalidate];
+    timer_game4 = nil;
+    //detrigger persec
+    didwin_game4 = true;
+    [_time_dis setText:@"0.0"];
+    time_left_game4 = 35;
+    //lockdown
+    _R1_C1.enabled = NO;
+    _R1_C2.enabled = NO;
+    _R1_C3.enabled = NO;
+    _R1_C4.enabled = NO;
+    _R2_C1.enabled = NO;
+    _R2_C2.enabled = NO;
+    _R2_C3.enabled = NO;
+    _R2_C4.enabled = NO;
+    _R3_C1.enabled = NO;
+    _R3_C2.enabled = NO;
+    _R3_C3.enabled = NO;
+    _R3_C4.enabled = NO;
+    _R4_C1.enabled = NO;
+    _R4_C2.enabled = NO;
+    _R4_C3.enabled = NO;
+    _R4_C4.enabled = NO;
+    //get usertap point
+    float x, y , width, height;
+    x      = _usertap_view.frame.origin.x;
+    y      = _usertap_view.frame.origin.y;
+    width  = _usertap_view.frame.size.width;
+    height = _usertap_view.frame.size.height;
+    [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _usertap_view.frame       = CGRectMake(x, y + 800, width, height);
+        _time_dis.alpha          = 0;
+        _seconds_unit.alpha       = 0;
+        _progress_view_time.alpha = 0;
+        _pause_button.alpha = 0;
+        
+    }completion:nil];
+    double delayInSeconds = 1.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        //pop to previous view
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    });
+    
+}
+
+- (IBAction)restart:(id)sender {
+    //back
+    [UIView animateWithDuration:0.3 animations:^{
+        _pauseview_container.alpha = 0;
+    }];
+    //stop music
+    //
+    NSLog(@"back to restart");
+    [timer_game4 invalidate];
+    timer_game4 = nil;
+    //detrigger persec
+    didwin_game4 = true;
+    [_time_dis setText:@"0.0"];
+    time_left_game4 = 35;
+    //lockdown
+    _R1_C1.enabled = NO;
+    _R1_C2.enabled = NO;
+    _R1_C3.enabled = NO;
+    _R1_C4.enabled = NO;
+    _R2_C1.enabled = NO;
+    _R2_C2.enabled = NO;
+    _R2_C3.enabled = NO;
+    _R2_C4.enabled = NO;
+    _R3_C1.enabled = NO;
+    _R3_C2.enabled = NO;
+    _R3_C3.enabled = NO;
+    _R3_C4.enabled = NO;
+    _R4_C1.enabled = NO;
+    _R4_C2.enabled = NO;
+    _R4_C3.enabled = NO;
+    _R4_C4.enabled = NO;
+    //get usertap point
+    float x, y , width, height;
+    x      = _usertap_view.frame.origin.x;
+    y      = _usertap_view.frame.origin.y;
+    width  = _usertap_view.frame.size.width;
+    height = _usertap_view.frame.size.height;
+    [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _usertap_view.frame       = CGRectMake(x, y + 800, width, height);
+        _time_dis.alpha          = 0;
+        _seconds_unit.alpha       = 0;
+        _progress_view_time.alpha = 0;
+        _pause_button.alpha = 0;
+        
+    }completion:nil];
+    double delayInSeconds = 1.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        //pop to previous view
+        [self.navigationController popViewControllerAnimated:NO];
+    });
+    
+}
+- (IBAction)backto_game:(id)sender {
+    [UIView animateWithDuration:0.8 animations:^{
+        _pauseview_container.alpha = 0;
+    }completion:nil];
+    //return persec state & timer state
+    time_left_game4 = savedtime;
+    [self timer_start];
+}
+int savedtime;
+- (IBAction)pause_button:(id)sender {
+    //save time stateq
+    savedtime = time_left_game4;
+    //prevent persec from killing
+    didwin_game4 = true;
+    //kill timers
+    [timer_game4 invalidate];
+    timer_game4 = nil;
+    //bring up pause menu
+    [UIView animateWithDuration:0.8 animations:^{
+        _pauseview_container.alpha = 1;
+    }];
+}
+
 
 @end
 

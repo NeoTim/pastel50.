@@ -26,5 +26,9 @@
 //5th
 @property (strong, nonatomic) IBOutlet UILabel *name_5;
 @property (strong, nonatomic) IBOutlet UILabel *score_5;
+//load card
+@property (strong, nonatomic) IBOutlet UIView *load_card;
+@property (strong, nonatomic) IBOutlet UILabel *err_msg;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity_indicator;
 
 @end
