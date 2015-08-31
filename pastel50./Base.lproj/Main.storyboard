@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bhM-aW-hPA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F6a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RNc-tU-0xU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -1553,12 +1553,19 @@
                                         <color key="textColor" red="0.38319262859999997" green="0.38318115470000003" blue="0.38318768139999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Highscore is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AAz-dN-ChG">
+                                        <rect key="frame" x="21" y="369" width="230" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="22"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="16a-G4-JSG">
                                 <rect key="frame" x="85" y="184" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="hsU-Ee-Oly">
                                         <rect key="frame" x="65" y="91" width="20" height="20"/>
@@ -1574,12 +1581,33 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ghM-82-yqC">
+                                <rect key="frame" x="16" y="20" width="42" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="20"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back_button:" destination="bhM-aW-hPA" eventType="touchUpInside" id="vWC-fV-y8S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5Rh-TC-WZ9">
+                                <rect key="frame" x="240" y="25" width="64" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="21"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="refresh:" destination="bhM-aW-hPA" eventType="touchUpInside" id="PhZ-0h-6JD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="activity_indicator" destination="hsU-Ee-Oly" id="BYK-wM-xRc"/>
                         <outlet property="err_msg" destination="DaD-yj-wmr" id="LYJ-eC-24P"/>
+                        <outlet property="highscore_disp" destination="AAz-dN-ChG" id="wNo-mz-lv0"/>
                         <outlet property="leaderboard_container" destination="f1x-uO-v0x" id="808-zN-fMe"/>
                         <outlet property="load_card" destination="16a-G4-JSG" id="kng-fV-5X8"/>
                         <outlet property="name_1" destination="r4W-cA-aRn" id="aHk-Sm-pf4"/>

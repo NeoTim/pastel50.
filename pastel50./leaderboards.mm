@@ -71,26 +71,21 @@ int x_lead,y_lead,width_lead,height_lead;
         //1
         [_name_1 setText:[NSString stringWithFormat:@"%@",[[array objectAtIndex:0] objectForKey:@"user"]]];
         [_score_1 setText:[NSString stringWithFormat:@"%@", [[array objectAtIndex:0] objectForKey:@"score"]]];
-            [[NSUserDefaults standardUserDefaults]setObject:[[array objectAtIndex:0]objectForKey:@"score"] forKey:@"score1"];
         //2
         [_name_2 setText:[NSString stringWithFormat:@"%@",[[array objectAtIndex:1] objectForKey:@"user"]]];
         [_score_2 setText:[NSString stringWithFormat:@"%@", [[array objectAtIndex:1] objectForKey:@"score"]]];
-            [[NSUserDefaults standardUserDefaults]setObject:[[array objectAtIndex:1]objectForKey:@"score"] forKey:@"score2"];
 
         //3
         [_name_3 setText:[NSString stringWithFormat:@"%@",[[array objectAtIndex:2] objectForKey:@"user"]]];
         [_score_3 setText:[NSString stringWithFormat:@"%@", [[array objectAtIndex:2] objectForKey:@"score"]]];
-            [[NSUserDefaults standardUserDefaults]setObject:[[array objectAtIndex:2]objectForKey:@"score"] forKey:@"score3"];
 
         //4
         [_name_4 setText:[NSString stringWithFormat:@"%@",[[array objectAtIndex:3] objectForKey:@"user"]]];
         [_score_4 setText:[NSString stringWithFormat:@"%@", [[array objectAtIndex:3] objectForKey:@"score"]]];
-            [[NSUserDefaults standardUserDefaults]setObject:[[array objectAtIndex:3]objectForKey:@"score"] forKey:@"score4"];
 
         //5
         [_name_5 setText:[NSString stringWithFormat:@"%@",[[array objectAtIndex:4] objectForKey:@"user"]]];
         [_score_5 setText:[NSString stringWithFormat:@"%@", [[array objectAtIndex:4] objectForKey:@"score"]]];
-            [[NSUserDefaults standardUserDefaults]setObject:[[array objectAtIndex:4]objectForKey:@"score"] forKey:@"score5"];
 
         
         }
@@ -129,110 +124,87 @@ int x_lead,y_lead,width_lead,height_lead;
     //**********************//
     //PREDICATE SCORE
     //INIT
+    int score = [[NSUserDefaults standardUserDefaults] integerForKey:@"game4_highscore"];
+    NSLog(@"highscore %i",score);
+    [_highscore_disp setText:[NSString stringWithFormat:@"Your Highscore is %i", score]];
+    NSNumber *scorenm = [NSNumber numberWithInt:score];
+    NSString *user = [[NSUserDefaults standardUserDefaults]stringForKey:@"user"];
     //
-    //get score
-    int score1, score2, score3, score4, score5;
-    score1 = [[NSUserDefaults standardUserDefaults] integerForKey:@"score1"];
-    score2 = [[NSUserDefaults standardUserDefaults]integerForKey:@"score2"];
-    score3 = [[NSUserDefaults standardUserDefaults]integerForKey:@"score3"];
-    score4 = [[NSUserDefaults standardUserDefaults] integerForKey:@"score4"];
-    score5 = [[NSUserDefaults standardUserDefaults]integerForKey:@"score5"];
-    //current hs
-    int current_hs = [[NSUserDefaults standardUserDefaults] integerForKey:@"game4_highscore"];
-    NSLog([NSString stringWithFormat:@"current highscore is ,%i",current_hs]);
-    NSNumber *current_hs_nm = [NSNumber numberWithInt:current_hs];
-    //user
-    NSString *username = [[NSUserDefaults standardUserDefaults]stringForKey:@"user"];
-    ///
-    //TRUNCATED SEQUENCING WITH UNIQUE IDs FOR INDEX
-    //compare first
-    if (current_hs > score1) {
-        //new global highscore
-        PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
-        [query getObjectInBackgroundWithId:@"YqCO6bQ3zx" block:^(PFObject *object, NSError *error){
-            [object setObject:username forKey:@"user"];
-            [object setObject:current_hs_nm forKey:@"score"];
-            [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"game4_highscore"];
-            //refresh
-            [self refresh];
-            [object saveInBackgroundWithBlock:^(BOOL hi, NSError*error){
+    PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
+    //sort
+    [query orderByDescending:@"score"];
+    //init with score grab
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error){
+       //init with comp.
+        ////////////
+        //1
+        if (score >= [[[array objectAtIndex:0] objectForKey:@"score"]intValue]) {
+            NSLog(@"did score 1");
+            PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
+            [query getObjectInBackgroundWithId:[[array objectAtIndex:0]objectId] block:^(PFObject *object, NSError *error){
                 if (error) {
-                    //error
+                    NSLog([error localizedDescription]);
                 }
+                //init with replacement
+                [object setObject:user forKey:@"user"];
+                [object setObject:scorenm forKey:@"score"];
+                [object saveInBackgroundWithBlock:^(BOOL y, NSError *error){
+                    if (error) {
+                        NSLog([error localizedDescription]);
+                    }
+                }];
             }];
-        }];
-    }
-    else if (current_hs > score2){
-        //is less than one, takes second place
-        PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
-        [query getObjectInBackgroundWithId:@"oJvJtpyU8k" block:^(PFObject *object, NSError *error){
-            //
-            [object setObject:username forKey:@"user"];
-            [object setObject:current_hs_nm forKey:@"score"];
-            [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"game4_highscore"];
-
-            [object saveInBackgroundWithBlock:^(BOOL hi, NSError*error){
-                if (error) {
-                    //error
-                }
-            }];}];
-    }
-    
-    else if (current_hs > score3){
-        //takes third
-        PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
-        [query getObjectInBackgroundWithId:@"AdYrhO7cVY" block:^(PFObject *object, NSError *error){
-            //
-            [object setObject:username forKey:@"user"];
-            [object setObject:current_hs_nm forKey:@"score"];
-            [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"game4_highscore"];
-            //refresh
-            [self refresh];
-            [object saveInBackgroundWithBlock:^(BOOL hi, NSError*error){
-                if (error) {
-                    //error
-                }
-        }];
-        }];
-        
-    }
-    else if (current_hs > score4){
-        //takes 4th
-        PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
-        [query getObjectInBackgroundWithId:@"lFiesdWw0s" block:^(PFObject *object, NSError *error){
-           //
-            [object setObject:username forKey:@"user"];
-            [object setObject:current_hs_nm forKey:@"score"];
-            [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"game4_highscore"];
-            //refresh
-            [self refresh];
-            [object saveInBackgroundWithBlock:^(BOOL hi, NSError*error){
-                if (error) {
-                    //error
-                }
-        }];
-            }];
-    }
-    else if (current_hs > score5){
-        //takes 5th
-        PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
-        [query getObjectInBackgroundWithId:@"Wdi5apo6aZ" block:^(PFObject *object, NSError *error){
-           //
-            [object setObject:username forKey:@"user"];
-            [object setObject:current_hs_nm forKey:@"score"];
-            [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"game4_highscore"];
-            //refresh
-            [self refresh];
-            [object saveInBackgroundWithBlock:^(BOOL hi, NSError*error){
-                if (error) {
-                    //error
-                }
-        }];
-        }];
         }
-    else{
-        //did not make highscore
-        NSLog(@"no highscore");
-    }
+        //2
+        else if (score >= [[[array objectAtIndex:1] objectForKey:@"score"] intValue]){
+            PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
+            [query getObjectInBackgroundWithId:[[array objectAtIndex:1]objectId] block:^(PFObject *object, NSError *error){
+                //init with replacement
+                [object setObject:user forKey:@"user"];
+                [object setObject:scorenm forKey:@"score"];
+                [object saveInBackground];
+            }];
+        }
+        //3
+        else if (score >= [[[array objectAtIndex:2] objectForKey:@"score"] intValue]){
+            PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
+            [query getObjectInBackgroundWithId:[[array objectAtIndex:2]objectId] block:^(PFObject *object, NSError *error){
+                //init with replacement
+                [object setObject:user forKey:@"user"];
+                [object setObject:scorenm forKey:@"score"];
+                [object saveInBackground];
+            }];
+        }
+        //4
+        else if (score >= [[[array objectAtIndex:3] objectForKey:@"score"] intValue]){
+            PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
+            [query getObjectInBackgroundWithId:[[array objectAtIndex:3]objectId] block:^(PFObject *object, NSError *error){
+                //init with replacement
+                [object setObject:user forKey:@"user"];
+                [object setObject:scorenm forKey:@"score"];
+                [object saveInBackground];
+            }];
+        }
+        //5
+        else if (score >= [[[array objectAtIndex:4] objectForKey:@"score"] intValue]){
+            PFQuery *query = [PFQuery queryWithClassName:@"leaderboard"];
+            [query getObjectInBackgroundWithId:[[array objectAtIndex:4]objectId] block:^(PFObject *object, NSError *error){
+                //init with replacement
+                [object setObject:user forKey:@"user"];
+                [object setObject:scorenm forKey:@"score"];
+                [object saveInBackground];
+            }];
+        }
+            [self refresh];
+    }];
+
+}
+- (IBAction)back_button:(id)sender {
+    //pop to root view controller
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)refresh:(id)sender {
+    [self refresh];
 }
 @end

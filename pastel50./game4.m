@@ -50,6 +50,7 @@ int highscore;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //this will be executed after 1 seconds
+        [_tut_ setText:@"Look Closely"];
         [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [_countdown_label setText:@"2"];
             _blurview.alpha        = 0.8;
@@ -59,6 +60,7 @@ int highscore;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             //this will be executed after 2 seconds
+            [_tut_ setText:@"Follow the colors"];
             [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 [_countdown_label setText:@"1"];
                 _blurview.alpha        = 0.7;
@@ -90,6 +92,7 @@ int highscore;
     //timer did end
     if (time_left_game4 == 0 | time_left_game4 < 0) {
         //timeout
+        [audioPlayer stop];
         //run lose sequence
         NSLog(@"main timer did end");
         [_time_dis setText:@"0.0"];
@@ -150,18 +153,27 @@ int highscore;
             NSLog(@"did highscore");
             [[NSUserDefaults standardUserDefaults]setInteger:score forKey:@"game4_highscore"];
         }
+        score = 0;
         //segue to achv view
         [self performSegueWithIdentifier:@"next" sender:self];
     }
 
 }
-
 //
 //score for game
 int score = 0;
 ///////////////////VDL
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //play music
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"sound_setting"] == YES) {
+        NSString *music = [[NSBundle mainBundle]pathForResource:@"Music" ofType:@"mp3"];
+        audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:music] error:NULL];
+        //play sounds
+        audioPlayer.numberOfLoops = -1;
+        [audioPlayer play];
+    }
+
     //init pause view
     _pauseview_container.alpha = 0;
     //init highscore
@@ -654,7 +666,6 @@ int score = 0;
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-
 //row2
 - (IBAction)R2_C1:(id)sender{
     //rand next button
@@ -697,7 +708,6 @@ int score = 0;
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-
 //row3
 - (IBAction)R3_C1:(id)sender{
     //rand next button
@@ -774,9 +784,7 @@ int score = 0;
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-
 // intit with pause menu
-
 - (IBAction)Quit:(id)sender {
     //pop to root view
     //back
@@ -785,6 +793,8 @@ int score = 0;
     }];
     //stop music
     //
+    //reset score
+    score = 0;
     NSLog(@"back to restart");
     [timer_game4 invalidate];
     timer_game4 = nil;
@@ -846,6 +856,7 @@ int score = 0;
     didwin_game4 = true;
     [_time_dis setText:@"0.0"];
     time_left_game4 = 35;
+    score = 0;
     //lockdown
     _R1_C1.enabled = NO;
     _R1_C2.enabled = NO;
@@ -886,6 +897,7 @@ int score = 0;
     
 }
 - (IBAction)backto_game:(id)sender {
+    [audioPlayer play];
     [UIView animateWithDuration:0.8 animations:^{
         _pauseview_container.alpha = 0;
     }completion:nil];
@@ -895,6 +907,7 @@ int score = 0;
 }
 int savedtime;
 - (IBAction)pause_button:(id)sender {
+    [audioPlayer pause];
     //save time stateq
     savedtime = time_left_game4;
     //prevent persec from killing

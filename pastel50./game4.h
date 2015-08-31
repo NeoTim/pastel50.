@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface game4 : UIViewController
+#import <AVFoundation/AVFoundation.h>
+@interface game4 : UIViewController{
+    AVAudioPlayer *audioPlayer;
+}
 //init timer
 @property (strong, nonatomic) IBOutlet UILabel            *time_dis;
 @property (strong, nonatomic) IBOutlet UILabel            *seconds_unit;
