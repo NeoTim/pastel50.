@@ -31,7 +31,7 @@
     
 }
 -(void) getquote {
-    int rand = arc4random()%3;
+    int rand = arc4random()%4;
     if (rand == 0) {
         [_quote_view setText:@"You can find the national anthem in Micro-text on the back of the 1000-dollar note"];
     }

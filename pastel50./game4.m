@@ -93,6 +93,8 @@ int highscore;
     if (time_left_game4 == 0 | time_left_game4 < 0) {
         //timeout
         [audioPlayer stop];
+        //vibrate phone
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         //run lose sequence
         NSLog(@"main timer did end");
         [_time_dis setText:@"0.0"];
@@ -139,14 +141,13 @@ int highscore;
         }];
         //get usertap point
         float x, y , width, height;
-        x      = _usertap_view.frame.origin.x;
-        y      = _usertap_view.frame.origin.y;
-        width  = _usertap_view.frame.size.width;
-        height = _usertap_view.frame.size.height;
+        x = _usertap_view.frame.origin.x; y = _usertap_view.frame.origin.y; width  = _usertap_view.frame.size.width; height = _usertap_view.frame.size.height;
+        //
         [UIView animateWithDuration:0.5 delay:0.4 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             _usertap_view.frame = CGRectMake(x, y + 800, width, height);
             _time_dis.alpha = 0;
             _seconds_unit.alpha = 0;
+            _score_disp.alpha = 0;
         }completion:nil];
         //check for highscore
         if (score > [[NSUserDefaults standardUserDefaults] integerForKey:@"game4_highscore"]) {
@@ -154,8 +155,13 @@ int highscore;
             [[NSUserDefaults standardUserDefaults]setInteger:score forKey:@"game4_highscore"];
         }
         score = 0;
-        //segue to achv view
-        [self performSegueWithIdentifier:@"next" sender:self];
+        double delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            //segue to achv view
+            [self performSegueWithIdentifier:@"next" sender:self];
+
+        });
     }
 
 }
@@ -627,160 +633,178 @@ int score = 0;
 /////////////BUTTON MAIN IBACTIONS
 //row1 IF ROW1 IS MODIFIED, CHECK FOR EQ and bool
 - (IBAction)R1_C1:(id)sender{
+    
  //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 1;} else if (rand == 1){button_wanted = 2;} else if (rand == 2){button_wanted = 3;} else if (rand == 3){button_wanted = 4;} else if (rand == 4){button_wanted = 5;} else if (rand == 5){button_wanted = 6;} else if (rand == 6){button_wanted = 7;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 }
 - (IBAction)R1_C2:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 2;} else if (rand == 2){button_wanted = 3;} else if (rand == 3){button_wanted = 4;} else if (rand == 4){button_wanted = 5;} else if (rand == 5){button_wanted = 6;} else if (rand == 6){button_wanted = 7;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 
 }
 - (IBAction)R1_C3:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 4;} else if (rand == 3){button_wanted = 5;} else if (rand == 4){button_wanted = 6;} else if (rand == 5){button_wanted = 7;} else if (rand == 6){button_wanted = 8;} else if (rand == 7){button_wanted = 9;} else if (rand == 8){button_wanted = 10;} else if (rand == 9){} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 
 }
 - (IBAction)R1_C4:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 5;} else if (rand == 5){button_wanted = 6;} else if (rand == 6){button_wanted = 7;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //row2
 - (IBAction)R2_C1:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 6;} else if (rand == 6){button_wanted = 7;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 
 }
 - (IBAction)R2_C2:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 7;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 
 }
 - (IBAction)R2_C3:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 8;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 
 }
 - (IBAction)R2_C4:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 9;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //row3
 - (IBAction)R3_C1:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 10;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 }
 - (IBAction)R3_C2:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 11;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 }
 - (IBAction)R3_C3:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
+    
     [self random_init];
+    //did send log resp
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 }
 - (IBAction)R3_C4:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 12;} else if (rand == 12){button_wanted = 13;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
   }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
-
 //row4
 - (IBAction)R4_C1:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 11;} else if (rand == 12){button_wanted = 12;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
    }
 - (IBAction)R4_C2:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 11;} else if (rand == 12){button_wanted = 12;} else if (rand == 13){button_wanted = 14;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
     
 }
 - (IBAction)R4_C3:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 11;} else if (rand == 12){button_wanted = 12;} else if (rand == 13){button_wanted = 13;}else if (rand == 14){button_wanted = 15;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
     
 }
 - (IBAction)R4_C4:(id)sender{
+    
     //rand next button
     int rand = arc4random()%15;
     if (rand == 0) { button_wanted = 0;} else if (rand == 1){button_wanted = 1;} else if (rand == 2){button_wanted = 2;} else if (rand == 3){button_wanted = 3;} else if (rand == 4){button_wanted = 4;} else if (rand == 5){button_wanted = 5;} else if (rand == 6){button_wanted = 6;} else if (rand == 7){button_wanted = 7;} else if (rand == 8){button_wanted = 8;} else if (rand == 9){button_wanted = 9;} else if (rand == 10){button_wanted = 10;} else if (rand == 11){button_wanted = 11;} else if (rand == 12){button_wanted = 12;} else if (rand == 13){button_wanted = 13;}else if (rand == 14){button_wanted = 1;}
     [self random_init];
     //did send log resp
-    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"%i", score]]; [self randomise_images];
+    NSLog(@"Did activate"); score++; [_score_disp setText:[NSString stringWithFormat:@"Score: %i", score]]; [self randomise_images];
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -831,6 +855,7 @@ int score = 0;
         _seconds_unit.alpha       = 0;
         _progress_view_time.alpha = 0;
         _pause_button.alpha = 0;
+        _score_disp.alpha = 0;
         
     }completion:nil];
     double delayInSeconds = 1.5;
@@ -841,7 +866,6 @@ int score = 0;
     });
     
 }
-
 - (IBAction)restart:(id)sender {
     //back
     [UIView animateWithDuration:0.3 animations:^{

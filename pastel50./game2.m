@@ -615,6 +615,7 @@ double time_count_game2 = 0;
 /////////////BUTTON MAIN IBACTIONS
 //row1 IF ROW1 IS MODIFIED, CHECK FOR EQ and bool
 - (IBAction)R1_C1:(id)sender{
+    
     if (gamestate_game2[0][0] == 1) {
         //is solid, move to blu
         gamestate_game2[0][0] = 2;
@@ -634,6 +635,7 @@ double time_count_game2 = 0;
     [self check];
 }
 - (IBAction)R1_C2:(id)sender{
+    
     if (gamestate_game2[0][1] == 1) {
         //is solid, move to blu
         gamestate_game2[0][1] = 2;
@@ -653,6 +655,7 @@ double time_count_game2 = 0;
     [self check];
 }
 - (IBAction)R1_C3:(id)sender{
+    
     if (gamestate_game2[0][2] == 1) {
         //is solid, move to blu
         gamestate_game2[0][2] = 2;
@@ -673,6 +676,7 @@ double time_count_game2 = 0;
 
 }
 - (IBAction)R1_C4:(id)sender{
+    
     if (gamestate_game2[0][3] == 1) {
         //is solid, move to blu
         gamestate_game2[0][3] = 2;
@@ -696,6 +700,7 @@ double time_count_game2 = 0;
 
 //row2
 - (IBAction)R2_C1:(id)sender{
+    
     if (gamestate_game2[1][0] == 1) {
         //is solid, move to blu
         gamestate_game2[1][0] = 2;
@@ -716,6 +721,7 @@ double time_count_game2 = 0;
 
 }
 - (IBAction)R2_C2:(id)sender{
+    
     if (gamestate_game2[1][1] == 1) {
         //is solid, move to blu
         gamestate_game2[1][1] = 2;
@@ -735,6 +741,7 @@ double time_count_game2 = 0;
     [self check];
 }
 - (IBAction)R2_C3:(id)sender{
+    
     if (gamestate_game2[1][2] == 1) {
         //is solid, move to blu
         gamestate_game2[1][2] = 2;
@@ -754,6 +761,7 @@ double time_count_game2 = 0;
     [self check];
 }
 - (IBAction)R2_C4:(id)sender{
+    
     if (gamestate_game2[1][3] == 1) {
         //is solid, move to blu
         gamestate_game2[1][3] = 2;
@@ -777,6 +785,7 @@ double time_count_game2 = 0;
 
 //row3
 - (IBAction)R3_C1:(id)sender{
+    
     if (gamestate_game2[2][0] == 1) {
         //is solid, move to blu
         gamestate_game2[2][0] = 2;
@@ -796,6 +805,7 @@ double time_count_game2 = 0;
     [self check];
 }
 - (IBAction)R3_C2:(id)sender{
+    
     if (gamestate_game2[2][1] == 1) {
         //is solid, move to blu
         gamestate_game2[2][1] = 2;
@@ -816,6 +826,7 @@ double time_count_game2 = 0;
 
 }
 - (IBAction)R3_C3:(id)sender{
+    
     if (gamestate_game2[2][2] == 1) {
         //is solid, move to blu
         gamestate_game2[2][2] = 2;
@@ -836,6 +847,7 @@ double time_count_game2 = 0;
 
 }
 - (IBAction)R3_C4:(id)sender{
+    
     if (gamestate_game2[2][3] == 1) {
         //is solid, move to blu
         gamestate_game2[2][3] = 2;
@@ -858,6 +870,7 @@ double time_count_game2 = 0;
 
 //row4
 - (IBAction)R4_C1:(id)sender{
+    
     if (gamestate_game2[3][0] == 1) {
         //is solid, move to blu
         gamestate_game2[3][0] = 2;
@@ -877,6 +890,7 @@ double time_count_game2 = 0;
     [self check];
 }
 - (IBAction)R4_C2:(id)sender{
+    
     if (gamestate_game2[3][1] == 1) {
         //is solid, move to blu
         gamestate_game2[3][1] = 2;
@@ -896,6 +910,7 @@ double time_count_game2 = 0;
     [self check];
 }
 - (IBAction)R4_C3:(id)sender{
+    
     if (gamestate_game2[3][2] == 1) {
         //is solid, move to blu
         gamestate_game2[3][2] = 2;
@@ -916,6 +931,7 @@ double time_count_game2 = 0;
 
 }
 - (IBAction)R4_C4:(id)sender{
+    
     if (gamestate_game2[3][3] == 1) {
         //is solid, move to blu
         gamestate_game2[3][3] = 2;

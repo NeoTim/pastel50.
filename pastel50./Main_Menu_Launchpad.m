@@ -17,10 +17,12 @@
 @implementation Main_Menu_Launchpad
 
 - (void)viewDidLoad {
+    _level_3.enabled = NO;
     [super viewDidLoad];
     //init buttons
     _level_2.alpha = 0;
     _level_3.alpha = 0;
+    _level_4.alpha = 0;
     //init with card
     self.textview_container.layer.cornerRadius = 10.0f;
     [_card_view_text clipsToBounds];
@@ -83,7 +85,8 @@
     }
     //
     if (lvl_3 == 1) {
-        _level_3.enabled = YES;
+        ///**** TEMP  NO *****///
+        _level_3.enabled = NO;
         CALayer *button3 = self.level_3.layer;
         button3.shadowOffset  = CGSizeMake(1, 1);
         button3.shadowColor   = [[UIColor blackColor] CGColor];
@@ -100,15 +103,19 @@
 -(void)viewDidAppear:(BOOL)animated{
     //init with uibutton transition
     //button 2 level 2
-    [UIView transitionWithView:_level_2 duration:0.3 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+    [UIView transitionWithView:_level_2 duration:0.2 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
         _level_2.alpha = 1;
     }completion:nil];
     //button 3 level 3
-    [UIView transitionWithView:_level_3 duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+    [UIView transitionWithView:_level_3 duration:0.3 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         _level_3.alpha = 1;
     }completion:nil];
+    //button 4 level 4
+    [UIView transitionWithView:_level_4 duration:0.5 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        _level_4.alpha = 1;
+    }completion:nil];
+    
 }
-
 - (IBAction)level_1:(id)sender {
     //play UISound
     NSString *click = [[NSBundle mainBundle]pathForResource:@"click" ofType:@"mp3"];

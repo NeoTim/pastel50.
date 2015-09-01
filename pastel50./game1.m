@@ -539,6 +539,7 @@ int x,y,width,height;
 /////////////BUTTON MAIN IBACTIONS
 //row1 IF ROW1 IS MODIFIED, CHECK FOR EQ and bool
 - (IBAction)R1_C1:(id)sender{
+    
     if (gamestate[0][0] == 1) {
         //is solid, reverse to hollow
         gamestate[0][0] = 0;
@@ -553,6 +554,7 @@ int x,y,width,height;
     [self check];
 }
 - (IBAction)R1_C2:(id)sender{
+    
     if (gamestate[0][1] == 1) {
         //is solid, reverse to hollow
         gamestate[0][1] = 0;
@@ -567,6 +569,7 @@ int x,y,width,height;
     [self check];
 }
 - (IBAction)R1_C3:(id)sender{
+    
     if (gamestate[0][2] == 1) {
         //is solid, reverse to hollow
         gamestate[0][2] = 0;
@@ -582,6 +585,7 @@ int x,y,width,height;
 
 }
 - (IBAction)R1_C4:(id)sender{
+    
     if (gamestate[0][3] == 1) {
         //is solid, reverse to hollow
         gamestate[0][3] = 0;
@@ -600,6 +604,7 @@ int x,y,width,height;
 
 //row2
 - (IBAction)R2_C1:(id)sender{
+    
     if (gamestate[1][0] == 1) {
         //is solid, reverse to hollow
         gamestate[1][0] = 0;
@@ -615,6 +620,7 @@ int x,y,width,height;
 
 }
 - (IBAction)R2_C2:(id)sender{
+    
     if (gamestate[1][1] == 1) {
         //is solid, reverse to hollow
         gamestate[1][1] = 0;
@@ -629,6 +635,7 @@ int x,y,width,height;
     [self check];
 }
 - (IBAction)R2_C3:(id)sender{
+    
     if (gamestate[1][2] == 1) {
         //is solid, reverse to hollow
         gamestate[1][2] = 0;
@@ -643,6 +650,7 @@ int x,y,width,height;
     [self check];
 }
 - (IBAction)R2_C4:(id)sender{
+    
     if (gamestate[1][3] == 1) {
         //is solid, reverse to hollow
         gamestate[1][3] = 0;
@@ -661,6 +669,7 @@ int x,y,width,height;
 
 //row3
 - (IBAction)R3_C1:(id)sender{
+    
     if (gamestate[2][0] == 1) {
         //is solid, reverse to hollow
         gamestate[2][0] = 0;
@@ -675,6 +684,7 @@ int x,y,width,height;
     [self check];
 }
 - (IBAction)R3_C2:(id)sender{
+    
     if (gamestate[2][1] == 1) {
         //is solid, reverse to hollow
         gamestate[2][1] = 0;
@@ -690,6 +700,7 @@ int x,y,width,height;
 
 }
 - (IBAction)R3_C3:(id)sender{
+    
     if (gamestate[2][2] == 1) {
         //is solid, reverse to hollow
         gamestate[2][2] = 0;
@@ -705,6 +716,7 @@ int x,y,width,height;
 
 }
 - (IBAction)R3_C4:(id)sender{
+    
     if (gamestate[2][3] == 1) {
         //is solid, reverse to hollow
         gamestate[2][3] = 0;
@@ -722,6 +734,7 @@ int x,y,width,height;
 
 //row4
 - (IBAction)R4_C1:(id)sender{
+    
     if (gamestate[3][0] == 1) {
         //is solid, reverse to hollow
         gamestate[3][0] = 0;
@@ -736,6 +749,7 @@ int x,y,width,height;
     [self check];
 }
 - (IBAction)R4_C2:(id)sender{
+    
     if (gamestate[3][1] == 1) {
         //is solid, reverse to hollow
         gamestate[3][1] = 0;
@@ -750,6 +764,7 @@ int x,y,width,height;
     [self check];
 }
 - (IBAction)R4_C3:(id)sender{
+    
     if (gamestate[3][2] == 1) {
         //is solid, reverse to hollow
         gamestate[3][2] = 0;
@@ -765,6 +780,7 @@ int x,y,width,height;
 
 }
 - (IBAction)R4_C4:(id)sender{
+    
     if (gamestate[3][3] == 1) {
         //is solid, reverse to hollow
         gamestate[3][3] = 0;

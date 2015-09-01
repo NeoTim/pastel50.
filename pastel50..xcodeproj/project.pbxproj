@@ -25,7 +25,6 @@
 		975CBFE81B8CA66900694D51 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975CBFE71B8CA66900694D51 /* CoreLocation.framework */; };
 		975CBFEA1B8CA68300694D51 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975CBFE91B8CA68300694D51 /* StoreKit.framework */; };
 		9761319A1B7AE34E00C17395 /* game3_splash.m in Sources */ = {isa = PBXBuildFile; fileRef = 976131991B7AE34E00C17395 /* game3_splash.m */; };
-		9761319D1B7AE35E00C17395 /* game3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9761319C1B7AE35E00C17395 /* game3.m */; };
 		9761319F1B7AE8D500C17395 /* merlion.png in Resources */ = {isa = PBXBuildFile; fileRef = 9761319E1B7AE8D500C17395 /* merlion.png */; };
 		976A11CE1B8AE871000AD67E /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976A11C81B8AE870000AD67E /* ParseCrashReporting.framework */; };
 		976A11CF1B8AE871000AD67E /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976A11C91B8AE870000AD67E /* ParseFacebookUtils.framework */; };
@@ -52,6 +51,7 @@
 		97780B9C1B723B8900228911 /* HDB_pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97780B9B1B723B8900228911 /* HDB_pic.jpg */; };
 		97780BA51B72491E00228911 /* game1.m in Sources */ = {isa = PBXBuildFile; fileRef = 97780BA41B72491E00228911 /* game1.m */; };
 		978A0B4E1B7FAE1C00F89724 /* pink.png in Resources */ = {isa = PBXBuildFile; fileRef = 978A0B4D1B7FAE1C00F89724 /* pink.png */; };
+		9793B8431B95A50D007B0F84 /* game3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9793B8421B95A50D007B0F84 /* game3.m */; };
 		979701031B7CA5E7004C31FB /* push_no_anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 979701021B7CA5E7004C31FB /* push_no_anim.m */; };
 		97DE740D1B7D8B8800F7F7B3 /* winView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DE740C1B7D8B8800F7F7B3 /* winView.m */; };
 		97E5655A1B72058100B66B4C /* pastel50_v2-BACKGROUND.png in Resources */ = {isa = PBXBuildFile; fileRef = 97E565591B72058100B66B4C /* pastel50_v2-BACKGROUND.png */; };
@@ -107,8 +107,6 @@
 		975CBFE91B8CA68300694D51 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		976131981B7AE34E00C17395 /* game3_splash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game3_splash.h; sourceTree = "<group>"; };
 		976131991B7AE34E00C17395 /* game3_splash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game3_splash.m; sourceTree = "<group>"; };
-		9761319B1B7AE35E00C17395 /* game3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game3.h; sourceTree = "<group>"; };
-		9761319C1B7AE35E00C17395 /* game3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game3.m; sourceTree = "<group>"; };
 		9761319E1B7AE8D500C17395 /* merlion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = merlion.png; sourceTree = "<group>"; };
 		976A11C61B8AE870000AD67E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		976A11C81B8AE870000AD67E /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -140,6 +138,8 @@
 		97780BA31B72491E00228911 /* game1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game1.h; sourceTree = "<group>"; };
 		97780BA41B72491E00228911 /* game1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game1.m; sourceTree = "<group>"; };
 		978A0B4D1B7FAE1C00F89724 /* pink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink.png; sourceTree = "<group>"; };
+		9793B8411B95A50D007B0F84 /* game3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game3.h; sourceTree = "<group>"; };
+		9793B8421B95A50D007B0F84 /* game3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game3.m; sourceTree = "<group>"; };
 		979701011B7CA5E7004C31FB /* push_no_anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = push_no_anim.h; sourceTree = "<group>"; };
 		979701021B7CA5E7004C31FB /* push_no_anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = push_no_anim.m; sourceTree = "<group>"; };
 		97DE740B1B7D8B8800F7F7B3 /* winView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winView.h; sourceTree = "<group>"; };
@@ -238,8 +238,8 @@
 				97EF24561B7886650030FE8B /* game2.m */,
 				976131981B7AE34E00C17395 /* game3_splash.h */,
 				976131991B7AE34E00C17395 /* game3_splash.m */,
-				9761319B1B7AE35E00C17395 /* game3.h */,
-				9761319C1B7AE35E00C17395 /* game3.m */,
+				9793B8411B95A50D007B0F84 /* game3.h */,
+				9793B8421B95A50D007B0F84 /* game3.m */,
 				97FDC96D1B829DB500BA2A07 /* game4_splash.h */,
 				97FDC96E1B829DB500BA2A07 /* game4_splash.m */,
 				97FDC9701B829DC400BA2A07 /* game4.h */,
@@ -536,8 +536,8 @@
 				97F1A57D1B7B97FB00D774D0 /* Main_Menu_Launchpad.m in Sources */,
 				97EB28211B70AC6000202EAE /* ViewController.m in Sources */,
 				97EB281E1B70AC6000202EAE /* pastel50_.xcdatamodeld in Sources */,
-				9761319D1B7AE35E00C17395 /* game3.m in Sources */,
 				97EF24541B7886530030FE8B /* transitonto1.m in Sources */,
+				9793B8431B95A50D007B0F84 /* game3.m in Sources */,
 				97F1A57A1B7B95A700D774D0 /* lose_view.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

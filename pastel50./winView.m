@@ -24,6 +24,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     //start animation
+    _headsup_container.alpha = 0;
     [UIView animateWithDuration:0.8 animations:^{
         _backto_mm.alpha = 1;
         _h1.alpha        = 1;
@@ -70,17 +71,17 @@
     }
     else if (level_unlocked == 2){
         //send content for 2
-        [_icon setImage:[UIImage imageNamed:@"blu"]];
-        [_header setText:@"New Level Unlocked"];
-        [_content setText:@"You Unlocked level 2!"];
+        ///[_icon setImage:[UIImage imageNamed:@"blu"]];
+        //[_header setText:@"New Level Unlocked"];
+        //[_content setText:@"You Unlocked level 2!"];
         //push headsup
-        [self headsup];
+        //[self headsup];
     }
     else if (level_unlocked == 3){
         //send content for 2
-        [_icon setImage:[UIImage imageNamed:@"pink"]];
+        //[_icon setImage:[UIImage imageNamed:@"pink"]];
         //push headsup
-        [self headsup];
+        //[self headsup];
     }
 }
 @end
