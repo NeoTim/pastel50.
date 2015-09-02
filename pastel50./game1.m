@@ -892,6 +892,15 @@ int x,y,width,height;
        didstop = true;
        [audioPlayer stop];
        //kill game
+       //get score
+       if (time_left < [[NSUserDefaults standardUserDefaults] floatForKey:@"1_fast_tim"] && [[NSUserDefaults standardUserDefaults]floatForKey:@"1_fast_tim"] != 0) {
+           //new highscore
+           [[NSUserDefaults standardUserDefaults]setFloat:time_left forKey:@"1_fast_tim"];
+       }
+       else if ([[NSUserDefaults standardUserDefaults]floatForKey:@"1_fast_tim"] == 0){
+           //set first score
+           [[NSUserDefaults standardUserDefaults]setFloat:time_left forKey:@"1_fast_tim"];
+       }
        [timer invalidate];
        timer = nil;
        //

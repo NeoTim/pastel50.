@@ -14,6 +14,9 @@ NSString *user;
 //initial leaderboard position
 int x_lead,y_lead,width_lead,height_lead;
 -(void)viewDidLoad{
+    int score = [[NSUserDefaults standardUserDefaults] integerForKey:@"game4_highscore"];
+    NSLog(@"highscore %i",score);
+    [_highscore_disp setText:[NSString stringWithFormat:@"Your Highscore is %i", score]];
     //init
     NSLog(@"current user is %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"user"]);
     _load_card.alpha = 0;

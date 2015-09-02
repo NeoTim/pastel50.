@@ -15,22 +15,39 @@
 @end
 
 @implementation Main_Menu_Launchpad
-
+int x_high, y_high, height_high, width_high;
 - (void)viewDidLoad {
+    //init with highscore view
+    x_high = self.highscore_view.frame.origin.x;
+    y_high = self.highscore_view.frame.origin.y;
+    height_high = self.highscore_view.frame.size.height;
+    width_high = self.highscore_view.frame.size.width;
+    self.highscore_view.layer.cornerRadius = 15.0f;
+    [_highscore_view clipsToBounds];
+    CALayer *card_layer_ = self.highscore_view.layer;
+    card_layer_.shadowOffset  = CGSizeMake(1, 1);
+    card_layer_.shadowColor   = [[UIColor grayColor] CGColor];
+    card_layer_.shadowRadius  = 10.0f;
+    card_layer_.shadowOpacity = 0.60f;
+    card_layer_.shadowPath    = [[UIBezierPath bezierPathWithRect:_highscore_view.bounds] CGPath];
+    _highscore_view.frame = CGRectMake(x_high, -height_high -10, width_high, height_high);
     _level_3.enabled = NO;
     [super viewDidLoad];
     //init buttons
     _level_2.alpha = 0;
     _level_3.alpha = 0;
     _level_4.alpha = 0;
+    _highscore_button.alpha = 0;
+    [UIView animateWithDuration:0.4 animations:^{
+        _highscore_button.alpha = 1;
+    }];
     //init with card
     self.textview_container.layer.cornerRadius = 10.0f;
     [_card_view_text clipsToBounds];
     //card shadow
     CALayer *card_layer = self.textview_container.layer;
-    card_layer.shadowOffset  = CGSizeMake(1, 1);
     card_layer.shadowColor   = [[UIColor grayColor] CGColor];
-    card_layer.shadowRadius  = 15.0f;
+    card_layer.shadowRadius  = 10.0f;
     card_layer.shadowOpacity = 0.60f;
     card_layer.shadowPath    = [[UIBezierPath bezierPathWithRect:_textview_container.bounds] CGPath];
     //card animation
@@ -81,7 +98,7 @@
         [_level_2 clipsToBounds];
     }
     else{
-        _level_2.enabled = NO;
+        _level_2.enabled = YES;
     }
     //
     if (lvl_3 == 1) {
@@ -153,5 +170,28 @@
     audioPlayer.numberOfLoops = 1;
     [audioPlayer play];
     //segue to settings view
+}
+- (IBAction)highscore_button:(id)sender {
+    //init with highscore views
+    //did animate highscore view
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _highscore_view.frame = CGRectMake(x_high, y_high, width_high, height_high);
+    }completion:nil];
+    
+    //push highscre values
+    //colorblind
+   [_colorblind_sc setText:[NSString stringWithFormat:@"%ld",(long)[[NSUserDefaults standardUserDefaults] integerForKey:@"game4_highscore"]]];
+    //sg50
+    [_SG50_sc setText:[NSString stringWithFormat:@"%0.1f", [[NSUserDefaults standardUserDefaults] floatForKey:@"1_fast_tim"]]];
+    //changi
+    [_changi_sc setText:[NSString stringWithFormat:@"%0.1f", [[NSUserDefaults standardUserDefaults]floatForKey:@"2_fast_tim"]]];
+    
+}
+
+- (IBAction)back:(id)sender {
+    //return to main view
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _highscore_view.frame = CGRectMake(x_high, -height_high - 10, width_high, height_high);
+    }completion:nil];
 }
 @end

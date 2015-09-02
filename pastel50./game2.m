@@ -24,7 +24,7 @@ NSTimer *timer_game2;
 bool didstop_game2;
 double paused_time_left_game2 [2][1];
 //time values
-double time_left_game2  = 35;
+double time_left_game2  = 20;
 double time_count_game2 = 0;
 
 ///////////////////////ALL THE CHRONOS STUFF
@@ -69,10 +69,10 @@ double time_count_game2 = 0;
 }
 -(void) persec: (NSTimer*)persectimer {
     time_count_game2 ++;
-    if (time_count_game2 > 35/2) {
+    if (time_count_game2 > 20/2) {
         _progress_view_time.progressTintColor = [UIColor redColor];
     }
-    if (time_count_game2 > 25) {
+    if (time_count_game2 > 10) {
         [UIView animateWithDuration:0.4 animations:^{
             [_time_dis setTextColor:[UIColor redColor]];
         }];
@@ -83,7 +83,7 @@ double time_count_game2 = 0;
         [persectimer invalidate];
         persectimer = nil;
     }
-    if (time_count_game2 == 35 | time_count_game2 > 35) {
+    if (time_count_game2 == 20 | time_count_game2 > 20) {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         //main timer did end
         NSLog(@"main timer did end");
@@ -116,7 +116,7 @@ double time_count_game2 = 0;
         timer_game2 = nil;
         [_time_dis setText:@"0.0"];
         time_count_game2 = 0;
-        time_left_game2  = 35;
+        time_left_game2  = 20;
         //erase time carried forward because user has lost
         int a = 0;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -154,7 +154,12 @@ double time_count_game2 = 0;
         }completion:nil];
         [audioPlayer stop];
         //segue to lose view
-        [self performSegueWithIdentifier:@"lost" sender:nil];
+        double delayInSeconds = 1.5;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            //segue out
+            [self performSegueWithIdentifier:@"lost" sender:nil];
+        });
     }
 
 
@@ -162,7 +167,7 @@ double time_count_game2 = 0;
 -(void)timercount{
     //runs every 0.1 seconds
     time_left_game2 = time_left_game2 - 0.1;
-    [_progress_view_time setProgress: (time_left_game2 / 35) animated:YES];
+    [_progress_view_time setProgress: (time_left_game2 / 20) animated:YES];
     if (time_left_game2 == 0 | time_left_game2 < 0) {
         [_time_dis setText:@"0.0"];
         //lockdown
@@ -202,7 +207,7 @@ double time_count_game2 = 0;
     }
     //set timecount
     time_count_game2 = 0;
-    time_left_game2 = 35;
+    time_left_game2 = 20;
     [_time_dis setTextColor:[UIColor blackColor]];
     //init with countdown
     [self gamestart_countdown];
@@ -1042,6 +1047,15 @@ double time_count_game2 = 0;
         game2_level_count = 0;
         didstop_game2 = true;
         //kill game
+        //get time left
+        if (time_left_game2 < [[NSUserDefaults standardUserDefaults] floatForKey:@"2_fast_tim"] && [[NSUserDefaults standardUserDefaults]floatForKey:@"2_fast_tim"] != 0) {
+            //new highscore
+            [[NSUserDefaults standardUserDefaults]setFloat:time_left_game2 forKey:@"2_fast_tim"];
+        }
+        else if ([[NSUserDefaults standardUserDefaults]floatForKey:@"2_fast_tim"] == 0){
+            //set first score
+            [[NSUserDefaults standardUserDefaults]setFloat:time_left_game2 forKey:@"2_fast_tim"];
+        }
         [timer_game2 invalidate];
         timer_game2 = nil;
         time_count_game2 = 0;
@@ -1105,7 +1119,7 @@ double time_count_game2 = 0;
     didstop_game2 = true;
     [_time_dis setText:@"0.0"];
     time_count_game2 = 0;
-    time_left_game2 = 30;
+    time_left_game2 = 20;
     //lockdown
     _R1_C1.enabled = NO;
     _R1_C2.enabled = NO;
@@ -1163,7 +1177,7 @@ double time_count_game2 = 0;
     didstop_game2 = true;
     [_time_dis setText:@"0.0"];
     time_count_game2 = 0;
-    time_left_game2 = 30;
+    time_left_game2 = 20;
     //lockdown
     _R1_C1.enabled = NO;
     _R1_C2.enabled = NO;

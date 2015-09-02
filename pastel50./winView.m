@@ -52,7 +52,7 @@
     width  = self.headsup_container.frame.size.width;
     height = self.headsup_container.frame.size.height;
      _headsup_container.frame = CGRectMake(x, -height -10, width, height);
-    //move the frame down
+    //move frame down
     [UIView animateWithDuration:0.4 delay:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _headsup_container.frame = CGRectMake(x, y, width, height);
     }completion:nil];

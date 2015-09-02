@@ -24,7 +24,20 @@
 @property (strong, nonatomic) IBOutlet UIButton *level_4;
 - (IBAction)level_4:(id)sender;
 
+
+
+@property (strong, nonatomic) IBOutlet UIView *highscore_view;
+@property (strong, nonatomic) IBOutlet UIButton *highscore_button;
+- (IBAction)highscore_button:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIButton *settings_button;
 - (IBAction)settings_button:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *colorblind_sc;
+
+//SCORE OUTLETS ^
+@property (strong, nonatomic) IBOutlet UILabel *SG50_sc;
+@property (strong, nonatomic) IBOutlet UILabel *changi_sc;
+- (IBAction)back:(id)sender;
+
 
 @end
