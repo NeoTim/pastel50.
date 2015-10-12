@@ -170,7 +170,8 @@ int x,y,width,height;
         double delayInSeconds = 1.5;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            //segue to lose view
+            //segue to lose view with sender from 1
+            [[NSUserDefaults standardUserDefaults]setInteger:1 forKey:@"game_sender"];
             [self performSegueWithIdentifier:@"lost" sender:nil];
         });
         

@@ -14,4 +14,5 @@
 @property (strong, nonatomic) IBOutlet UILabel          *h2;
 @property (strong, nonatomic) IBOutlet UIButton         *mainmenu_button;
 - (IBAction)quit_mm:(id)sender;
+
 @end

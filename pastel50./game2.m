@@ -157,7 +157,8 @@ double time_count_game2 = 0;
         double delayInSeconds = 1.5;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            //segue out
+            //segue out with sender for game 2
+            [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"game_sender"];
             [self performSegueWithIdentifier:@"lost" sender:nil];
         });
     }

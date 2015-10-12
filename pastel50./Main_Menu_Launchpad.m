@@ -174,7 +174,7 @@ int x_high, y_high, height_high, width_high;
 - (IBAction)highscore_button:(id)sender {
     //init with highscore views
     //did animate highscore view
-    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _highscore_view.frame = CGRectMake(x_high, y_high, width_high, height_high);
     }completion:nil];
     

@@ -20,7 +20,7 @@
     _backto_mm.alpha = 0;
     _h1.alpha        = 0;
     _h2.alpha        = 0;
-    [self compute_content];
+    
 }
 -(void)viewDidAppear:(BOOL)animated{
     //start animation
@@ -62,26 +62,9 @@
     }completion:nil];
 
 }
--(void)compute_content{
-    //get unlocked level
-    int level_unlocked = [[NSUserDefaults standardUserDefaults]integerForKey:@"unlocked"];
-    if (level_unlocked == 0) {
-        //no new levels unlocked
-        _headsup_container.alpha = 0;
-    }
-    else if (level_unlocked == 2){
-        //send content for 2
-        ///[_icon setImage:[UIImage imageNamed:@"blu"]];
-        //[_header setText:@"New Level Unlocked"];
-        //[_content setText:@"You Unlocked level 2!"];
-        //push headsup
-        //[self headsup];
-    }
-    else if (level_unlocked == 3){
-        //send content for 2
-        //[_icon setImage:[UIImage imageNamed:@"pink"]];
-        //push headsup
-        //[self headsup];
-    }
+
+- (IBAction)leaderboards_button:(id)sender {
+    //send to leaderboards
+    [self performSegueWithIdentifier:@"leader" sender:nil];
 }
 @end

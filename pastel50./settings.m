@@ -30,6 +30,7 @@ BOOL sound_did_on;
     _background.alpha   = 0;
     _sound_switch.alpha = 0;
     _done_button.alpha  = 0;
+    _aboutus.alpha = 0;
     [UIView animateWithDuration:0.5 animations:^{
         _background.alpha = 1;
         _h1.alpha           = 1;
@@ -37,6 +38,7 @@ BOOL sound_did_on;
         _background.alpha   = 1;
         _sound_switch.alpha = 1;
         _done_button.alpha  = 1;
+        _aboutus.alpha = 1;
     }];
 }
 - (IBAction)sound_switch:(id)sender {
@@ -58,5 +60,8 @@ BOOL sound_did_on;
 }
 - (IBAction)done_button:(id)sender {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)aboutus_button:(id)sender {
 }
 @end

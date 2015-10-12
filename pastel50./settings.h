@@ -19,5 +19,8 @@
 //done button
 @property (strong, nonatomic) IBOutlet UIButton *done_button;
 - (IBAction)done_button:(id)sender;
+- (IBAction)aboutus_button:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *aboutus;
+
 @end
 
