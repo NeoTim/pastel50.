@@ -105,6 +105,4 @@
 - (IBAction)Quit:(id)sender;
 - (IBAction)restart:(id)sender;
 - (IBAction)backto_game:(id)sender;
-
-
 @end

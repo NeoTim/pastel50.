@@ -14,8 +14,7 @@
 @interface Main_Menu_Launchpad : UIViewController{
     AVAudioPlayer *audioPlayer;
 };
-@property (strong, nonatomic) IBOutlet UIView *textview_container;
-@property (strong, nonatomic) IBOutlet UIView *card_view_text;
+
 - (IBAction)level_1:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *level1;
 @property (strong, nonatomic) IBOutlet UIButton *level_2;
@@ -24,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *level_4;
 - (IBAction)level_4:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIView *main_view;
 
 
 @property (strong, nonatomic) IBOutlet UIView *highscore_view;
