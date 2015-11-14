@@ -60,7 +60,7 @@
                                                     <animations/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="29"/>
-                                                    <state key="normal" title="Start">
+                                                    <state key="normal" title="Play">
                                                         <color key="titleColor" red="0.30725997690000001" green="0.30725079770000002" blue="0.30725601320000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -3197,8 +3197,8 @@
         <image name="soliddot.png" width="365" height="365"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2d0-fJ-m7v"/>
-        <segue reference="Rq7-ok-BFJ"/>
+        <segue reference="tDK-j4-TMN"/>
         <segue reference="pXZ-tw-4Hs"/>
+        <segue reference="Rq7-ok-BFJ"/>
     </inferredMetricsTieBreakers>
 </document>
